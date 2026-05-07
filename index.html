@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cyber Security 1 — Exam 1 Study Guide</title>
+<style>
+  :root { --blue: #1F4E79; --accent: #2E75B6; --green: #2E7D32; --red: #C00000; --bg: #f9f9fb; --card: #fff; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: #222; line-height: 1.7; }
+  header { background: var(--blue); color: #fff; padding: 2rem 1.5rem; }
+  header h1 { font-size: 1.8rem; margin-bottom: 0.4rem; }
+  header p { opacity: 0.85; font-size: 0.95rem; }
+  .banner { background: #FFF3CD; border-left: 4px solid #856404; padding: 0.75rem 1.25rem; margin: 1.5rem auto; max-width: 900px; border-radius: 4px; font-size: 0.95rem; }
+  nav { background: #fff; border-bottom: 1px solid #ddd; padding: 1rem 1.5rem; position: sticky; top: 0; z-index: 100; }
+  nav details summary { cursor: pointer; font-weight: 600; color: var(--accent); }
+  nav ol { margin-top: 0.75rem; columns: 2; column-gap: 2rem; padding-left: 1.5rem; font-size: 0.88rem; }
+  nav ol li { margin-bottom: 0.2rem; break-inside: avoid; }
+  nav a { color: var(--accent); text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  main { max-width: 900px; margin: 0 auto; padding: 1.5rem; }
+  .page-section { margin-bottom: 2.5rem; }
+  .page-section h2 { color: var(--blue); font-size: 1.2rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.4rem; margin-bottom: 1.25rem; }
+  .question-card { background: var(--card); border: 1px solid #e0e0e0; border-radius: 8px; padding: 1.2rem 1.4rem; margin-bottom: 1rem; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  .question-card h3 { font-size: 0.95rem; color: #333; margin-bottom: 0.6rem; font-weight: 600; }
+  .answer { color: var(--green); font-weight: 700; margin-bottom: 0.5rem; font-size: 0.95rem; }
+  .explanation { color: #555; font-size: 0.88rem; border-left: 3px solid #cce5ff; padding-left: 0.75rem; }
+  hr { border: none; border-top: 1px solid #ddd; margin: 2rem 0; }
+  footer { text-align: center; padding: 2rem; color: #888; font-size: 0.85rem; }
+  @media (max-width: 600px) { nav ol { columns: 1; } header h1 { font-size: 1.3rem; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Cyber Security 1 — Exam 1 Study Guide</h1>
+  <p>Tampere University &nbsp;|&nbsp; Comp.Sec.100-02 &nbsp;|&nbsp; Maso Pages 1–33</p>
+</header>
+<div class="banner">
+  📋 <strong>Exam 1 format:</strong> 32 MCQ questions &nbsp;|&nbsp; Passing: 22/32 correct &nbsp;|&nbsp; Time: 1 hour &nbsp;|&nbsp; Wrong answer: −1/3 point
+</div>
+<nav>
+  <details>
+    <summary>📑 Table of Contents (click to expand)</summary>
+    <ol>
+      <li><a href="#page-1">Page 1: First Concepts — Cyber, Security, CIA, DoS, DDoS</a></li>
+      <li><a href="#page-2">Page 2: Some Victims and Attackers</a></li>
+      <li><a href="#page-3">Page 3: Not Only Breaking Ciphers</a></li>
+      <li><a href="#page-4">Page 4: Not Only Viruses</a></li>
+      <li><a href="#page-5">Page 5: Networked Robots and Men — Botnet, MITM</a></li>
+      <li><a href="#page-6">Page 6: Risk and Three A-Properties</a></li>
+      <li><a href="#page-7">Page 7: Policies and Models Do Not Protect</a></li>
+      <li><a href="#page-8">Page 8: Credentials — 2FA, Data Ownership, Shared Secret</a></li>
+      <li><a href="#page-9">Page 9: Special Basic Protections — CA, Digital Signature, Firewall</a></li>
+      <li><a href="#page-10">Page 10: Repair and Punishment — Backup, GDPR</a></li>
+      <li><a href="#page-11">Page 11: More Than GDPR — Data Protection, PCI-DSS</a></li>
+      <li><a href="#page-12">Page 12: Anonymity — Privacy, Pseudonym</a></li>
+      <li><a href="#page-13">Page 13: IPR — Copyright, DRM</a></li>
+      <li><a href="#page-14">Page 14: Social Media — Fake News, Misinformation</a></li>
+      <li><a href="#page-15">Page 15: Ethics — TOR, Anonymity of Browsing</a></li>
+      <li><a href="#page-16">Page 16: Security Issues on Personal Devices</a></li>
+      <li><a href="#page-17">Page 17: Risk Management, Policy</a></li>
+      <li><a href="#page-18">Page 18: Non-disclosure, but Public Keys — NDA, PKI</a></li>
+      <li><a href="#page-19">Page 19: Password — Entropy, Password Rules</a></li>
+      <li><a href="#page-20">Page 20: Cookie — Web Browser Cookies</a></li>
+      <li><a href="#page-21">Page 21: CAPTCHA — Spam, Email Obfuscation</a></li>
+      <li><a href="#page-22">Page 22: Crypto Procedures — Algorithm, Protocol, Plaintext</a></li>
+      <li><a href="#page-23">Page 23: Keys and Chunks or Streams — Block/Stream Cipher</a></li>
+      <li><a href="#page-24">Page 24: One-time Pad, DES, AES</a></li>
+      <li><a href="#page-25">Page 25: Public Key — RSA</a></li>
+      <li><a href="#page-26">Page 26: Hash — Checksum, Keyed Hash</a></li>
+      <li><a href="#page-27">Page 27: Most Common Protocols — SSH, TLS, IPsec</a></li>
+      <li><a href="#page-28">Page 28: Nature and Devices — Fire, Smart Card</a></li>
+      <li><a href="#page-29">Page 29: Filtering — DMZ, Packet Filter</a></li>
+      <li><a href="#page-30">Page 30: Secure Connection — IPsec, TLS, VPN</a></li>
+      <li><a href="#page-31">Page 31: Mobile Authentication — Cellular, WiFi, WPA</a></li>
+      <li><a href="#page-32">Page 32: Start Running Programs — Login, SSO, Sandbox</a></li>
+      <li><a href="#page-33">Page 33: A Spectrum of Storage Issues — Database, Password Salt</a></li>
+    </ol>
+  </details>
+</nav>
+<main>
+<div class="page-section" id="page-1">
+<h2>📄 Page 1: First Concepts — Cyber, Security, CIA, DoS, DDoS</h2>
+<div class="question-card">
+<h3>❓ What is required of an attack to be regarded as a cyber attack?</h3>
+<div class="answer">✅ 1. The target relies on an electronic information system.</div>
+<div class="explanation">💡 A cyber attack simply requires that the target is an electronic information system. Nation state involvement, substantial loss and large groups are common but NOT necessary.</div>
+</div>
+<div class="question-card">
+<h3>❓ Denial of service is a term...</h3>
+<div class="answer">✅ 3. That refers to a service not being able to operate because of malicious requests.</div>
+<div class="explanation">💡 DoS means malicious traffic overwhelms the service. Option 2 is too broad. Option 1 is too specific. Option 4 describes admin action not an attack.</div>
+</div>
+<div class="question-card">
+<h3>❓ What makes a DoS a distributed DoS?</h3>
+<div class="answer">✅ 4. The attacking traffic comes to the server from several computers simultaneously.</div>
+<div class="explanation">💡 Distributed means attack traffic originates FROM many sources simultaneously. Option 1 confuses many hackers with many computers.</div>
+</div>
+<div class="question-card">
+<h3>❓ The term attack vector...</h3>
+<div class="answer">✅ 3. Refers to the method of an attack — one that happened or is possible.</div>
+<div class="explanation">💡 Attack vector is the method or path used in an attack. Not the attack itself, not the attacker's view of defenses, not a list of vulnerabilities.</div>
+</div>
+<div class="question-card">
+<h3>❓ Confidentiality is one of the three basic CIA goals...</h3>
+<div class="answer">✅ 3. But it is usually not sufficient without integrity and availability.</div>
+<div class="explanation">💡 All three CIA goals work together. Confidentiality alone is insufficient.</div>
+</div>
+</div>
+<hr>
+<div class="page-section" id="page-2">
+<h2>📄 Page 2: Some Victims and Attackers — Script Kiddies, Identity Theft, Social Engineering</h2>
+<div class="question-card">
+<h3>❓ Script kiddie — what is typical from a defender's perspective?</h3>
+<div class="answer">✅ 1. Essentially similar scripts to several other attackers.</div>
+<div class="explanation">💡 Script kiddies use the same ready-made tools so attacks are recognizable and blockable.</div>
+</div>
+<div class="question-card">
+<h3>❓ Attackers called script kiddies are characterized by...</h3>
+<div class="answer">✅ 1. Using scripts written by others.</div>
+<div class="explanation">💡 Script kiddies use attack tools written by more skilled hackers without understanding how they work.</div>
+</div>
+<div class="question-card">
+<h3>❓ Identity theft...</h3>
+<div class="answer">✅ 1. Happens when someone maliciously uses identifying data of another person.</div>
+<div class="explanation">💡 Identity theft requires malicious intent. Can happen without financial loss.</div>
+</div>
+<div class="question-card">
+<h3>❓ How many user-spread entities are NOT direct risks to computing: spam, hoax, ransomware, meme virus, Nigerian letter, troll?</h3>
+<div class="answer">✅ 1. 4</div>
+<div class="explanation">💡 Ransomware is a direct risk. Hoax, meme virus, Nigerian letter and troll are NOT direct computing risks. That gives 4 entities.</div>
+</div>
+<div class="question-card">
+<h3>❓ Which description gives the best coverage for social engineering?</h3>
+<div class="answer">✅ 4. Exercising the art of influencing people to act against their security policy.</div>
+<div class="explanation">💡 Social engineering is the broad concept of manipulating people psychologically. Options 1, 2 and 3 are specific techniques not the full concept.</div>
+</div>
+<div class="question-card">
+<h3>❓ Successful impersonation means that...</h3>
+<div class="answer">✅ 4. Somebody/something has been cheated to act as if in contact with someone else than the attacker.</div>
+<div class="explanation">💡 Impersonation means fooling someone into thinking they deal with a trusted party. About deception not identity assignment.</div>
+</div>
+</div>
+<hr>
+<div class="page-section" id="page-3">
+<h2>📄 Page 3: Not Only Breaking Ciphers — Eavesdropper, Dictionary Attack, Backdoor, Ransomware, Passive Attack</h2>
+<div class="question-card">
+<h3>❓ Attacker who attempts to know conversation contents without being a legitimate party?</h3>
+<div class="answer">✅ 4. Eavesdropper.</div>
+<div class="explanation">💡 Eavesdropper listens without being a legitimate party. Honest but curious is a legitimate party trying to learn more than they should.</div>
+</div>
+<div class="question-card">
+<h3>❓ What is a dictionary attack?</h3>
+<div class="answer">✅ 2. A sophisticated brute-force attack against passwords, taking into account that they were invented by users of natural languages.</div>
+<div class="explanation">💡 Dictionary attack tries common words instead of random combinations. Option 3 describes rainbow tables.</div>
+</div>
+<div class="question-card">
+<h3>❓ Backdoor?</h3>
+<div class="answer">✅ 4. Is an intentionally made or maliciously installed method of bypassing normal authentication or encryption.</div>
+<div class="explanation">💡 A backdoor bypasses normal security controls. Option 2 describes Trojan horse payload.</div>
+</div>
+<div class="question-card">
+<h3>❓ Ransomware is?</h3>
+<div class="answer">✅ 2. A program that makes your data inaccessible to you and asks for money to restore access.</div>
+<div class="explanation">💡 Ransomware encrypts files and demands payment. Data is locked not destroyed.</div>
+</div>
+<div class="question-card">
+<h3>❓ How can an attack be passive?</h3>
+<div class="answer">✅ 3. A passive attack does not interfere with the integrity or availability of the victim's computing.</div>
+<div class="explanation">💡 A passive attack only observes data without modifying anything. Eavesdropping is the classic example.</div>
+</div>
+</div>
+<hr>
+<div class="page-section" id="page-4">
+<h2>📄 Page 4: Not Only Viruses — Malware, Trojan Horse, Macro Virus, Exposure, Buffer Overflow, Zero-day</h2>
+<div class="question-card">
+<h3>❓ Malware that does not replicate, pretends to be legitimate but does something else?</h3>
+<div class="answer">✅ 4. A Trojan horse.</div>
+<div class="explanation">💡 Trojan horse disguises itself as legitimate but performs malicious actions. Does NOT replicate unlike virus or worm.</div>
+</div>
+<div class="question-card">
+<h3>❓ Common feature of all malicious programs?</h3>
+<div class="answer">✅ 1. They are capable of similar actions as other programs in their running environment.</div>
+<div class="explanation">💡 All malware runs in the same environment as legitimate software and can do anything that environment allows.</div>
+</div>
+<div class="question-card">
+<h3>❓ A macro virus is malware that...</h3>
+<div class="answer">✅ 4. Runs on many different platforms because it is interpreted by its host program.</div>
+<div class="explanation">💡 Macro viruses run in host programs like Word or Excel. Cross-platform ability is the key characteristic.</div>
+</div>
+<div class="question-card">
+<h3>❓ Term for a vulnerability meaning something coming out of covering?</h3>
+<div class="answer">✅ 3. Exposure.</div>
+<div class="explanation">💡 Exposure is the security term for a vulnerability that reveals something hidden. Disclosure means revealing intentionally.</div>
+</div>
+<div class="question-card">
+<h3>❓ Attack causing data written outside allowed memory area?</h3>
+<div class="answer">✅ 3. Buffer overflow.</div>
+<div class="explanation">💡 Buffer overflow occurs when a program writes more data than a buffer can hold, spilling into adjacent memory.</div>
+</div>
+<div class="question-card">
+<h3>❓ The term zero-day applies to...</h3>
+<div class="answer">✅ 3. A vulnerability in software not yet exploited but found and kept secret by a malicious party.</div>
+<div class="explanation">💡 Zero-day vulnerability is unknown to the vendor — they have had zero days to fix it.</div>
+</div>
+</div>
+<hr>
+<div class="page-section" id="page-5">
+<h2>📄 Page 5: Networked Robots and Men — Botnet, Man in the Middle</h2>
+<div class="question-card">
+<h3>❓ Which fits most poorly to the concept of a bot network?</h3>
+<div class="answer">✅ 1. Users of machines on the bot network have agreed to work with the network administrator.</div>
+<div class="explanation">💡 A botnet is built from compromised machines whose owners do NOT know. If users agreed it would be a legitimate distributed network not a botnet.</div>
+</div>
+<div class="question-card">
+<h3>❓ Man in the middle is an attack type where...</h3>
+<div class="answer">✅ 2. The attacker or his process relays modified messages between two unknowing communication parties.</div>
+<div class="explanation">💡 In MITM the attacker positions between two parties, intercepts and can modify messages. Option 1 describes a rootkit. Option 3 describes a cryptographic attack.</div>
+</div>
+<div class="question-card">
+<h3>❓ A botnet is...</h3>
+<div class="answer">✅ 2. A group of dispersed, compromised machines controlled remotely for illicit purposes.</div>
+<div class="explanation">💡 A botnet is compromised computers controlled by an attacker without owners' knowledge. Used for DDoS, spam, credential theft.</div>
+</div>
+</div>
+<hr>
+<div class="page-section" id="page-6">
+<h2>📄 Page 6: Risk and Three A-Properties — Assurance, Authentication, Availability, Risk</h2>
+<div class="question-card">
+<h3>❓ Assurance is just part of information security, namely...</h3>
+<div class="answer">✅ 3. Evidence that security mechanisms are efficient.</div>
+<div class="explanation">💡 Assurance is confidence or evidence that security measures actually work. Not a synonym for authentication or accountability.</div>
+</div>
+<div class="question-card">
+<h3>❓ Authentication is the...</h3>
+<div class="answer">✅ 4. Process of verifying an identity.</div>
+<div class="explanation">💡 Authentication verifies that someone is who they claim to be. Option 1 describes identification. Option 2 describes authorization. Option 3 describes an access management decision.</div>
+</div>
+<div class="question-card">
+<h3>❓ Availability protects from some but not all — how many are excluded from: DoS, fire, flood, unauthorized transaction, unreadable backup tape?</h3>
+<div class="answer">✅ 4. 3</div>
+<div class="explanation">💡 Fire, flood and unauthorized transaction are excluded. Fire and flood are physical/disaster threats. Unauthorized transaction is an integrity issue. So 3 are excluded.</div>
+</div>
+<div class="question-card">
+<h3>❓ Which coupling best defines risk?</h3>
+<div class="answer">✅ 1. Threat and vulnerability.</div>
+<div class="explanation">💡 Risk = Threat x Vulnerability. Without a vulnerability a threat cannot succeed. Without a threat a vulnerability does not matter.</div>
+</div>
+</div>
+<hr>
+<div class="page-section" id="page-7">
+<h2>📄 Page 7: Policies and Models Do Not Protect — Access Control, Accountability, Non-repudiation, Defence in Depth</h2>
+<div class="question-card">
+<h3>❓ Access control means...</h3>
+<div class="answer">✅ 3. Measures, usually automatic, taken to decide whether access to a resource must be granted or denied, based on a policy.</div>
+<div class="explanation">💡 Access control is the enforcement mechanism. Option 2 describes policy. Option 4 is too broad. Option 1 is too narrow.</div>
+</div>
+<div class="question-card">
+<h3>❓ Accountability is close to Authenticity combined with which CIA goal?</h3>
+<div class="answer">✅ 1. I (Integrity)</div>
+<div class="explanation">💡 Accountability requires authenticity combined with integrity of audit records. Without integrity of logs, accountability is meaningless.</div>
+</div>
+<div class="question-card">
+<h3>❓ How many of 7 terms mean roughly the same as Security control: mechanism, model, policy, service, protection, countermeasure, safeguard?</h3>
+<div class="answer">✅ 4. 5</div>
+<div class="explanation">💡 Mechanism=yes, model=NO, policy=NO, service=yes, protection=yes, countermeasure=yes, safeguard=yes. That gives 5.</div>
+</div>
+<div class="question-card">
+<h3>❓ The strategy of forming layers of protection around an asset is known as...</h3>
+<div class="answer">✅ 2. Defence-in-depth.</div>
+<div class="explanation">💡 Defence-in-depth uses multiple layers so if one fails others still protect. Other options are not standard security terms.</div>
+</div>
+<div class="question-card">
+<h3>❓ Non-repudiation as a security objective means that...</h3>
+<div class="answer">✅ 4. The person to whom the information relates has no grounds for claiming that there is no connection.</div>
+<div class="explanation">💡 Non-repudiation means a party cannot deny having sent or received a message. Evidence is so strong that denial is impossible.</div>
+</div>
+<div class="question-card">
+<h3>❓ Non-repudiation is...</h3>
+<div class="answer">✅ 1. A special security goal.</div>
+<div class="explanation">💡 Non-repudiation is a security goal ensuring parties cannot deny their actions. It sits alongside the CIA triad as a separate special goal.</div>
+</div>
+</div>
+<hr>
+<div class="page-section" id="page-8">
+<h2>📄 Page 8: Credentials — 2FA, Credentials, Data Ownership, Shared Secret</h2>
+<div class="question-card">
+<h3>❓ Which counts as two factor authentication?</h3>
+<div class="answer">✅ 4. A PIN and a hard token.</div>
+<div class="explanation">💡 2FA requires two DIFFERENT factor types: something you know (PIN), something you have (hard token). Option 1: both something you have. Option 2: username is not a factor. Option 3: both something you know.</div>
+</div>
+<div class="question-card">
+<h3>❓ Collections of data a person can use to prove identity?</h3>
+<div class="answer">✅ 4. Credentials.</div>
+<div class="explanation">💡 Credentials are the data used to prove identity. Attributes are characteristics. Certificates are a specific type. Shared secrets are a specific authentication mechanism.</div>
+</div>
+<div class="question-card">
+<h3>❓ Decisions on who can access certain data are best made by...</h3>
+<div class="answer">✅ 1. Data owner.</div>
+<div class="explanation">💡 The data owner knows the sensitivity and value of their data best. This is the principle behind discretionary access control.</div>
+</div>
+<div class="question-card">
+<h3>❓ Shared secret usually refers to...</h3>
+<div class="answer">✅ 1. A result of protocols like IKE (Internet Key Exchange) of IPsec.</div>
+<div class="explanation">💡 A shared secret is a value known only to communicating parties, established through key exchange protocols like IKE.</div>
+</div>
+</div>
+<hr>
+<div class="page-section" id="page-9">
+<h2>📄 Page 9: Special Basic Protections — CA, Challenge-Response, Digital Signature, Firewall, Separation of Duties, Steganography</h2>
+<div class="question-card">
+<h3>❓ One task of a certification authority is...</h3>
+<div class="answer">✅ 4. To publish a list of revoked certificates or provide a service that returns the certificate status.</div>
+<div class="explanation">💡 CA tasks include issuing, signing and managing certificate revocation through CRL or OCSP. CAs do NOT maintain private keys.</div>
+</div>
+<div class="question-card">
+<h3>❓ Challenge-response is a protocol such that...</h3>
+<div class="answer">✅ 4. A challenges B to respond with something that no one else than A — and possibly B itself — would be able to produce.</div>
+<div class="explanation">💡 Challenge-response sends an unpredictable challenge only the legitimate party can answer using their secret.</div>
+</div>
+<div class="question-card">
+<h3>❓ A digital signature is made with...</h3>
+<div class="answer">✅ 4. A hash function and an asymmetric cryptoalgorithm.</div>
+<div class="explanation">💡 Digital signature: hash the message then encrypt with private key. Recipient decrypts with public key and compares hashes.</div>
+</div>
+<div class="question-card">
+<h3>❓ At what phase of a product's life cycle is it most expensive to improve security?</h3>
+<div class="answer">✅ 1. Implementation.</div>
+<div class="explanation">💡 The later in the development lifecycle you fix security the more expensive it is. Implementation is the latest stage among the options.</div>
+</div>
+<div class="question-card">
+<h3>❓ What does a firewall prevent from functioning in the way they were intended to?</h3>
+<div class="answer">✅ 4. Packets.</div>
+<div class="explanation">💡 A firewall inspects and filters network packets. Ports, IP addresses and protocols are rule attributes but packets are what get blocked.</div>
+</div>
+<div class="question-card">
+<h3>❓ Which security concept is violated by one person inserting vendors AND paying them?</h3>
+<div class="answer">✅ 3. Separation of duties.</div>
+<div class="explanation">💡 Separation of duties requires critical tasks be divided among different people so no single person can commit fraud alone.</div>
+</div>
+<div class="question-card">
+<h3>❓ Steganography is...</h3>
+<div class="answer">✅ 2. An art of embedding data into a larger quantity of other data.</div>
+<div class="explanation">💡 Steganography hides a secret message within ordinary data like images or audio. Message is hidden not encrypted. Different from digital watermarking.</div>
+</div>
+</div>
+<hr>
+<div class="page-section" id="page-10">
+<h2>📄 Page 10: Repair and Punishment — Backup, Integrity, Privacy, GDPR</h2>
+<div class="question-card">
+<h3>❓ Which statement about backups is true?</h3>
+<div class="answer">✅ 2. Removable flash memories are suitable as backup media.</div>
+<div class="explanation">💡 Flash drives are valid backup media. Option 1 wrong — printing IS valid for some data. Option 3 wrong — weekly backups are better than none. Option 4 wrong — incremental copies only copy changes.</div>
+</div>
+<div class="question-card">
+<h3>❓ Why is off-site backup important?</h3>
+<div class="answer">✅ 4. Prevent the loss of data in the event of a fire.</div>
+<div class="explanation">💡 Off-site backup protects against physical disasters that destroy both primary data and on-site backups simultaneously.</div>
+</div>
+<div class="question-card">
+<h3>❓ Most concrete concept for repairing broken integrity?</h3>
+<div class="answer">✅ 4. Redundancy.</div>
+<div class="explanation">💡 Redundancy means having extra copies or checksums that allow detection and restoration of corrupted data.</div>
+</div>
+<div class="question-card">
+<h3>❓ If your personal data is unduly disclosed by an EU service...</h3>
+<div class="answer">✅ 3. The responsible company may have to pay a fine of millions of euros.</div>
+<div class="explanation">💡 Under GDPR, fines up to 20 million euros or 4% of global annual turnover. Company is responsible even if attacker is not caught.</div>
+</div>
+</div>
+<hr>
+<div class="page-section" id="page-11">
+<h2>📄 Page 11: More Than GDPR — Data Protection, GDPR, PCI-DSS</h2>
+<div class="question-card">
+<h3>❓ The central meaning of data protection is in protecting...</h3>
+<div class="answer">✅ 2. The information that individuals disclose to different data collectors.</div>
+<div class="explanation">💡 Data protection is about protecting personal information that individuals share with organizations.</div>
+</div>
+<div class="question-card">
+<h3>❓ GDPR defines several roles but NOT the role of data...</h3>
+<div class="answer">✅ 2. Object.</div>
+<div class="explanation">💡 GDPR defines: data subject, data controller, data processor. Data object is a technical database term not a GDPR legal concept.</div>
+</div>
+<div class="question-card">
+<h3>❓ GDPR mainly covers...</h3>
+<div class="answer">✅ 2. The duties of organizations when they handle data from individuals.</div>
+<div class="explanation">💡 GDPR primarily places obligations on organizations. Not just cross-border exchange. Not about encryption standards.</div>
+</div>
+<div class="question-card">
+<h3>❓ PCI-DSS is...</h3>
+<div class="answer">✅ 3. Is, as its name says, a standard created by an industry branch.</div>
+<div class="explanation">💡 PCI-DSS was created by major card brands (Visa, Mastercard, Amex, Discover, JCB) not by a government. Industry standard not a law.</div>
+</div>
+</div>
+<hr>
+<div class="page-section" id="page-12">
+<h2>📄 Page 12: Anonymity — Anonymity, Privacy, Pseudonym</h2>
+<div class="question-card">
+<h3>❓ Anonymity has different degrees depending on...</h3>
+<div class="answer">✅ 3. What data should not be disclosed and to whom.</div>
+<div class="explanation">💡 Anonymity depends on WHAT information should be hidden AND WHO it should be hidden from. Country and age are irrelevant.</div>
+</div>
+<div class="question-card">
+<h3>❓ Privacy is synonymous to...</h3>
+<div class="answer">✅ 3. None of these.</div>
+<div class="explanation">💡 Privacy is distinct from secrecy, anonymity and privilege. Privacy is the right to control your own personal information.</div>
+</div>
+<div class="question-card">
+<h3>❓ Pseudonym is...</h3>
+<div class="answer">✅ 4. An artificial name that replaces the real name of a user.</div>
+<div class="explanation">💡 A pseudonym is a false name used instead of a real name. Not a filesystem term. Not inherently part of an attack.</div>
+</div>
+</div>
+<hr>
+<div class="page-section" id="page-13">
+<h2>📄 Page 13: IPR — Intellectual Property, Copyright, DRM</h2>
+<div class="question-card">
+<h3>❓ Copyright is originally a property of...</h3>
+<div class="answer">✅ 2. The creators of an artefact.</div>
+<div class="explanation">💡 Copyright belongs to the creator by default. Publishers may acquire rights through contracts but do not own copyright originally.</div>
+</div>
+<div class="question-card">
+<h3>❓ One purpose of DRM is...</h3>
+<div class="answer">✅ 1. To provide access control to digital media for protection of copyrights.</div>
+<div class="explanation">💡 DRM controls how digital content can be accessed, copied and distributed. Option 2 describes anti-circumvention laws. Option 3 wrong — DRM restricts not promotes access.</div>
+</div>
+<div class="question-card">
+<h3>❓ What is NOT a way to protect intellectual property?</h3>
+<div class="answer">✅ 1. Privacy regulations.</div>
+<div class="explanation">💡 Privacy regulations like GDPR protect personal data not intellectual property. DRM, patents and licensing are all genuine IP protection mechanisms.</div>
+</div>
+</div>
+<hr>
+<div class="page-section" id="page-14">
+<h2>📄 Page 14: Social Media — Fake News, Background Checks, Misinformation Responsibility</h2>
+<div class="question-card">
+<h3>❓ What can go wrong when including social media links in a job application?</h3>
+<div class="answer">✅ 2. The recruiter follows what is linked to those postings, and finds something unfavourable of you.</div>
+<div class="explanation">💡 Your social media may contain posts or connections that create a negative impression. Following public links is not a privacy offense.</div>
+</div>
+<div class="question-card">
+<h3>❓ What kind of update is poorly taken care of in social media?</h3>
+<div class="answer">✅ 1. Rectifying of fake news or alternative truths.</div>
+<div class="explanation">💡 Social media spreads content quickly but is very slow to correct misinformation. False information stays up and is rarely retracted.</div>
+</div>
+<div class="question-card">
+<h3>❓ What kind of update is usually poorly handled?</h3>
+<div class="answer">✅ 1. Links to sites that have published new pages that correct earlier mistakes in their news.</div>
+<div class="explanation">💡 Corrections to previously shared false information are almost never propagated. Original posts remain unchanged.</div>
+</div>
+<div class="question-card">
+<h3>❓ Who is responsible if you share something legal but untrue that causes harm?</h3>
+<div class="answer">✅ 2. You, without conditions.</div>
+<div class="explanation">💡 If you share false information that causes harm you bear responsibility whether you created it or reshared it.</div>
+</div>
+</div>
+<hr>
+<div class="page-section" id="page-15">
+<h2>📄 Page 15: Ethics — Ethics in InfoSec, Anonymity of Browsing, TOR</h2>
+<div class="question-card">
+<h3>❓ Ethics is an important topic in information systems...</h3>
+<div class="answer">✅ 1. And some aspects of it extending to the area of information security include treatment of privacy and IPR.</div>
+<div class="explanation">💡 Ethics in information security covers privacy, IPR, responsible disclosure and fair use. Option 2 too narrow. Option 3 wrong — ethics plays a major role. Option 4 wrong — ethical hacking is just one aspect.</div>
+</div>
+<div class="question-card">
+<h3>❓ What is NOT a topic of ethical considerations?</h3>
+<div class="answer">✅ 3. Wasting your own and others' time by writing in social media long explanations of questionable quality.</div>
+<div class="explanation">💡 This is a matter of quality and courtesy but not a genuine ethical dilemma in information security. Options 1, 2 and 4 all involve real ethical questions.</div>
+</div>
+<div class="question-card">
+<h3>❓ If you need to browse the internet anonymously...</h3>
+<div class="answer">✅ 2. The TOR network is an option you can seriously consider.</div>
+<div class="explanation">💡 TOR is a legitimate and legal tool routing traffic through multiple encrypted layers. Option 1 wrong — public machines may log activity. Option 3 wrong — private mode only prevents local browser history. Option 4 wrong — TOR and VPNs are legal in Finland.</div>
+</div>
+</div>
+<hr>
+<div class="page-section" id="page-16">
+<h2>📄 Page 16: Security Issues on Personal Devices — Cookie, Entropy, Firewall, USB</h2>
+<div class="question-card">
+<h3>❓ You get logged in automatically next day without entering credentials — what can you infer?</h3>
+<div class="answer">✅ 4. The site uses a login cookie that persists even if the browser is not running.</div>
+<div class="explanation">💡 A persistent login cookie stored on your computer is sent automatically when you revisit the site. Browsers do not send passwords automatically.</div>
+</div>
+<div class="question-card">
+<h3>❓ USB stick with 10-digit keyboard, longest passcode is 10 digits — worst case attempts?</h3>
+<div class="answer">✅ 1. 10^10</div>
+<div class="explanation">💡 You chose only 10-digit codes so attacker needs to try all 10-digit combinations. Each position has 10 values (0-9) giving 10^10. Option 2 wrong — attacker only tries 10-digit codes. Option 3 wrong — attacker attacks the passcode not the AES key.</div>
+</div>
+<div class="question-card">
+<h3>❓ A personal computer firewall is typically...</h3>
+<div class="answer">✅ 2. One process among others.</div>
+<div class="explanation">💡 On a personal computer a firewall is a software process running alongside other processes. Not hardware on the network card. Not an accessory on the power cord.</div>
+</div>
+<div class="question-card">
+<h3>❓ Which USB connection has the least information security risk?</h3>
+<div class="answer">✅ 3. Charging the new camping shower you just bought from a Chinese web shop.</div>
+<div class="explanation">💡 A simple water pump only needs power and has no data capability. Option 1 has document malware risk. Option 2 risks juice jacking. Option 4 risks compromise despite IT check.</div>
+</div>
+</div>
+<hr>
+<div class="page-section" id="page-17">
+<h2>📄 Page 17: Risk Management, Policy — Security Policy, Risk Analysis, Risk Treatments</h2>
+<div class="question-card">
+<h3>❓ What control mechanisms can be left out of risk analysis?</h3>
+<div class="answer">✅ 3. Mechanisms that do not control threats to the system under consideration.</div>
+<div class="explanation">💡 Risk analysis should only include controls relevant to the threats being analyzed. Controls addressing threats outside the system scope are irrelevant.</div>
+</div>
+<div class="question-card">
+<h3>❓ Which does NOT need to be considered in risk analysis?</h3>
+<div class="answer">✅ 1. How much is invested in information security in competing companies.</div>
+<div class="explanation">💡 What competitors spend on security is irrelevant to your own risk analysis. Your analysis is about YOUR assets, YOUR threats and YOUR controls.</div>
+</div>
+<div class="question-card">
+<h3>❓ Overall risk is reduced if...</h3>
+<div class="answer">✅ 4. The value of an asset is found to be smaller than before.</div>
+<div class="explanation">💡 Risk = Threat x Vulnerability x Asset Value. If an asset is worth less than previously estimated the real risk is genuinely lower.</div>
+</div>
+<div class="question-card">
+<h3>❓ Alice implements security controls to protect email — this is...</h3>
+<div class="answer">✅ 1. Risk mitigation.</div>
+<div class="explanation">💡 Risk mitigation means taking active steps to reduce risk by implementing controls. The four risk treatments are: mitigation, acceptance, transference and avoidance.</div>
+</div>
+</div>
+<hr>
+<div class="page-section" id="page-18">
+<h2>📄 Page 18: Non-disclosure, but Public Keys — NDA, PKI</h2>
+<div class="question-card">
+<h3>❓ Usual purpose of a non-disclosure agreement?</h3>
+<div class="answer">✅ 2. To prevent an employee or visitor from revealing sensitive information of an organization.</div>
+<div class="explanation">💡 An NDA is a legal contract binding a person to keep organizational information confidential. Option 1 describes data protection/GDPR. Option 3 describes a classification policy. Option 4 describes an encryption policy.</div>
+</div>
+<div class="question-card">
+<h3>❓ Basic goal of a public key infrastructure is to...</h3>
+<div class="answer">✅ 2. Bind the public key to the entity to which the key belongs.</div>
+<div class="explanation">💡 PKI creates a trusted link between a public key and the identity of its owner. Option 1 wrong — private and public keys are already mathematically linked. Options 3 and 4 describe structural features not the basic goal.</div>
+</div>
+<div class="question-card">
+<h3>❓ A certificate for K is generated when...</h3>
+<div class="answer">✅ 1. Someone else uses his private key for a signature that binds K and the identity of B.</div>
+<div class="explanation">💡 A certificate is created when a trusted third party (CA) uses its OWN private key to sign a binding between public key K and the identity of B. The someone else is the CA not B.</div>
+</div>
+</div>
+<hr>
+<div class="page-section" id="page-19">
+<h2>📄 Page 19: Password — Entropy, Password Rules</h2>
+<div class="question-card">
+<h3>❓ Most important for security question/answer from authentication point of view?</h3>
+<div class="answer">✅ 2. The entropy of the answer.</div>
+<div class="explanation">💡 From an authentication perspective the answer must be unpredictable — high entropy means hard to guess. The question is often visible to attackers so its entropy matters less.</div>
+</div>
+<div class="question-card">
+<h3>❓ Most important condition for accepting browser password save?</h3>
+<div class="answer">✅ 3. The passwords in your browser are protected from others.</div>
+<div class="explanation">💡 If someone else can access your browser they see all your saved passwords. This is the critical security condition.</div>
+</div>
+<div class="question-card">
+<h3>❓ First a prohibition you MUST NOT relax, then one you CAN relax?</h3>
+<div class="answer">✅ 1. (ii) and (iii)</div>
+<div class="explanation">💡 You must NEVER tell your password to anyone (ii). But you CAN save your password (iii) in a trusted password manager.</div>
+</div>
+<div class="question-card">
+<h3>❓ Most dangerous password behavior?</h3>
+<div class="answer">✅ 1. Uses the same password in several places.</div>
+<div class="explanation">💡 Password reuse is most dangerous because one breach compromises ALL accounts sharing that password — credential stuffing attacks.</div>
+</div>
+<div class="question-card">
+<h3>❓ How many features does the toothbrush analogy represent?</h3>
+<div class="answer">✅ 2. Two.</div>
+<div class="explanation">💡 A toothbrush represents: (iii) personal use only — never share it, and (iv) change it often enough. Does NOT represent entropy (i) or usability (ii).</div>
+</div>
+</div>
+<hr>
+<div class="page-section" id="page-20">
+<h2>📄 Page 20: Cookie — Web Browser Cookies</h2>
+<div class="question-card">
+<h3>❓ A web browsing cookie cannot break...</h3>
+<div class="answer">✅ 3. Either the integrity or confidentiality of your files.</div>
+<div class="explanation">💡 A cookie is a small piece of data stored in the browser — it cannot directly access or modify files on your computer. It affects your session and web data not your local file system.</div>
+</div>
+<div class="question-card">
+<h3>❓ In original usage, a cookie is created by...</h3>
+<div class="answer">✅ 4. The web server, which gets it back from the browser without changes.</div>
+<div class="explanation">💡 The web server creates the cookie, sends it to the browser, the browser stores it, and sends it back unchanged with subsequent requests. This allows the server to maintain session state.</div>
+</div>
+<div class="question-card">
+<h3>❓ Purpose of a web browsing cookie is to transmit to the server information...</h3>
+<div class="answer">✅ 1. That is the same as the server has earlier transmitted to the browser.</div>
+<div class="explanation">💡 The cookie sends back to the server the same information the server originally sent. This is how the server maintains state.</div>
+</div>
+</div>
+<hr>
+<div class="page-section" id="page-21">
+<h2>📄 Page 21: CAPTCHA — CAPTCHA, Spam, Email Obfuscation</h2>
+<div class="question-card">
+<h3>❓ CAPTCHA is...</h3>
+<div class="answer">✅ 2. Is an example of authentication that does not involve identification.</div>
+<div class="explanation">💡 CAPTCHA proves you are human without knowing WHO you are (no identification). Option 1 wrong — CAPTCHAs can be attacked by human farms and AI. Option 3 wrong — it IS a form of authentication.</div>
+</div>
+<div class="question-card">
+<h3>❓ Why write email as john.doePOISTA@MINUTtuni.fi?</h3>
+<div class="answer">✅ 1. To avoid spammers harvesting your real address so easily.</div>
+<div class="explanation">💡 This is email address obfuscation. Spambots scan web pages for email patterns. Adding Finnish words POISTA MINUT (Remove me) breaks the standard email pattern so bots cannot harvest it.</div>
+</div>
+</div>
+<hr>
+<div class="page-section" id="page-22">
+<h2>📄 Page 22: Crypto Procedures — Cryptography, Primitive, Algorithm, Protocol, Plaintext</h2>
+<div class="question-card">
+<h3>❓ Cryptographic primitives are mainly...</h3>
+<div class="answer">✅ 3. Procedures that a cryptology practitioner can view like indivisible blocks.</div>
+<div class="explanation">💡 Primitives are the basic building blocks of cryptographic systems — like hash functions, block ciphers, stream ciphers. They are treated as indivisible black boxes combined to build larger protocols.</div>
+</div>
+<div class="question-card">
+<h3>❓ Which is mainly a task performed using a cryptographic protocol?</h3>
+<div class="answer">✅ 4. Agreeing on an encryption key.</div>
+<div class="explanation">💡 A cryptographic protocol involves multiple parties exchanging messages to achieve a goal. Key agreement (like Diffie-Hellman) requires communication between parties.</div>
+</div>
+<div class="question-card">
+<h3>❓ Crypto algorithms are either symmetric, asymmetric or signature — true or false?</h3>
+<div class="answer">✅ 1. False because the list lacks algorithms that do not use a key.</div>
+<div class="explanation">💡 Hash functions are cryptographic algorithms but use no key. The statement is false because it omits keyless algorithms.</div>
+</div>
+<div class="question-card">
+<h3>❓ Which is NOT covered by the concept of a cryptographic algorithm?</h3>
+<div class="answer">✅ 2. Challenge-response method.</div>
+<div class="explanation">💡 Challenge-response is a PROTOCOL not an algorithm — it involves multiple steps and parties exchanging messages.</div>
+</div>
+<div class="question-card">
+<h3>❓ Implementation of ____ containing all software, protocols, algorithms and keys is called ____.</h3>
+<div class="answer">✅ 2. Cryptography, a cryptosystem.</div>
+<div class="explanation">💡 Cryptography is the practice/science. A cryptosystem is a complete implementation containing all necessary components.</div>
+</div>
+<div class="question-card">
+<h3>❓ The term plaintext...</h3>
+<div class="answer">✅ 4. Is a synonym for cleartext and the concept is used in cryptography.</div>
+<div class="explanation">💡 Plaintext in cryptography means unencrypted data. It is the data BEFORE encryption. Its counterpart is ciphertext.</div>
+</div>
+</div>
+<hr>
+<div class="page-section" id="page-23">
+<h2>📄 Page 23: Keys and Chunks or Streams — Encryption, Key Length, Block Cipher, Stream Cipher</h2>
+<div class="question-card">
+<h3>❓ Two classes of symmetric cryptographic methods — blank and blank ciphers.</h3>
+<div class="answer">✅ 2. Block, stream.</div>
+<div class="explanation">💡 Block ciphers process plaintext in fixed-size blocks (e.g. 128 bits at a time). Stream ciphers process data bit by bit.</div>
+</div>
+<div class="question-card">
+<h3>❓ Encryption requires a key that...</h3>
+<div class="answer">✅ 4. Can even be computed from a human-memorable password if the data is not to be sent anywhere but protected in local storage.</div>
+<div class="explanation">💡 This describes password-based encryption. Key derivation functions (KDF) convert passwords into encryption keys.</div>
+</div>
+<div class="question-card">
+<h3>❓ Doubling symmetric key length — brute force time T becomes...</h3>
+<div class="answer">✅ 4. T squared.</div>
+<div class="explanation">💡 If original key is n bits, brute force tries 2^n = T keys. Doubling to 2n bits means 2^(2n) = (2^n)^2 = T squared. Doubling key LENGTH squares the brute force effort.</div>
+</div>
+<div class="question-card">
+<h3>❓ Stream ciphers — the other class of symmetric methods is...</h3>
+<div class="answer">✅ 4. Block algorithms.</div>
+<div class="explanation">💡 The two classes of symmetric cryptographic methods are stream ciphers and block ciphers.</div>
+</div>
+</div>
+<hr>
+<div class="page-section" id="page-24">
+<h2>📄 Page 24: One-time Pad, DES, AES — Encryption, AES, One-time Pad</h2>
+<div class="question-card">
+<h3>❓ Most popular symmetric cryptosystem currently?</h3>
+<div class="answer">✅ 1. AES.</div>
+<div class="explanation">💡 AES (Advanced Encryption Standard) replaced DES and is now the most widely used symmetric encryption algorithm worldwide. DES is obsolete. RSA is asymmetric. TLS is a protocol.</div>
+</div>
+<div class="question-card">
+<h3>❓ DES was for a long time the state-of-the-art method to...</h3>
+<div class="answer">✅ 3. Produce confidentiality of communications.</div>
+<div class="explanation">💡 DES was the standard symmetric encryption algorithm. Eventually broken due to its short 56-bit key length.</div>
+</div>
+<div class="question-card">
+<h3>❓ What is a one-time pad?</h3>
+<div class="answer">✅ 2. A single-use key together with the method of using it to encrypt and decrypt a message.</div>
+<div class="explanation">💡 A one-time pad is a theoretically unbreakable encryption method where the key is truly random, at least as long as the message, and used only ONCE. Provides perfect secrecy.</div>
+</div>
+<div class="question-card">
+<h3>❓ AES is a...</h3>
+<div class="answer">✅ 2. Block cipher.</div>
+<div class="explanation">💡 AES is a symmetric block cipher processing data in 128-bit blocks using keys of 128, 192 or 256 bits. Option 1 wrong — AES is a block cipher not a stream cipher.</div>
+</div>
+</div>
+<hr>
+<div class="page-section" id="page-25">
+<h2>📄 Page 25: Public Key — Private Key, Public Key, RSA</h2>
+<div class="question-card">
+<h3>❓ Public key for _____ is like a physical key that can SHUT (lock) a padlock?</h3>
+<div class="answer">✅ 1. Encryption.</div>
+<div class="explanation">💡 In asymmetric encryption anyone can use the public key to lock (encrypt) data, but only the private key holder can unlock (decrypt) it.</div>
+</div>
+<div class="question-card">
+<h3>❓ Public key for _____ is like a physical key that can OPEN a padlock locked with a private key?</h3>
+<div class="answer">✅ 3. Verifying signatures.</div>
+<div class="explanation">💡 In digital signatures the sender signs with their private key and anyone can verify using the public key.</div>
+</div>
+<div class="question-card">
+<h3>❓ Which does NOT apply about RSA? (first set)</h3>
+<div class="answer">✅ 1. If the RSA decryption exponent is d, then the RSA decryption program has to do d-1 modular multiplications.</div>
+<div class="explanation">💡 FALSE. RSA uses square-and-multiply fast exponentiation requiring approximately log(d) multiplications, NOT d-1.</div>
+</div>
+<div class="question-card">
+<h3>❓ Which does NOT apply about RSA? (second set)</h3>
+<div class="answer">✅ 3. An RSA signature cannot be made unless you know the two prime numbers that make up the public modulus n.</div>
+<div class="explanation">💡 FALSE. RSA signing only requires private exponent d and modulus n — NOT the prime factors p and q.</div>
+</div>
+</div>
+<hr>
+<div class="page-section" id="page-26">
+<h2>📄 Page 26: Hash — Checksum, Hash, Keyed Hash</h2>
+<div class="question-card">
+<h3>❓ Typical of checksums for preventing typing errors in digit strings?</h3>
+<div class="answer">✅ 2. They are calculated from all the characters.</div>
+<div class="explanation">💡 A checksum must cover all characters in the string to detect errors anywhere in the input.</div>
+</div>
+<div class="question-card">
+<h3>❓ Cryptographic hash represents the entire message in the sense that...</h3>
+<div class="answer">✅ 2. It is very unlikely to find any other message with the same hash.</div>
+<div class="explanation">💡 This describes collision resistance. Option 3 is opposite — avalanche effect means LARGE hash changes from small message changes.</div>
+</div>
+<div class="question-card">
+<h3>❓ How does a cryptographic hash protect a message?</h3>
+<div class="answer">✅ 3. The message cannot be changed without breaking the correspondence with the value.</div>
+<div class="explanation">💡 Any change to the message produces a completely different hash, revealing tampering. This is integrity protection.</div>
+</div>
+<div class="question-card">
+<h3>❓ Which does NOT apply to keyed cryptographic hashes?</h3>
+<div class="answer">✅ 2. They are also called Cyclic Redundancy Checks.</div>
+<div class="explanation">💡 CRCs are non-cryptographic error detection checksums — completely different from keyed cryptographic hashes (MACs).</div>
+</div>
+<div class="question-card">
+<h3>❓ Bit strings of length 100 giving H(m) starting with 40 zeros?</h3>
+<div class="answer">✅ 4. 2^60.</div>
+<div class="explanation">💡 There are 2^100 possible 100-bit strings. Probability of hash starting with 40 zeros = 1/2^40. Expected count = 2^100 / 2^40 = 2^60.</div>
+</div>
+<div class="question-card">
+<h3>❓ Bit strings of length 40 giving H(m) starting with 100 zeros?</h3>
+<div class="answer">✅ 1. Most likely none.</div>
+<div class="explanation">💡 There are only 2^40 possible 40-bit strings. Probability = 1/2^100. Expected count = 2^40 / 2^100 = essentially zero.</div>
+</div>
+</div>
+<hr>
+<div class="page-section" id="page-27">
+<h2>📄 Page 27: Most Common Protocols — KEX, SSH, TLS, IPsec</h2>
+<div class="question-card">
+<h3>❓ IPsec...</h3>
+<div class="answer">✅ 1. Provides mechanisms for authentication and encryption.</div>
+<div class="explanation">💡 IPsec is a suite of protocols providing both authentication and encryption at the IP layer. Used in VPNs. Works with both IPv4 and IPv6.</div>
+</div>
+<div class="question-card">
+<h3>❓ What does key exchange mean in cryptographic protocols?</h3>
+<div class="answer">✅ 4. A symmetric key is agreed upon.</div>
+<div class="explanation">💡 Key exchange means two parties agreeing on a shared symmetric key (like Diffie-Hellman) without it ever being transmitted directly.</div>
+</div>
+<div class="question-card">
+<h3>❓ Protocol and program for remote command line use?</h3>
+<div class="answer">✅ 2. SSH.</div>
+<div class="explanation">💡 SSH (Secure Shell) is the standard protocol for securely connecting to a remote computer command line.</div>
+</div>
+<div class="question-card">
+<h3>❓ The T in TLS stands for...</h3>
+<div class="answer">✅ 3. Transport.</div>
+<div class="explanation">💡 TLS stands for Transport Layer Security. It replaced SSL and secures communications at the transport layer.</div>
+</div>
+</div>
+<hr>
+<div class="page-section" id="page-28">
+<h2>📄 Page 28: Nature and Devices — Fire, Smart Card</h2>
+<div class="question-card">
+<h3>❓ What is true about fires?</h3>
+<div class="answer">✅ 3. It is not so much the computers that catch fire, but the batteries and their charging are causing risks especially in mobile devices.</div>
+<div class="explanation">💡 Lithium-ion batteries in mobile devices are a genuine fire risk. IT systems have special fire suppression requirements (gas not water).</div>
+</div>
+<div class="question-card">
+<h3>❓ Why cannot digital cash bits be extracted and copied from a smart card?</h3>
+<div class="answer">✅ 4. The card processor only transacts with processors of the right kind and even then spending happens inside the card.</div>
+<div class="explanation">💡 Smart cards have a secure processor that handles all transactions internally. Bits never leave the card in a usable form.</div>
+</div>
+</div>
+<hr>
+<div class="page-section" id="page-29">
+<h2>📄 Page 29: Filtering — DMZ, Packet Filter</h2>
+<div class="question-card">
+<h3>❓ A DMZ means a part of an organization network that...</h3>
+<div class="answer">✅ 1. Resides between two filtering devices.</div>
+<div class="explanation">💡 A DMZ sits between two firewalls — one facing the internet and one facing the internal network. It hosts public-facing servers.</div>
+</div>
+<div class="question-card">
+<h3>❓ Which should mainly be able to filter packets like a dedicated firewall?</h3>
+<div class="answer">✅ 3. Router.</div>
+<div class="explanation">💡 Routers operate at the network layer (Layer 3) and can perform packet filtering based on IP addresses and port numbers.</div>
+</div>
+<div class="question-card">
+<h3>❓ What can a packet filter do: anti-virus, delete oversized attachments, encrypt/decrypt?</h3>
+<div class="answer">✅ 1. None of these.</div>
+<div class="explanation">💡 A packet filter operates at the network layer inspecting only packet headers. It cannot inspect content for viruses, read email attachments, or encrypt/decrypt traffic.</div>
+</div>
+<div class="question-card">
+<h3>❓ How does a packet filter react to TCP and UDP port numbers?</h3>
+<div class="answer">✅ 4. It passes through the packet if and only if those numbers are equal.</div>
+<div class="explanation">💡 A packet filter uses port numbers to decide — it passes packets whose port numbers match the configured allowed ports in the rules.</div>
+</div>
+<div class="question-card">
+<h3>❓ Tasks of a packet filter may include...</h3>
+<div class="answer">✅ 4. Writing logs.</div>
+<div class="explanation">💡 Packet filters CAN log traffic. They CANNOT perform user authentication, anti-virus scanning or spam filtering.</div>
+</div>
+</div>
+<hr>
+<div class="page-section" id="page-30">
+<h2>📄 Page 30: Secure Connection — IPsec, TLS, VPN, Remote Use</h2>
+<div class="question-card">
+<h3>❓ IPsec adds to each data packet a field with...</h3>
+<div class="answer">✅ 4. A hash calculated from the packet and a symmetric key.</div>
+<div class="explanation">💡 IPsec Authentication Header (AH) adds an HMAC — a hash calculated from packet contents using a shared symmetric key. Provides integrity and authentication.</div>
+</div>
+<div class="question-card">
+<h3>❓ IPsec encrypts at a layer that is... compared to TLS?</h3>
+<div class="answer">✅ 3. Lower than in TLS.</div>
+<div class="explanation">💡 IPsec operates at Layer 3 (Network/IP layer). TLS operates between Layer 4 (Transport) and the Application layer. Layer 3 is lower than Layer 4.</div>
+</div>
+<div class="question-card">
+<h3>❓ If user fails to authenticate target machine, which threat is most serious?</h3>
+<div class="answer">✅ 1. Give the user authentication information to an attacker.</div>
+<div class="explanation">💡 If the user connects to a fake server without authenticating it, the user enters credentials which the attacker captures. This compromises all services where those credentials are used.</div>
+</div>
+<div class="question-card">
+<h3>❓ Because TLS works below the application layer, it...</h3>
+<div class="answer">✅ 1. Does not know what kind of data it protects.</div>
+<div class="explanation">💡 TLS encrypts whatever the application sends without knowing whether it is HTTP, email, FTP or any other type. It is transparent to the application protocol.</div>
+</div>
+<div class="question-card">
+<h3>❓ What is more important in a VPN for remote worker security?</h3>
+<div class="answer">✅ 2. Encryption.</div>
+<div class="explanation">💡 The fundamental security requirement of a VPN for remote workers is encryption — protecting data as it travels over the public internet.</div>
+</div>
+</div>
+<hr>
+<div class="page-section" id="page-31">
+<h2>📄 Page 31: Mobile Authentication — Cellular, WiFi, WLAN, WPA</h2>
+<div class="question-card">
+<h3>❓ What mechanism authenticates the SIM card in cellular networks?</h3>
+<div class="answer">✅ 2. Challenge-response method, with a symmetric key system.</div>
+<div class="explanation">💡 GSM and cellular networks use challenge-response authentication with a shared symmetric key stored on the SIM card. No public key system involved.</div>
+</div>
+<div class="question-card">
+<h3>❓ How do 2G, 3G, 4G systems authenticate the subscriber?</h3>
+<div class="answer">✅ 4. By applying a cryptographic hash function to a shared secret.</div>
+<div class="explanation">💡 Mobile networks apply a hash/HMAC to a shared secret combined with a random challenge. The shared secret is NEVER transmitted. Cellular auth uses symmetric not PKI.</div>
+</div>
+<div class="question-card">
+<h3>❓ Relation between WiFi, WLAN, VLAN and WPA?</h3>
+<div class="answer">✅ 1. WPA is the protection method for a WLAN, which uses the WiFi protocol, and can be one of the VLANs in an organization network.</div>
+<div class="explanation">💡 WiFi is the wireless networking protocol. WLAN is the network type. WPA is the security protocol. VLAN is a separate network segmentation concept.</div>
+</div>
+<div class="question-card">
+<h3>❓ WPA protects which wireless technologies: NFC, ZigBee, Bluetooth, WiFi?</h3>
+<div class="answer">✅ 2. (iv) WiFi only.</div>
+<div class="explanation">💡 WPA was specifically designed to protect WiFi/WLAN communications only. NFC, ZigBee and Bluetooth all have their own separate security mechanisms.</div>
+</div>
+</div>
+<hr>
+<div class="page-section" id="page-32">
+<h2>📄 Page 32: Start Running Programs — Login, Single Sign-on, Operating System, Sandbox</h2>
+<div class="question-card">
+<h3>❓ What is NOT used as a term for logging into a system?</h3>
+<div class="answer">✅ 2. Pass in.</div>
+<div class="explanation">💡 Log in, sign in and log on are all common synonymous terms. Pass in is not a standard term used for this purpose.</div>
+</div>
+<div class="question-card">
+<h3>❓ Login is exceptional because...</h3>
+<div class="answer">✅ 2. It need not know whether it is launched by a legitimate user or an attacker.</div>
+<div class="explanation">💡 Login must handle authentication requests from anyone. It processes whatever credentials are presented and grants or denies access.</div>
+</div>
+<div class="question-card">
+<h3>❓ Most essential protection for your computing is provided by...</h3>
+<div class="answer">✅ 2. The operating system.</div>
+<div class="explanation">💡 The operating system is the foundation of all security — it controls access to hardware, manages memory isolation, enforces permissions. Everything else depends on and runs within the OS.</div>
+</div>
+<div class="question-card">
+<h3>❓ Sandboxing is a security mechanism where...</h3>
+<div class="answer">✅ 1. New untrusted software is run in a disconnected test system to check it for malicious behaviour.</div>
+<div class="explanation">💡 Sandboxing isolates untrusted code in a restricted environment. The sandbox limits what resources and system calls the code can access.</div>
+</div>
+<div class="question-card">
+<h3>❓ Single sign-on...</h3>
+<div class="answer">✅ 1. Can provide access to multiple resources, but it is only valid for a limited session or duration.</div>
+<div class="explanation">💡 SSO allows a user to authenticate once and gain access to multiple systems. The session is time-limited for security.</div>
+</div>
+<div class="question-card">
+<h3>❓ Single sign-on is characterized by...</h3>
+<div class="answer">✅ 4. Security is improved compared to a user having the same password for multiple services.</div>
+<div class="explanation">💡 With SSO users only need one strong password rather than reusing the same password across multiple services.</div>
+</div>
+</div>
+<hr>
+<div class="page-section" id="page-33">
+<h2>📄 Page 33: A Spectrum of Storage Issues — Database, Overwriting, Password Salt</h2>
+<div class="question-card">
+<h3>❓ Specific security requirements for databases concern more than other options...</h3>
+<div class="answer">✅ 2. The data that your (future) employer has about its employees.</div>
+<div class="explanation">💡 Employee databases contain structured sensitive personal data with complex dependencies. A folder of papers is not a database. A photo album has minimal structured dependencies.</div>
+</div>
+<div class="question-card">
+<h3>❓ Why write zeros and ones over and over again on a file on disk?</h3>
+<div class="answer">✅ 4. So that the earlier contents of the file could not be read at all.</div>
+<div class="explanation">💡 Overwriting data multiple times is a secure deletion technique. Magnetic storage retains traces of previous data even after deletion. Multiple overwrites make recovery extremely difficult.</div>
+</div>
+<div class="question-card">
+<h3>❓ Password salt is...</h3>
+<div class="answer">✅ 4. The random number stored without encryption together with each hashed password.</div>
+<div class="explanation">💡 A salt is a random value added to each password before hashing, stored alongside the hashed password in plaintext. It ensures two users with the same password have different hashes, defeating rainbow table attacks.</div>
+</div>
+</div>
+<hr>
+</main>
+<footer>
+  Cyber Security 1 — Comp.Sec.100-02 | Tampere University | Study Guide for Exam 1
+</footer>
+</body>
+</html>

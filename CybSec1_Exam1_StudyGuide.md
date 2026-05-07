@@ -1021,4 +1021,3 @@
 💡 **Explanation:** A salt is a random value added to each password before hashing, stored alongside the hashed password in plaintext. It ensures two users with the same password have different hashes, defeating rainbow table attacks.
 
 ---
-
