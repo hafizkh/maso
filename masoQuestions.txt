@@ -1,0 +1,851 @@
+page 1
+Questions   Kysymyksiä
+
+* What is required of an attack to be regarded as a cyber attack?
+   1. The target relies on an electronic information system.
+   2. The attack happens on behalf of a nation state.
+   3. The target suffers a substantial loss.
+   4. The attacker is not acting alone but in a large coherent group.
+* Denial of service is a term
+   1. for a specific attack where the attacker modifies the responses from a www server to display HTTP 404.
+   2. used of any situations where the user or a process is not granted the service he, she or it would be authorized to get.
+   3. that refers to a service not being able to operate because of malicious requests.
+   4. used mainly of such situations where a cracked service has been taken down for repair by administrators.
+* What makes a denial of service attack (DoS) a distributed DoS?
+   1. There are many hackers working in consort to gain access to the attacked service.
+   2. The attacked server spreads the unavailability to a large community of other servers and services.
+   3. The whole farm of load-balancing and resilience-providing computers are attacked to make the service unavailable.
+   4. The attacking traffic comes to the server from several computers simultaneously.
+* The term attack vector
+   1. is just a more fancy way of referring to a particular attack that has happened.
+   2. refers to the attacker's point of view to the chain of protections that implement the defence-in-depth approach.
+   3. refers to the method of an attack - one that happened or is possible.
+   4. refers to the combination of all vulnerabilities that exist in a particular information system.
+* Confidentiality is one of the three basic goals ("C-I-A") of information security,
+   1. but it is hardly ever as important as integrity.
+   2. and it is nearly always more important than availability.
+   3. but it is usually not sufficient without integrity and availability.
+   4. and lack of confidentiality would lead to similar problems as lack of either integrity or availability.
+page 2
+Questions   Kysymyksiä
+
+* The term script kiddie is used for certain types of attackers. What is typical of them from a defender's perspective?
+   1. Essentially similar scripts to several other attackers.
+   2. Unpredictably modified scripts, which can therefore be particularly dangerous.
+   3. They cannot be held liable because they are minors.
+   4. Youth and incompetence, which is why their attacks are not very dangerous.
+* Attackers that are called script kiddies are characterized by
+   1. using scripts written by others.
+   2. acting as apprentices and assistants to more experienced actors.
+   3. underage and immature morality.
+   4. installing malicious software on the machines of several other users from which the attack continues automatically.
+* Identity theft
+   1. happens when someone maliciously uses identifying data of another person.
+   2. means that an attacker changes someones credentials at a service so that the victim is blocked out.
+   3. is never a theft of identity alone; it also involves causing some loss or other disadvantage to the owner.
+   4. can happen accidentally, i.e. someone can end up stealing someone else's identity without intending to do so.
+* There are many digitals entities that spread mainly by the forwarding action of people. Some of them are not direct risks to computing. How many of that kind of user-spread entities are in this list: spam, hoax, ransomware, meme virus, Nigerian letter, troll?
+   1. 4
+   2. 3
+   3. 2
+   4. 1
+* All of the following attacks have some social aspect, but which description gives the best coverage for the concept of social engineering?
+   1. Soliciting sensitive personal or organizational information by persuasive or masquerading emails.
+   2. Inferring sensitive personal or organizational information from discarded papers and media together with public sources.
+   3. Getting physically close and even familiar to people in order to see what they input as credentials to information systems.
+   4. Exercising the art of influencing people to act against their security policy.
+* Successful impersonation means that
+   1. an identity has been confiscated.
+   2. a new identity has been assigned to a user.
+   3. a new role has been assigned to a user.
+   4. somebody/something has been cheated to act as if he/it is in contact with someone else than the attacker.
+
+page 3
+Questions   Kysymyksiä
+
+* An attacker, who is not a legitimate party of a conversation, but still attempts to know its contents, is called
+   1. honest but curious.
+   2. phisher.
+   3. intruder.
+   4. eavesdropper.
+* What is a description of a dictionary attack?
+   1. It is a form of social engineering where an AI system blends the victim's new responses with earlier data and common phrases and assists the attacker to select the most suitable expressions to continue.
+   2. It is a "sophisticated" brute-force attack against passwords, taking into account that they were invented by users of natural languages.
+   3. The rainbow table method for recovering passwords is modified by using a large but fixed word list to do the transformation between each hash operation.
+   4. Observations of the victim's eye movements are transformed to profiling words when she is reading a public advertisement board or a shopping cart display.
+* Backdoor
+   1. is the authentication module of a rootkit program.
+   2. is in a Trojan horse the program module that executes the malicious behaviour.
+   3. means the parameters used to create the private key in a PKI system - allowing decryption of messages encrypted with the public key.
+   4. is an intentionally made or maliciously installed method of bypassing normal authentication or encryption in an information system.
+* Ransomware is
+   1. a term that refers to anything concrete lost by a victim and obtained by the attacker.
+   2. a program that makes your data inaccessible to you and asks for money to restore access.
+   3. software that an attacker has been able to destroy by changing random bits during its download but still matching the checksum.
+   4. software whose download to a customer from a vendor has been blocked by an attacker until either party pays a fee to the attacker.
+* How can an attack be passive?
+   1. The attack happens from a compromised slave maching owned by an unknowing user.
+   2. The attacker just puts up a web-site asking for donations and starts receiving money.
+   3. A passive attack is such that does not interfere with the integrity or availability of the victim's computing.
+   4. Actually it cannot be. An attack is by definition active.
+
+page 4
+Questions   Kysymyksiä
+
+* Malware that does not replicate, pretends to be performing a legitimate action, but does something else in the background is called
+   1. a logic bomb.
+   2. a trapdoor.
+   3. a virus or a worm.
+   4. a Trojan horse.
+* What is a common feature of all malicious programs?
+   1. They are capable of similar actions as other programs in their running environment.
+   2. They are aimed at achieving some financial goal.
+   3. They spread through vulnerabilities in software.
+   4. They are aimed at one target, although they usually spread elsewhere.
+* A macro virus is malware that
+   1. has a very large spread.
+   2. runs its code from a large set of non-contiguous memory locations.
+   3. spreads by masquerading itself as backward compatibility test code for software updates.
+   4. runs on many different platforms (OS's) because it is interpreted by its host program.
+* There are many terms that mean some sort of showing or coming out of a covering. The term that is used to mean such kind of a vulnerability in an information system is
+   1. revelation.
+   2. unveiling.
+   3. exposure.
+   4. disclosure.
+* What is the term used for an attack or error that causes data to be written in memory locations that are outside the allowed area?
+   1. Stack bloat.
+   2. Division by near-zero.
+   3. Buffer overflow
+   4. Flooding.
+* The term zero-day applies for instance to
+   1. DRM protection that is broken and published before the media, e.g. a game, is launched.
+   2. the beginning of the "life" of an identity thief under the new identity.
+   3. a vulnerability in software not yet exploited but found and kept secret by a malicious party.
+   4. an attack where a user of a limited-time-free trial version of software can keep his computer on the same day for an unlimited length of time.
+
+page 5
+
+Questions   Kysymyksiä
+
+* Which of the following fits most poorly to the concept of a bot network?
+   1. Users of machines on the bot network have agreed to work with the network administrator.
+   2. The machines on the bot network have a remote access program.
+   3. Bot network machines are rarely owned by the same organization.
+   4. A bot network can be used to implement a denial of service attack.
+* Man in the middle is an attack type where
+   1. a process captures system calls, modifies them, sends them to the OS kernel, and likewise filters the responses to the calling procedure.
+   2. the attacker or his process relays modified messages between two unknowing communication parties.
+   3. a cryptographic algorithm is broken at about a square root of effort by working both from the start and end toward the middle.
+   4. a process listens to a program's system calls and their responses, and sends the divulged sensitive data to the attacker.
+* A botnet is
+   1. a network used solely for internal communications.
+   2. a group of dispersed, compromised machines controlled remotely for illicit purposes.
+   3. a complete network built for the same purpose as single "honeypot" computers.
+   4. a tool for automating security alerts in a corporate network.
+page 6
+Questions   Kysymyksiä
+
+* Information assurance is sometimes considered a wider term than information security. On the other hand, assurance is just part of information security, namely
+   1. a synonym for authentication.
+   2. a synonym for accountability.
+   3. evidence that security mechanisms are efficient.
+   4. the level up to which risk management has been able to transfer information security risks.
+* Authentication is the
+   1. assertion of a unique identity.
+   2. process of defining the resources and type of access a user needs.
+   3. decision by management that a user should be given access to a system.
+   4. process of verifying an identity.
+* The objective of Availability is to make information accessible by protecting it from some but not all of these: (i) denial of service, (ii) fire, (iii) flood, (iv) unauthorized transaction, (v) unreadable backup tape. How many of these are excluded?
+   1. 4
+   2. 1
+   3. 2
+   4. 3
+* Which of the following couplings best defines risk?
+   1. Threat & vulnerability
+   2. Threat & breach of security
+   3. Vulnerability & attack
+   4. Vulnerability & lack of protection
+
+page 7
+Questions   Kysymyksiä
+
+* Access control means
+   1. a method to block connections to an information system from the network.
+   2. principles concerning how to allocate access rights to users.
+   3. measures, usually automatic, taken to decide whether access to a resource must be granted or denied, based on a policy.
+   4. the entirety of identification, authentication, access decision and then either blocking or enabling access.
+* The security goal Accountability lies outside the ordinary C-I-A triad, but it is reasonable to say that Accountability is close to the combination of Authenticity with
+   1. I
+   2. A
+   3. C and A
+   4. C
+* Assume "S." stands for "Security", and count how many of the following 7 terms mean roughly the same as S. control in the field of information security: S. mechanism, S. model, S. policy, S. service, protection, countermeasure, safeguard.
+   1. 3
+   2. 4
+   3. 6
+   4. 5
+* The strategy of forming layers of protection around an asset or facility is known as
+   1. cascade zoning.
+   2. defence-in-depth.
+   3. secured perimeter.
+   4. onion thresholding.
+* Non-repudiation as a security objective means that
+   1. one of the parties to the contract has tried to disclaim the information, but it has been possible to prove that it was a mistake.
+   2. accidental or intentional changes to the data after their acceptance can be corrected.
+   3. the information (e.g., contract) to which it relates has been understood and accepted.
+   4. the person to whom the information relates has no grounds for claiming that there is no connection.
+* Non-repudiation is
+   1. a special security goal.
+   2. an attack against privacy.
+   3. the term used for cancelling some of a user's rights in an information system.
+   4. the time shortly before a public key certificate expires and a new one should be ordered.
+page 8
+Questions   Kysymyksiä
+
+* Which counts as two factor authentication?
+   1. A hard token and a smart card.
+   2. A user name and a PIN.
+   3. A password and a PIN.
+   4. A PIN and a hard token.
+* What is the term used for such collections of data that a person can use to prove his or her identity?
+   1. attributes
+   2. certificates
+   3. shared secrets
+   4. credentials
+* Decisions on who can access certain data, like documents or databases, are best made by
+   1. data owner.
+   2. senior management.
+   3. application developers.
+   4. administrators responsible for the user database.
+* Shared secret is an InfoSec term that usually refers to
+   1. a result of protocols like IKE (Internet Key Exchange) of IPsec.
+   2. personal sensitive data that cannot be only private but must be known to someone else, too, than the owner.
+   3. the random bit sequences that two parties send to a trusted server for the purpose of authenticating each other.
+   4. the commands and passwords that allow a backdoor entry to an information system by a group of hackers.
+page 9
+Questions   Kysymyksiä
+
+* One of the tasks of a certification authority is
+   1. to maintain a database of those private and public keys, the correspondence of which it has certified.
+   2. to calculate the corresponding public key at the request of a certified customer who provides a new private key.
+   3. to update the certificates that have been revalidated, to accommodate a new expiry date.
+   4. to publish a list of revoked certificates or provide a service that returns the certificate status.
+* Challenge-response is a protocol between two parties A and B such that
+   1. A challenges B with an easy-to-check computational task that anyone can do but which takes time to solve.
+   2. A challenges B with a task that supposedly only a human user can answer.
+   3. A and B receive a random challenge from the other party and then use a shared secret to calculate a response which acts as a mutual authenticator and session key.
+   4. A challenges B to respond with something that no one else than A - and possibly B itself - would be able to produce.
+* A digital signature is made with
+   1. symmetric cryptography.
+   2. a message authentication code.
+   3. a public key certificate.
+   4. a hash function and an asymmetric cryptoalgorithm.
+* At what phase of a product's life cycle is it likely to be most expensive to improve security?
+   1. implementation
+   2. rapid prototyping
+   3. testing
+   4. design
+* What does a firewall prevent from functioning in the way they were intended to?
+   1. ports
+   2. IP-addresses
+   3. protocols
+   4. packets
+* What security concept is violated by the following: One person in the finance department is able to insert vendors to the vendor database and subsequently pay to the vendors?
+   1. Well-formed transactions
+   2. Least privilege
+   3. Separation of duties
+   4. Database normalization
+* Steganography is
+   1. a special branch of cryptographic hash functions.
+   2. an art of embedding data into a larger quantity of other data.
+   3. an obsolete method of protecting secret messages.
+   4. synonymous to digital watermarking.
+page 10
+Questions   Kysymyksiä
+
+* Which of the following statements is true?
+   1. Printing on paper is not a serious method to back up data.
+   2. Removable flash memories are suitable as backup media.
+   3. Backups are useless if copies are made only once a week.
+   4. The method of incremental copies in backup means the same as making consecutive full copies.
+* It is important to have an off-site backup copy of files to
+   1. improve accessibility of files from other locations.
+   2. speed up the process of accessing files at any time.
+   3. reduce the possibility of data theft.
+   4. prevent the loss of data in the event of a fire.
+* All of the following may be needed to repair broken integrity, but what is the most concrete concept?
+   1. detection
+   2. policy
+   3. proactivity
+   4. redundancy
+* If you are a EU citizen and your personal data has been unduly disclosed by a service in EU,
+   1. you must still sue the company running the service in order to get any compensation.
+   2. the GDPR stipulates a formula for a compensation the responsible company must pay to you.
+   3. the responsible company may have to pay a fine of millions of euros.
+   4. nobody will be held responsible if the data has been leaked through hacking and the attacker is not caught.
+   
+   page 11
+Questions   Kysymyksiä
+
+* The central meaning of data protection is in protecting
+   1. the secret information of individuals.
+   2. the information that individuals disclose to different data collectors.
+   3. the information companies provide to various data collectors.
+   4. the confidential information of companies.
+* GDPR defines several roles with respect to a person's personal data, but not the role of data
+   1. subject.
+   2. object.
+   3. controller.
+   4. processor.
+* The European Union has enacted General Data Protection Regulation that mainly covers
+   1. the exchange of data between the EU and countries outside the EU.
+   2. the duties of organizations when they handle data from individuals.
+   3. the rules for encrypting and authenticating data when it is communicated between organizations or between individuals and organizations.
+   4. the rights and duties that EU citizens have with respect to their private data.
+* Payment card industry data security standard, PCI-DSS
+   1. is included in GDPR.
+   2. is the equivalent of GDPR in the USA.
+   3. is, as its name says, a standard created by an industry branch.
+   4. is not related to GDPR by purpose or origin.
+page 12
+Questions   Kysymyksiä
+
+* When studying anonymity as a security goal it is natural to define it to have different degrees depending on
+   1. the country where you reside.
+   2. what data should not be disclosed and by whom.
+   3. what data should not be disclosed and to whom.
+   4. the age of the person whose anonymity is in question.
+* Privacy is synonymous to
+   1. secrecy.
+   2. anonymity.
+   3. none of these.
+   4. privilege.
+* Pseudonym is
+   1. a general term that refers to various sorts of aliases in filesystems and databases.
+   2. a part of an impersonation attack.
+   3. a human-readable indirection to a username in an information system.
+   4. an artificial name that replaces the real name of a user.
+page 13
+Questions   Kysymyksiä
+
+* Copyright is originally a property of
+   1. an artefact.
+   2. the creators of an artefact.
+   3. the publisher of an artefact.
+   4. the buyer of an artefact.
+* One purpose of DRM is
+   1. to provide access control to digital media for protection of copyrights.
+   2. to prevent production and distribution of software that can break copy protections of media files.
+   3. to promote equal-opportunity rights to digital contents, in opposition to digital divide.
+   4. to maintain a directory of copyrights and their delegations.
+* What is not a way to protect intellectual property?
+   1. privacy regulations
+   2. DRM, digital rights management
+   3. patents
+   4. licensing
+page 14
+Questions   Kysymyksiä
+
+* When you craft a job application you can include links to your social media postings. What can go wrong, in the sense of information security?
+   1. The recruiter may think you allow him to see what is linked to those postings, for instance with whom you are connected, but such activity is an offense to your privacy.
+   2. The recruiter follows what is linked to those postings, and finds something unfavourable of you.
+   3. The recruiter thinks that by providing links you are trying to hide something on other platforms. His searches indeed find much more information, but he doesn't realize it is about someone else having the same name as you.
+   4. If the other job applicants are not at all active in social media, the recruiter might think that you are not a good choice because you may spend also work time there.
+* Social media is in constant motion and update is a buzzword there. What kind of update, however, is poorly taken care of - if at all?
+   1. Rectifying of fake news or "alternative truths".
+   2. Client side scripts of the platform.
+   3. Software that the platform servers are running.
+   4. Terms and conditions of the platform.
+* Social media is a "lively place" and update is a buzzword there. What kind of update, however, is usually poorly handled?
+   1. Links to sites that have published new pages that correct earlier mistakes in their news.
+   2. Changes in a user's profile or credentials.
+   3. Algorithms and software of the platform.
+   4. Memberships in groups.
+* Who is responsible if you share in social media something that is legal but not true and this causes harm to someone who reads it?
+   1. The reader, who took the post for true.
+   2. You, without conditions.
+   3. You, but only if you created the post yourself or reposted something that was not published for the same reader earlier.
+   4. No one.
+page 15
+Questions   Kysymyksiä
+
+* Ethics is an important topic in information systems,
+   1. and some aspects of it extending to the area of information security include treatment of privacy and IPR.
+   2. and in information security its most vital application is in forecasting attacks by understanding the hackers' ethics.
+   3. but in information security its role is negligible with the exception of hacking aspects.
+   4. but in information security it only occurs in ethical hacking.
+* What is not a topic of ethical considerations?
+   1. Using a foreign VPN to access information that is illegal in your country but legal almost everywhere else.
+   2. Searching for vulnerabilities in a web service by sending broken data packets to it.
+   3. Wasting your own and others' time by writing in social media long explanations of questionable quality.
+   4. Working out ways to block advertisements on web sites that get their income from displaying those ads.
+* If you need to browse the internet anonymously,
+   1. you have no choice but do that on a public machine - in a library for instance.
+   2. the TOR network is an option you can seriously consider.
+   3. you can simply set your browser to the privacy preserving mode.
+   4. you must be cautious because most services for that purpose are against the law, at least in Finland.
+page 16
+Questions   Kysymyksiä
+
+* Assume you have logged in to a web site with your registered username and password. Then you close your browser and switch off the computer. The next day you launch the browser and navigate to the same site. If you get directly logged in without entering any credentials, what can you infer?
+   1. You did not close your browser the first day, after all.
+   2. There is no way to log out from the site.
+   3. Your browser sends your password automatically to the site.
+   4. The site uses a login cookie that persists even if the browser is not running.
+* Assume you buy a USB memory stick that has internal 256-bit AES encryption. The stick has a small keyboard (0..9) where you can choose a passcode of length 8, 9 or 10 key presses for accessing your data. You take the longest code into use, but then an attacker gets hold of our stick. He doesn't try to press the keys, but opens the stick and can enter codes electronically. How many attempts does he have to make in the worst case (his worst, not yours)?
+   1. 10^10
+   2. 10^8+10^9+10^10
+   3. 2^256
+   4. 3*10^10
+* If your personal computer has a firewall, it is typically
+   1. an accessory on the power cord.
+   2. one process among others.
+   3. hardware on the network card.
+   4. an add-on to the browser process.
+* There is a vast variety of things that can be connected to the USB port of a computer. Ignoring problems with electricity, which of the following connections has the least risks in information security?
+   1. Your private memory stick when you read and write document files for long term storage.
+   2. Your own mobile phone when you only charge its battery in a locked box at a local supermarket.
+   3. Charging the new camping shower you just bought from a Chinese web shop. (This is a little pump with a hose.)
+   4. The optical mouse that your IT staff checked for you to bring home from your office for remote work.
+page 17
+Questions   Kysymyksiä
+
+* What control mechanisms can be left out of the risk analysis?
+   1. The types of mechanisms that do not yet exist in the target system.
+   2. Risk analysis does not include the handling of control mechanisms.
+   3. Mechanisms that do not control threats to the system under consideration.
+   4. Those that solve the same problem as the mechanisms already addressed in the analysis.
+* Which of the following does not need to be considered in the risk analysis?
+   1. How much is invested in information security in competing companies.
+   2. Impact of security breaches on the company's reputation or public image.
+   3. How difficult or expensive it would be for an attacker to carry out certain types of threats.
+   4. Company's data resources and their value.
+* Compared to a previous estimate, the overall risk is reduced if
+   1. the probability of the threat associated with a particular risk is set lower in the calculations than it actually is.
+   2. the existence of a control mechanism is ignored in the calculations.
+   3. the value of an asset is marked in the calculations larger than it actually is.
+   4. the value of an asset is found to be smaller than before.
+* Alice has been tasked with implementing several security controls to protect the company's email system. This shows that the company's approach to email risks is
+   1. risk mitigation.
+   2. risk acceptance.
+   3. risk transference.
+   4. risk avoidance.
+page 18
+Questions   Kysymyksiä
+
+* A non-disclosure agreement may have many forms, but its usual purpose is
+   1. to protect the customer's or employee's personal data against too wide usage by the organization.
+   2. to prevent an employee or visitor from revealing sensitive information of an organization.
+   3. to provide a confidentiality classification of information that an organization shares with its members.
+   4. to set rules for encryption for sensitive data of an organization.
+* The basic goal of a public key infrastructure is to
+   1. bind a private key to a corresponding public key.
+   2. bind the public key to the entity to which the key belongs.
+   3. allow for a reasonably short and easy-to-find chain of certificates.
+   4. enable a wide user base by using a hierarchical structure.
+* Assume K is a public key and S is the corresponding private key, and they belong to person B. A certificate for K is generated when
+   1. someone else uses his private key for a signature that binds K and the identity of B.
+   2. using S, a signature is calculated that binds K and S.
+   3. a trusted party creates a digital signature that binds K with S.
+   4. a signature is created which can be verified with S and which binds the identity of B to K.
+page 19
+Questions   Kysymyksiä
+
+* If you need to come up with a question and answer in a web service for the case of forgetting your password, which of the following is most important from the authentication point of view?
+   1. the memorability of the answer
+   2. the entropy of the answer
+   3. the entropy of the question
+   4. the compatibility of the question and the answer
+* If your browser offers you the option to save for future use the password you just entered for some web service, which of the following conditions is most important for you to accept the offer?
+   1. There is nothing valuable behind the password.
+   2. You do not need the password from any other machine.
+   3. The passwords in your browser are protected from others.
+   4. The password is so entropic that you would not be able to remember it.
+* The instructions concerning the use of a password can be condensed into five prohibitions: Do not (i) show, (ii) tell, (iii) save, (iv) allow to age, (v) recycle. In the case of a personal password, you must not bargain on some points, whereas you can do it on others. Which of the following mentions first a prohibition that you must not and then one that you can relax?
+   1. (ii) & (iii)
+   2. (iii) & (iv)
+   3. (i) & (ii)
+   4. (iv) & (v)
+* Which of the following is generally the most dangerous with passwords? The user
+   1. uses the same password in several places.
+   2. selects a password with low entropy.
+   3. never changes his password.
+   4. writes the password on paper.
+* It has been said of the password that it should be treated like your own toothbrush. How many of the following password-related features does this statement represent? (i) Entropy, (ii) usability, (iii) keeping it for personal use only, (iv) changing it often enough.
+   1. none
+   2. two
+   3. all
+   4. oneQuestions   Kysymyksiä
+      * If you need to come up with a question and answer in a web service for the case of forgetting your password, which of the following is most important from the authentication point of view?
+         1. the memorability of the answer
+         2. the entropy of the answer
+         3. the entropy of the question
+         4. the compatibility of the question and the answer
+      * If your browser offers you the option to save for future use the password you just entered for some web service, which of the following conditions is most important for you to accept the offer?
+         1. There is nothing valuable behind the password.
+         2. You do not need the password from any other machine.
+         3. The passwords in your browser are protected from others.
+         4. The password is so entropic that you would not be able to remember it.
+      * The instructions concerning the use of a password can be condensed into five prohibitions: Do not (i) show, (ii) tell, (iii) save, (iv) allow to age, (v) recycle. In the case of a personal password, you must not bargain on some points, whereas you can do it on others. Which of the following mentions first a prohibition that you must not and then one that you can relax?
+         1. (ii) & (iii)
+         2. (iii) & (iv)
+         3. (i) & (ii)
+         4. (iv) & (v)
+      * Which of the following is generally the most dangerous with passwords? The user
+         1. uses the same password in several places.
+         2. selects a password with low entropy.
+         3. never changes his password.
+         4. writes the password on paper.
+      * It has been said of the password that it should be treated like your own toothbrush. How many of the following password-related features does this statement represent? (i) Entropy, (ii) usability, (iii) keeping it for personal use only, (iv) changing it often enough.
+         1. none
+         2. two
+         3. all
+         4. one
+page 20
+Questions   Kysymyksiä
+
+* With the exception of the cookie itself or other cookies, a web browsing cookie cannot break
+   1. the availability of your files, but it may break their confidentiality or integrity.
+   2. the integrity of your files, but it may break their confidentiality.
+   3. either the integrity or confidentiality of your files.
+   4. the confidentiality of your files, but it may break their integrity.
+* In the original and still most common usage, the web browsing cookie is created by the
+   1. browser, which gets it back from the server without changes.
+   2. browser, but the server modifies it and sends back to the browser.
+   3. web server, but the browser modifies it and sends back to the server.
+   4. web server, which gets it back from the browser without changes.
+* The purpose of a web browsing cookie is to transmit to the web server information
+   1. that is the same as the server has earlier transmitted to the browser.
+   2. collected by the browser from other servers.
+   3. about browser security settings.
+   4. collected by the browser from the user.
+page 21
+Questions   Kysymyksiä
+
+* CAPTCHA or "Completely Automated Public Turing test to tell Computers and Humans Apart"
+   1. is a security mechanism that, by definition, cannot be attacked by human force.
+   2. is an example of authentication that does not involve identification.
+   3. cannot be interpreted as authentication.
+   4. is authentication based on either knowledge, ownership, or location.
+* Why would you bother to write your email address in the form of john.doePOISTA@MINUTtuni.fi? ("Poista minut" is Finnish for "Remove me".)
+   1. To avoid spammers harvesting your real address so easily.
+   2. To announce your desire to get away from a mailing list.
+   3. To hide your domain (location) from automatic scanning by authorities.
+   4. To prevent excessive contacts from others than those who know Finnish.
+   
+   
+   page 22
+Questions   Kysymyksiä
+
+* Cryptographic primitives are mainly
+   1. such basic mechanisms, that can be found in all cryptographic algorithms and protocols.
+   2. prime numbers from which keys are formed.
+   3. procedures that a cryptology practitioner can view like indivisible blocks.
+   4. base numbers that generate all other numbers in modular arithmetic.
+* Which of the following is mainly a task that can be performed using a cryptographic protocol?
+   1. Secure storage of an encryption key.
+   2. Converting an email message to ciphertext.
+   3. Generating an encryption key based on good random numbers.
+   4. Agreeing on an encryption key.
+* Investigate the argument: Crypto algorithms are either symmetric encryption algorithms, or asymmetric encryption or signature algorithms. It is
+   1. false because the list lacks algorithms that do not use a key.
+   2. true, because the digital signature that has been introduced alongside the traditional encryption is done with an encryption-like algorithm, which is not symmetric.
+   3. false, but the inclusion of steganography would make the claim true.
+   4. true, because it does not make sense to mention separately decryption or signature verification.
+* Which of the following is not covered by the concept of a cryptographic algorithm?
+   1. message authentication code
+   2. challenge-response method
+   3. hash function
+   4. random number generator
+* An implementation of ____ that contains all the necessary software, protocols, algorithms and keys, is called ______ .
+   1. a cryptosystem, cryptanalysis
+   2. cryptography, a cryptosystem
+   3. cryptanalysis, cryptology
+   4. cryptology, cryptanalysis
+* The term plaintext
+   1. means ASCII-text without any formatting or markup.
+   2. is used for human readable sequences of characters.
+   3. refers to documents that do not contain any executable content like macros.
+   4. is a synonym for cleartext and the concept is used in cryptography.
+* 
+
+page 23
+Questions   Kysymyksiä
+
+* There are two classes of symmetric cryptographic methods, the _____ ciphers process the plaintext a fixed number of bits (e.g. 128) at a time and the _____ ciphers proceed bit by bit.
+   1. chunk, flow
+   2. block, stream
+   3. stop-go, continuous
+   4. packet, flux
+* Encryption is a method for protecting confidentiality of data, and it requires a key, that
+   1. is different for each message or chunk of data.
+   2. has the same length in bits as the data.
+   3. can be sent along the message as such because the communicating parties must have agreed on such parameters for the algorithm that makes it secret.
+   4. can even be computed from a human-memorable password if the data is not to be sent anywhere but protected in local storage.
+* As a result of doubling the length of a symmetric encryption key, the time required for a brute force attack, if originally T, becomes
+   1. 4xT.
+   2. Tk where k > 2.
+   3. at least 2xT, but less than 4xT.
+   4. T2.
+* Stream ciphers are one of the two classes of symmetric cryptographic methods, the other one being
+   1. cryptographic hashing.
+   2. public key cryptography.
+   3. authentication algorithms.
+   4. block algorithms.
+* 
+
+page 24
+Questions   Kysymyksiä
+
+* The most popular symmetric cryptosystem currently is
+   1. AES.
+   2. DES.
+   3. RSA.
+   4. TLS.
+* DES, the Digital Encryption Standard, was for a long time the state-of-the-art method to
+   1. carry out the exchange of cryptographic keys.
+   2. authenticate the owner of the secret encryption key.
+   3. produce confidentiality of communications.
+   4. transform digital images to contain a watermark.
+* What is a one-time pad?
+   1. A cascading network attack type where the intruder uses each compromised computer only once to evade detection.
+   2. A single-use key together with the method of using it to encrypt and decrypt a message.
+   3. A method of generating truly random numbers.
+   4. A tablet computer equipped with spying software used for attacks by "forgetting" it at a place where the victim can find it.
+* AES is a
+   1. stream cipher.
+   2. block cipher.
+   3. a mode of using DES.
+   4. symmetric method for authenticated exchange of secrets.
+* 
+page 25
+Questions   Kysymyksiä
+
+* A public key for ______ is a cryptographic analogue of a physical key available to anyone that can be used to shut a padlock on a box in such a way that it can only be opened with a different key.
+   1. encryption
+   2. decryption
+   3. signature verification
+   4. digital signature
+* A public key for ______ is a cryptographic analogue of a physical key available to anyone that can be used to open a padlock on a box after someone has locked it with a different private key.
+   1. encrypting secret messages
+   2. decrypting secret messages
+   3. verifying signatures
+   4. signing messages
+* Which of the following does not apply?
+   1. If the RSA decryption exponent is d, then the RSA decryption program has to do d-1 modular multiplications.
+   2. The RSA decryption algorithm does not need to know the two prime numbers that make up the modulus n.
+   3. An RSA signature can be made even if you do not know the two prime numbers that make up the public modulus n.
+   4. If you raise a number x smaller than the RSA modulus n to the public RSA exponent (e) and then to the private exponent (d) and only then reduce the result modulo n, you obtain x.
+* Which of the following does not apply?
+   1. If you raise a number x smaller than the RSA modulus n to the private RSA exponent (d) and then to the public exponent (e) and only then reduce the result modulo n, you obtain x.
+   2. The RSA decryption algorithm does not need to know the two prime numbers that make up the modulus n.
+   3. An RSA signature cannot be made unless you know the two prime numbers that make up the public modulus n.
+   4. RSA encryption can be calculated for a larger number than the public modulus, but decryption still produces a smaller number than the modulus.
+* 
+page 26
+Questions   Kysymyksiä
+
+* Which of the following is typical of checksums intended to prevent typing errors in the input of character strings that mainly contain digits?
+   1. They are calculated by summing the digits.
+   2. They are calculated from all the characters.
+   3. They are always placed at the beginning of the original string.
+   4. They contain several characters which are scattered in non-adjacent positions in the orginal string.
+* The cryptographic hash value calculated from a message represents the entire message in the sense that
+   1. it cannot be obtained from any other message.
+   2. it is very unlikely to find any other message with the same hash.
+   3. small changes in the message change the value only slightly.
+   4. a change at any location in the message can be corrected based on the hash.
+* How does a cryptographic hash value protect a message?
+   1. It ensures that the message is not a copy of any previous message.
+   2. The message cannot be interpreted without knowing the hash value.
+   3. The message cannot be changed without breaking the correspondence with the value.
+   4. The message cannot be changed without knowing the hash value.
+* Which of the following does not apply to keyed cryptographic hashes?
+   1. They can be used to authenticate a message.
+   2. They are also called Cyclic Redundancy Checks.
+   3. Keyless hash functions such as SHA-1 can be used to calculate them.
+   4. They must be well over 24 bits long.
+* Assume H is a good cryptographic hash function. How many bit strings m of length 100 are there approximately that give an H(m) that starts with 40 zeros?
+   1. most likely none
+   2. 225
+   3. 240
+   4. 260
+* Assume H is a good cryptographic hash function. How many bit strings m of length 40 are there approximately that give an H(m) that starts with 100 zeros?
+   1. most likely none
+   2. 225
+   3. 240
+   4. 260
+* 
+
+page 27
+Questions   Kysymyksiä
+
+* IPsec
+   1. provides mechanisms for authentication and encryption.
+   2. only authenticates clients toward a server.
+   3. can only be deployed with IPv6.
+   4. provides mechanisms for nonrepudiation.
+* What does key exchange mean in the sentence: "Key exchange is one of the most important cryptographic protocols."?
+   1. A public key is revoked and replaced by a new one which is authenticated.
+   2. The parties authenticate their public keys to each other.
+   3. An old symmetric key is being updated.
+   4. A symmetric key is agreed upon.
+* The protocol and program of choice for setting up a window for command line use of a remote computer is called
+   1. TLS.
+   2. SSH.
+   3. PGP.
+   4. IMAP.
+* TLS is a very common cryptographic protocol. The T in its name comes from the word
+   1. trusted.
+   2. transmission.
+   3. transport.
+   4. total.
+page 28
+Questions   Kysymyksiä
+
+* What is true about fires?
+   1. The risk of fire is the foremost reason why backups must be made.
+   2. Fire detection and suppression must be taken care of by the ordinary facilities management and there are no special demands from the information technology point of view.
+   3. It is not so much the computers that catch fire, but the batteries and their charging are causing risks especially in mobile devices.
+   4. The increase in processing power of computers and in their memory sizes has come with the elevated risk of overheating and fire.
+* The digital cash bits on a smart card cannot be extracted from the card and copied for reuse. Only one of the following is a reasonable, though partial, explanation. Which?
+   1. During the payment transaction a cryptographically protected label is attached to them indicating that they have been used.
+   2. The card's file system is randomized.
+   3. All cards are manufactured to be different in such a way that the bits copied from one to another would not work the same way.
+   4. The card's processor only transacts with processors of the right kind and even then spending happens inside the card.
+* 
+page 29
+Questions   Kysymyksiä
+
+* A demilitarized zone, DMZ, means a part of an organization's network that
+   1. resides between two filtering devices.
+   2. has no workstations.
+   3. does not contain any facilities for virus-scanning, intrusion detection or logging.
+   4. has no servers.
+* Which of the following should mainly be able to filter packets like a dedicated firewall machine does?
+   1. modem
+   2. switch
+   3. router
+   4. repeater
+* Which of the following can a packet filter do: (i) anti-virus, (ii) delete oversized email attachments, (iii) encrypt or decrypt?
+   1. none of these
+   2. only (iii)
+   3. only (i) and (ii)
+   4. only (ii) and (iii)
+* How does a packet filter react to TCP and UDP port numbers?
+   1. It doesn't take them into account.
+   2. It rejects the packet if either number is invalid.
+   3. It returns the packet if either number is invalid.
+   4. It passes through the packet if and only if those numbers are equal.
+* The tasks of a packet filter may include
+   1. user authentication.
+   2. anti-virus.
+   3. spam filtering.
+   4. writing logs.
+* 
+page 30
+Questions   Kysymyksiä
+
+* One possible action of IPsec is to add to each data packet a field with
+   1. a signature calculated from the packet with the sender's key.
+   2. the sender's public key and its certificate.
+   3. a certificate calculated from header fields of the packet.
+   4. a hash calculated from the packet and a symmetric key.
+* IPsec encrypts data packets on a protocol layer that is
+   1. the same as TLS.
+   2. in some functions the same, in some lower than in TLS.
+   3. lower than in TLS.
+   4. higher than in TLS.
+* If a remote user's machine fails to authenticate the target machine, it may be a wrong one and all of the following are potential threats. Which one is the most serious? The target machine can
+   1. give the user's authentication information to an attacker.
+   2. be a bot network server.
+   3. send malware to the user's machine.
+   4. target the user with a DoS attack.
+* Because TLS works below the application layer, it
+   1. does not know what kind of data it protects.
+   2. is unable to protect a password entered in the browser as it travels to the server.
+   3. can connect applications on several servers to protect a complex business transaction for the client.
+   4. cannot establish an encrypted connection between two applications.
+* Which of the following is more important in a VPN that must meet the security needs of the network connection for a remote worker?
+   1. virtuality
+   2. encryption
+   3. transparent functionality of the network
+   4. tunneling, and hiding the endpoints
+* 
+page 31
+Questions   Kysymyksiä
+
+* In the cell phone system the network authenticates the phone or actually the SIM card in it. What mechanism is in place here?
+   1. One-time password
+   2. Challenge-response method, with a symmetric key system.
+   3. Fixed password
+   4. Challenge-response method that applies a public key system.
+* The mobile phone systems 2G, 3G, 4G, ... authenticate the subscriber
+   1. with a PKI based protocol.
+   2. by using an authenticated Diffie-Hellman key exchange.
+   3. by encrypting and transmitting a shared secret from the SIM card to the network.
+   4. by applying a cryptographic hash function to a shared secret
+* What is the relation between WiFi, WLAN, VLAN and WPA?
+   1. WPA is the protection method for a WLAN, which uses the WiFi protocol, and can be one of the VLANs in an organization's network.
+   2. WPA is an advanced version of WiFi, which is one type of WLAN. VLAN is not at all related to the others.
+   3. WLAN is a wireless version of a VLAN, which is an implementation of the WiFi protocol, and any VLAN can be protected by WPA.
+   4. WiFi is the protection method for a WLAN, which is a form of a VLAN. WPA is not related to the others.
+* WPA is a cryptographic protocol for protecting wireless communications. Which of the following: (i) NFC, (ii) ZigBee, (iii) Bluetooth, (iv) WiFi?
+   1. (i) - (iv)
+   2. (iv)
+   3. (iii)
+   4. (ii) - (iv)
+* 
+page 32
+Questions   Kysymyksiä
+
+* What is not used as a term for the act of a computer system making a new entry to the log file of active users?
+   1. log in
+   2. pass in
+   3. sign in
+   4. log on
+* Login is an exceptional program in the sense that
+   1. its actions are completely reversible, by virtue of the logout program.
+   2. it need not know whether it is launched by a legitimate user or an attacker.
+   3. it cannot complete without a human user acting in person.
+   4. it can be run, "retried", over and over again without any change in the system.
+* Regardless of which programs you are running on your computer the most essential protections for your computing is provided by
+   1. the memory resident malware scanner.
+   2. the operating system.
+   3. those device drivers that are running at any moment.
+   4. all filtering programs that are run by the operating system, the firewall at a minimum.
+* Sandboxing is a security mechanism, where
+   1. new untrusted software is run in a disconnected test system to check it for malicious behaviour.
+   2. untrusted code, which is not signed, is continuously restricted from accessing system resources.
+   3. a new version of software is tested by scrutinizing all memory accesses it does that the earlier version did not do.
+   4. a new version of software is installed into a production system but is kept from doing anything that the earlier version did not do.
+* Single sign-on
+   1. can provide access to multiple resources, but it is only valid for a limited session or duration.
+   2. is an insecure mechanism because it confuses the granting of access rights with the authentication phase.
+   3. provides access to any one resource for a single use.
+   4. is an unnecessary mechanism because one-time authentication can be handled already at the authorization stage.
+* Single sign-on is characterized by the fact that
+   1. the user has a different ID for different services, even though the password he or she must remember for them is the same.
+   2. there is no need to store log information about the use and operation of the services elsewhere than in a centralized login service.
+   3. the password a user must remember is different for different services, even if the username for each is the same.
+   4. security is improved compared to a user having the same password for multiple services.
+* 
+page 33
+Questions   Kysymyksiä
+
+* A database is an organized collection of data. The organization usually means delicate dependencies between parts of that collection, and this is a main reason for specific security requirements for databases. More than the other options, such requirements concern
+   1. your Google search results.
+   2. the data that your (future) employer has about its employees.
+   3. the photo album on your phone.
+   4. your medical records, that you collect in a folder of papers.
+* Why do you sometimes need to write zeros and ones over and over again on a file on disk?
+   1. So that the magnetic field is reset enough and the new data written in the same place is better kept intact.
+   2. To ensure that the code of any computer virus is erased from the disk.
+   3. So that the deterioration of the magnetic field over time does not affect the integrity of the data stored on the disk.
+   4. So that the earlier contents of the file could not be read at all.
+* Password salt is
+   1. the small variation allowed in password systems that use very long passphrases.
+   2. the method to make fixed passwords variable by requiring to insert time dependent punctuations.
+   3. the secret constant that a password checking procedure uses as an input together with the password.
+   4. the random number stored without encryption together with each hashed password.
+   
