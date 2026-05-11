@@ -1,4 +1,4 @@
-# Cyber Security 1 — Exam 1 Study Guide
+# Cyber Security 1 - Exam 1 Study Guide
 
 ---
 
@@ -6,7 +6,7 @@
 
 ---
 
-## Exam 1 — Key Facts
+## Exam 1 - Key Facts
 
 | Item | Detail |
 |------|--------|
@@ -18,7 +18,7 @@
 | Uncertain checkbox | Halves both reward AND penalty |
 | Location | Room A203d, 2nd floor, Päätalo |
 
-> **Strategy:** If you are confident — answer normally. If unsure between two — tick Uncertain and guess. If completely clueless — leave empty.
+> **Strategy:** If you are confident - answer normally. If unsure between two - tick Uncertain and guess. If completely clueless - leave empty.
 
 ---
 
@@ -177,7 +177,7 @@
 - [ ] 3. They cannot be held liable because they are minors.
 - [ ] 4. Youth and incompetence, which is why their attacks are not very dangerous.
 
-> **Explanation:** Script kiddies use the same ready-made tools so attacks are recognizable and blockable. Option 4 wrong — automated scripts can still cause serious damage.
+> **Explanation:** Script kiddies use the same ready-made tools so attacks are recognizable and blockable. Option 4 wrong - automated scripts can still cause serious damage.
 
 ### Q2: Attackers that are called script kiddies are characterized by
 
@@ -204,7 +204,7 @@
 - [ ] 3. 2
 - [ ] 4. 1
 
-> **Explanation:** Ransomware is a direct computing risk. Spam, hoax, meme virus, Nigerian letter and troll are NOT direct computing risks — the course counts 4 as NOT direct risks.
+> **Explanation:** Ransomware is a direct computing risk. Spam, hoax, meme virus, Nigerian letter and troll are NOT direct computing risks - the course counts 4 as NOT direct risks.
 
 ### Q5: All of the following attacks have some social aspect, but which description gives the best coverage for the concept of social engineering?
 
@@ -346,7 +346,7 @@
 - [x] **3. a vulnerability in software not yet exploited but found and kept secret by a malicious party.** ✅
 - [ ] 4. an attack where a user of a limited-time-free trial version of software can keep his computer on the same day for an unlimited length of time.
 
-> **Explanation:** A zero-day vulnerability is unknown to the software vendor — they have had zero days to fix it.
+> **Explanation:** A zero-day vulnerability is unknown to the software vendor - they have had zero days to fix it.
 
 ---
 
@@ -421,7 +421,7 @@
 - [ ] 3. 2
 - [x] **4. 3** ✅
 
-> **Explanation:** Fire, flood and unauthorized transaction are excluded — 3 items. Fire and flood are physical disasters. Unauthorized transaction is an integrity issue.
+> **Explanation:** Fire, flood and unauthorized transaction are excluded - 3 items. Fire and flood are physical disasters. Unauthorized transaction is an integrity issue.
 
 ### Q4: Which of the following couplings best defines risk?
 
@@ -641,7 +641,7 @@
 - [ ] 3. Backups are useless if copies are made only once a week.
 - [ ] 4. The method of incremental copies in backup means the same as making consecutive full copies.
 
-> **Explanation:** Flash drives are valid backup media. Option 1 wrong — printing IS valid. Option 4 wrong — incremental only copies changes since last backup.
+> **Explanation:** Flash drives are valid backup media. Option 1 wrong - printing IS valid. Option 4 wrong - incremental only copies changes since last backup.
 
 ### Q2: It is important to have an off-site backup copy of files to
 
@@ -659,7 +659,7 @@
 - [ ] 3. proactivity
 - [x] **4. redundancy** ✅
 
-> **Explanation:** Redundancy is the most concrete concept — having extra copies or checksums allows detection and restoration of corrupted data.
+> **Explanation:** Redundancy is the most concrete concept - having extra copies or checksums allows detection and restoration of corrupted data.
 
 ### Q4: If you are a EU citizen and your personal data has been unduly disclosed by a service in EU,
 
@@ -706,7 +706,7 @@
 - [ ] 3. the rules for encrypting and authenticating data when it is communicated between organizations or between individuals and organizations.
 - [ ] 4. the rights and duties that EU citizens have with respect to their private data.
 
-> **Explanation:** GDPR primarily places obligations on organizations. Option 1 wrong — not just cross-border. Option 3 wrong — not about encryption standards.
+> **Explanation:** GDPR primarily places obligations on organizations. Option 1 wrong - not just cross-border. Option 3 wrong - not about encryption standards.
 
 ### Q4: Payment card industry data security standard, PCI-DSS
 
@@ -734,7 +734,7 @@
 - [x] **3. what data should not be disclosed and to whom.** ✅
 - [ ] 4. the age of the person whose anonymity is in question.
 
-> **Explanation:** Anonymity depends on WHAT should be hidden AND TO WHOM. Note: TO WHOM not BY WHOM — this is a common exam trap.
+> **Explanation:** Anonymity depends on WHAT should be hidden AND TO WHOM. Note: TO WHOM not BY WHOM - this is a common exam trap.
 
 ### Q2: Privacy is synonymous to
 
@@ -809,7 +809,7 @@
 - [ ] 3. The recruiter thinks that by providing links you are trying to hide something on other platforms. His searches indeed find much more information, but he doesn't realize it is about someone else having the same name as you.
 - [ ] 4. If the other job applicants are not at all active in social media, the recruiter might think that you are not a good choice because you may spend also work time there.
 
-> **Explanation:** Your social media may contain posts or connections that create a negative impression. Option 1 wrong — following public links is not a privacy offense.
+> **Explanation:** Your social media may contain posts or connections that create a negative impression. Option 1 wrong - following public links is not a privacy offense.
 
 ### Q2: Social media is in constant motion and update is a buzzword there. What kind of update, however, is poorly taken care of - if at all?
 
@@ -873,7 +873,7 @@
 - [ ] 3. you can simply set your browser to the privacy preserving mode.
 - [ ] 4. you must be cautious because most services for that purpose are against the law, at least in Finland.
 
-> **Explanation:** TOR is a legitimate and legal tool for anonymous browsing. Option 3 wrong — private mode only prevents local browser history. Option 4 wrong — TOR and VPNs are legal in Finland.
+> **Explanation:** TOR is a legitimate and legal tool for anonymous browsing. Option 3 wrong - private mode only prevents local browser history. Option 4 wrong - TOR and VPNs are legal in Finland.
 
 ---
 
@@ -902,7 +902,7 @@
 - [ ] 3. 2^256
 - [ ] 4. 3*10^10
 
-> **Explanation:** You chose the 10-digit code. Attacker tries all 10-digit combinations: 10^10. Option 2 wrong — attacker only tries the length you chose. Option 3 wrong — attacker attacks the passcode not the AES key.
+> **Explanation:** You chose the 10-digit code. Attacker tries all 10-digit combinations: 10^10. Option 2 wrong - attacker only tries the length you chose. Option 3 wrong - attacker attacks the passcode not the AES key.
 
 ### Q3: If your personal computer has a firewall, it is typically
 
@@ -1025,7 +1025,7 @@
 - [ ] 3. the entropy of the question
 - [ ] 4. the compatibility of the question and the answer
 
-> **Explanation:** From an authentication perspective the answer must be unpredictable — high entropy means hard to guess.
+> **Explanation:** From an authentication perspective the answer must be unpredictable - high entropy means hard to guess.
 
 ### Q2: If your browser offers you the option to save for future use the password you just entered for some web service, which of the following conditions is most important for you to accept the offer?
 
@@ -1052,7 +1052,7 @@
 - [ ] 3. never changes his password.
 - [ ] 4. writes the password on paper.
 
-> **Explanation:** Password reuse is most dangerous — one breach compromises ALL accounts sharing that password.
+> **Explanation:** Password reuse is most dangerous - one breach compromises ALL accounts sharing that password.
 
 ### Q5: It has been said of the password that it should be treated like your own toothbrush. How many of the following password-related features does this statement represent? (i) Entropy, (ii) usability, (iii) keeping it for personal use only, (iv) changing it often enough.
 
@@ -1098,7 +1098,7 @@
 - [ ] 3. about browser security settings.
 - [ ] 4. collected by the browser from the user.
 
-> **Explanation:** The cookie sends back the same information the server originally sent — this is how the server maintains session state.
+> **Explanation:** The cookie sends back the same information the server originally sent - this is how the server maintains session state.
 
 ---
 
@@ -1116,7 +1116,7 @@
 - [ ] 3. cannot be interpreted as authentication.
 - [ ] 4. is authentication based on either knowledge, ownership, or location.
 
-> **Explanation:** CAPTCHA proves you are human without knowing WHO you are — no identification involved. Option 1 wrong — CAPTCHAs can be attacked by human farms and AI.
+> **Explanation:** CAPTCHA proves you are human without knowing WHO you are - no identification involved. Option 1 wrong - CAPTCHAs can be attacked by human farms and AI.
 
 ### Q2: Why would you bother to write your email address in the form of john.doePOISTA@MINUTtuni.fi? ("Poista minut" is Finnish for "Remove me".)
 
@@ -1174,7 +1174,7 @@
 - [ ] 3. hash function
 - [ ] 4. random number generator
 
-> **Explanation:** Challenge-response is a PROTOCOL not an algorithm — it involves multiple steps and parties exchanging messages.
+> **Explanation:** Challenge-response is a PROTOCOL not an algorithm - it involves multiple steps and parties exchanging messages.
 
 ### Q5: An implementation of ____ that contains all the necessary software, protocols, algorithms and keys, is called ______ .
 
@@ -1192,7 +1192,7 @@
 - [ ] 3. refers to documents that do not contain any executable content like macros.
 - [x] **4. is a synonym for cleartext and the concept is used in cryptography.** ✅
 
-> **Explanation:** Plaintext means unencrypted data — does not need to be human-readable or ASCII. It is the data BEFORE encryption.
+> **Explanation:** Plaintext means unencrypted data - does not need to be human-readable or ASCII. It is the data BEFORE encryption.
 
 ---
 
@@ -1221,7 +1221,7 @@
 - [ ] 3. can be sent along the message as such because the communicating parties must have agreed on such parameters for the algorithm that makes it secret.
 - [x] **4. can even be computed from a human-memorable password if the data is not to be sent anywhere but protected in local storage.** ✅
 
-> **Explanation:** This describes password-based encryption using key derivation functions. Option 3 wrong — sending the key with the message defeats encryption.
+> **Explanation:** This describes password-based encryption using key derivation functions. Option 3 wrong - sending the key with the message defeats encryption.
 
 ### Q3: As a result of doubling the length of a symmetric encryption key, the time required for a brute force attack, if originally T, becomes
 
@@ -1277,7 +1277,7 @@
 - [ ] 3. A method of generating truly random numbers.
 - [ ] 4. A tablet computer equipped with spying software used for attacks by forgetting it at a place where the victim can find it.
 
-> **Explanation:** A one-time pad is theoretically unbreakable — truly random key, at least as long as the message, used only ONCE. Provides perfect secrecy.
+> **Explanation:** A one-time pad is theoretically unbreakable - truly random key, at least as long as the message, used only ONCE. Provides perfect secrecy.
 
 ### Q4: AES is a
 
@@ -1333,7 +1333,7 @@
 - [x] **3. An RSA signature cannot be made unless you know the two prime numbers that make up the public modulus n.** ✅
 - [ ] 4. RSA encryption can be calculated for a larger number than the public modulus, but decryption still produces a smaller number than the modulus.
 
-> **Explanation:** FALSE. RSA signing only requires private exponent d and modulus n — NOT the prime factors p and q.
+> **Explanation:** FALSE. RSA signing only requires private exponent d and modulus n - NOT the prime factors p and q.
 
 ---
 
@@ -1364,7 +1364,7 @@
 - [ ] 3. small changes in the message change the value only slightly.
 - [ ] 4. a change at any location in the message can be corrected based on the hash.
 
-> **Explanation:** This describes collision resistance. Option 3 is opposite — avalanche effect means LARGE hash changes from small message changes.
+> **Explanation:** This describes collision resistance. Option 3 is opposite - avalanche effect means LARGE hash changes from small message changes.
 
 ### Q3: How does a cryptographic hash value protect a message?
 
@@ -1382,7 +1382,7 @@
 - [ ] 3. Keyless hash functions such as SHA-1 can be used to calculate them.
 - [ ] 4. They must be well over 24 bits long.
 
-> **Explanation:** CRCs are non-cryptographic error detection checksums — completely different from keyed cryptographic hashes (MACs).
+> **Explanation:** CRCs are non-cryptographic error detection checksums - completely different from keyed cryptographic hashes (MACs).
 
 ### Q5: Assume H is a good cryptographic hash function. How many bit strings m of length 100 are there approximately that give an H(m) that starts with 40 zeros?
 
@@ -1474,7 +1474,7 @@
 - [ ] 3. All cards are manufactured to be different in such a way that the bits copied from one to another would not work the same way.
 - [x] **4. The card's processor only transacts with processors of the right kind and even then spending happens inside the card.** ✅
 
-> **Explanation:** Smart cards have a secure processor — operations happen inside the tamper-resistant chip and bits never leave the card in a usable form.
+> **Explanation:** Smart cards have a secure processor - operations happen inside the tamper-resistant chip and bits never leave the card in a usable form.
 
 ---
 
@@ -1495,7 +1495,7 @@
 - [ ] 3. does not contain any facilities for virus-scanning, intrusion detection or logging.
 - [ ] 4. has no servers.
 
-> **Explanation:** A DMZ sits between two firewalls — one facing the internet and one facing the internal network. It hosts public-facing servers.
+> **Explanation:** A DMZ sits between two firewalls - one facing the internet and one facing the internal network. It hosts public-facing servers.
 
 ### Q2: Which of the following should mainly be able to filter packets like a dedicated firewall machine does?
 
@@ -1522,7 +1522,7 @@
 - [ ] 3. It returns the packet if either number is invalid.
 - [ ] 4. It passes through the packet if and only if those numbers are equal.
 
-> **Explanation:** A packet filter rejects packets if either port number is invalid per its rules. Option 1 wrong — packet filters definitely use port numbers.
+> **Explanation:** A packet filter rejects packets if either port number is invalid per its rules. Option 1 wrong - packet filters definitely use port numbers.
 
 ### Q5: The tasks of a packet filter may include
 
@@ -1552,7 +1552,7 @@
 - [ ] 3. a certificate calculated from header fields of the packet.
 - [x] **4. a hash calculated from the packet and a symmetric key.** ✅
 
-> **Explanation:** IPsec Authentication Header adds an HMAC — a hash from packet contents using a shared symmetric key. Provides integrity and authentication.
+> **Explanation:** IPsec Authentication Header adds an HMAC - a hash from packet contents using a shared symmetric key. Provides integrity and authentication.
 
 ### Q2: IPsec encrypts data packets on a protocol layer that is
 
@@ -1570,7 +1570,7 @@
 - [ ] 3. send malware to the user's machine.
 - [ ] 4. target the user with a DoS attack.
 
-> **Explanation:** If the user connects to a fake server and enters credentials, the attacker captures them — compromising all services using those credentials.
+> **Explanation:** If the user connects to a fake server and enters credentials, the attacker captures them - compromising all services using those credentials.
 
 ### Q4: Because TLS works below the application layer, it
 
@@ -1588,7 +1588,7 @@
 - [ ] 3. transparent functionality of the network
 - [ ] 4. tunneling, and hiding the endpoints
 
-> **Explanation:** Encryption is the fundamental security requirement — protecting data as it travels over the public internet.
+> **Explanation:** Encryption is the fundamental security requirement - protecting data as it travels over the public internet.
 
 ---
 
@@ -1666,7 +1666,7 @@
 - [ ] 3. it cannot complete without a human user acting in person.
 - [ ] 4. it can be run, "retried", over and over again without any change in the system.
 
-> **Explanation:** Login must handle authentication requests from anyone — it cannot pre-screen. Failed logins can trigger lockouts.
+> **Explanation:** Login must handle authentication requests from anyone - it cannot pre-screen. Failed logins can trigger lockouts.
 
 ### Q3: Regardless of which programs you are running on your computer the most essential protections for your computing is provided by
 
@@ -1675,7 +1675,7 @@
 - [ ] 3. those device drivers that are running at any moment.
 - [ ] 4. all filtering programs that are run by the operating system, the firewall at a minimum.
 
-> **Explanation:** The operating system is the foundation of all security — controls hardware access, manages memory isolation, enforces permissions.
+> **Explanation:** The operating system is the foundation of all security - controls hardware access, manages memory isolation, enforces permissions.
 
 ### Q4: Sandboxing is a security mechanism, where
 
@@ -1730,7 +1730,7 @@
 - [ ] 3. So that the deterioration of the magnetic field over time does not affect the integrity of the data stored on the disk.
 - [x] **4. So that the earlier contents of the file could not be read at all.** ✅
 
-> **Explanation:** Overwriting multiple times is secure deletion. Magnetic storage retains traces even after deletion — multiple overwrites make recovery extremely difficult.
+> **Explanation:** Overwriting multiple times is secure deletion. Magnetic storage retains traces even after deletion - multiple overwrites make recovery extremely difficult.
 
 ### Q3: Password salt is
 
@@ -1753,15 +1753,15 @@
 | Toothbrush analogy | How many features? | **2** (personal use + change often) |
 | Password prohibitions | Must NOT then CAN relax | **(ii) tell** must not, **(iii) save** can relax |
 | USB worst case attempts | 10-digit passcode | **10^10** (not 2^256, not all lengths) |
-| CAPTCHA | Is it authentication? | Yes — but **without identification** |
-| RSA signing | Needs prime factors? | **No** — only needs d and n |
+| CAPTCHA | Is it authentication? | Yes - but **without identification** |
+| RSA signing | Needs prime factors? | **No** - only needs d and n |
 | Doubling key length | Time T becomes? | **T squared** (not 2T or 4T) |
 | Hash 100-bit strings 40 zeros | Expected count | **2^60** |
 | Hash 40-bit strings 100 zeros | Expected count | **Most likely none** |
 | Cookie creator | Who creates it? | **Web server** (gets it back unchanged) |
 | Login exceptional | Why? | Does not need to know if user is legitimate or attacker |
-| Pass in | Login term? | **NOT a standard term** — log in/on/sign in are |
+| Pass in | Login term? | **NOT a standard term** - log in/on/sign in are |
 
 ---
 
-*Cyber Security 1 — Comp.Sec.100-02 | Tampere University | All 33 Maso Pages | 141 Questions*
+*Cyber Security 1 - Comp.Sec.100-02 | Tampere University | All 33 Maso Pages | 141 Questions*

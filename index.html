@@ -111,7 +111,7 @@ body {
 .search-bar {
   background: #fff;
   border-bottom: 1px solid var(--gray-200);
-  padding: .9rem 1.5rem;
+  padding: .75rem 1rem;
   position: sticky;
   top: 0;
   z-index: 200;
@@ -121,8 +121,16 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  gap: .75rem;
+  flex-wrap: wrap;
+  gap: .5rem;
   align-items: center;
+}
+@media(max-width:600px) {
+  .search-inner { gap: .4rem; }
+  .search-wrap { order: 2; flex: 1 1 100%; }
+  .mobile-toc-btn { order: 1; flex-shrink: 0; }
+  .reveal-all-btn { order: 3; flex: 1; justify-content: center; }
+  #searchCount { order: 4; flex: 1 1 100%; text-align: center; font-size: .78rem; }
 }
 .search-wrap {
   position: relative;
@@ -154,9 +162,10 @@ body {
   font-size: .82rem;
   color: var(--gray-500);
   white-space: nowrap;
+  flex-shrink: 0;
 }
 .reveal-all-btn {
-  padding: .55rem 1rem;
+  padding: .55rem .9rem;
   background: var(--primary);
   color: #fff;
   border: none;
@@ -166,6 +175,7 @@ body {
   cursor: pointer;
   white-space: nowrap;
   transition: background .2s, transform .1s;
+  flex-shrink: 0;
 }
 .reveal-all-btn:hover { background: var(--primary-dark); }
 .reveal-all-btn:active { transform: scale(.97); }
