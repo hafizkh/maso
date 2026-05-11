@@ -127,10 +127,8 @@
 - **✅ 1. 4**
 - 2. 3
 - 3. 2
-- 4. 1
-
-> 💡 **Explanation:** Ransomware is a direct computing risk. Hoax, meme virus, Nigerian letter and troll are NOT direct computing risks. That gives 4 entities.
-
+- 4.
+> 💡 **Explanation:** Ransomware and Spam, both of them are direct computing risk. Hoax, meme virus, Nigerian letter and troll are NOT direct computing risks. That gives 4 eRansomware and Spam, both of them are
 ### Q5: All of the following attacks have some social aspect, but which description gives the best coverage for the concept of social engineering?
 
 - 1. Soliciting sensitive personal or organizational information by persuasive or masquerading emails.
