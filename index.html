@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cyber Security 1 - Exam 1 Study Guide</title>
+<title>Cyber Security 1 — Exam 1 Study Guide</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -181,6 +181,113 @@ body {
   align-items: start;
 }
 @media(max-width:900px) { .layout { grid-template-columns: 1fr; } .sidebar { display: none; } }
+
+/* ── MOBILE NAV BUTTON ── */
+.mobile-toc-btn {
+  display: none;
+  align-items: center;
+  gap: .5rem;
+  padding: .55rem 1rem;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: .82rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  font-family: inherit;
+  transition: background .2s;
+}
+.mobile-toc-btn:hover { background: var(--primary-dark); }
+.mobile-toc-btn svg { width: 16px; height: 16px; }
+@media(max-width:900px) { .mobile-toc-btn { display: flex; } }
+
+/* ── MOBILE DRAWER ── */
+.drawer-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.5);
+  z-index: 400;
+  opacity: 0;
+  transition: opacity .25s;
+}
+.drawer-overlay.open { display: block; opacity: 1; }
+.drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 300px;
+  max-width: 85vw;
+  background: #fff;
+  z-index: 500;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(-100%);
+  transition: transform .28s cubic-bezier(.4,0,.2,1);
+  box-shadow: var(--shadow-lg);
+}
+.drawer.open { transform: translateX(0); }
+.drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.2rem;
+  background: linear-gradient(135deg, #1E3A5F, #2563EB);
+  color: #fff;
+  flex-shrink: 0;
+}
+.drawer-header span { font-weight: 700; font-size: .95rem; }
+.drawer-close {
+  background: rgba(255,255,255,.15);
+  border: none;
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background .2s;
+}
+.drawer-close:hover { background: rgba(255,255,255,.3); }
+.drawer-body {
+  overflow-y: auto;
+  flex: 1;
+  padding: .5rem 0;
+}
+.drawer-body::-webkit-scrollbar { width: 4px; }
+.drawer-body::-webkit-scrollbar-thumb { background: var(--gray-300); border-radius: 2px; }
+.drawer-toc-link {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  padding: .65rem 1.2rem;
+  text-decoration: none;
+  color: var(--gray-700);
+  font-size: .88rem;
+  border-left: 3px solid transparent;
+  transition: all .15s;
+}
+.drawer-toc-link:hover { background: var(--primary-light); color: var(--primary); border-left-color: var(--primary); }
+.drawer-toc-num {
+  background: var(--gray-100);
+  color: var(--gray-500);
+  border-radius: 5px;
+  min-width: 26px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .72rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.drawer-toc-title { flex: 1; line-height: 1.3; }
 
 /* ── SIDEBAR ── */
 .sidebar {
@@ -455,9 +562,9 @@ footer {
   <div class="header-inner">
     <div class="header-tag">
       <svg viewBox="0 0 20 20" fill="currentColor" style="width:13px;height:13px"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-      Tampere University - COMP.SEC.100
+      Tampere University — COMP.SEC.100
     </div>
-    <h1>Cyber Security 1 - Exam 1 Study Guide</h1>
+    <h1>Cyber Security 1 — Exam 1 Study Guide</h1>
     <p>Complete coverage of all 33 Maso pages with exact question wording</p>
     <div class="stats-bar">
       <div class="stat-pill">
@@ -482,6 +589,10 @@ footer {
 
 <div class="search-bar">
   <div class="search-inner">
+    <button class="mobile-toc-btn" onclick="openDrawer()" aria-label="Open contents">
+      <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/></svg>
+      Contents
+    </button>
     <div class="search-wrap">
       <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/></svg>
       <input type="text" id="searchInput" placeholder="Search questions, answers or concepts..." oninput="doSearch(this.value)">
@@ -534,7 +645,7 @@ footer {
     <div class="exam-banner">
       <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
       <div>
-        <strong>Exam Format - Read before studying</strong>
+        <strong>Exam Format — Read before studying</strong>
         <p>32 MCQ questions &nbsp;|&nbsp; Pass: 22/32 &nbsp;|&nbsp; Time: 55 minutes &nbsp;|&nbsp; Wrong answer: &minus;1/3 point &nbsp;|&nbsp; Uncertain checkbox: halves both reward and penalty &nbsp;|&nbsp; Empty answer: 0 points (no penalty)</p>
       </div>
     </div>
@@ -721,7 +832,7 @@ footer {
       </ul>
       <div class="explanation hidden" id="exp-p2q1">
         <svg class="exp-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
-        <p>Script kiddies use the same ready-made tools so attacks are recognizable and blockable. Option 4 wrong - automated scripts can still cause serious damage.</p>
+        <p>Script kiddies use the same ready-made tools so attacks are recognizable and blockable. Option 4 wrong — automated scripts can still cause serious damage.</p>
       </div>
       <button class="reveal-btn" onclick="toggleCard('p2q1')">
         <span class="btn-text">Show Answer</span>
@@ -777,7 +888,7 @@ footer {
       </ul>
       <div class="explanation hidden" id="exp-p2q3">
         <svg class="exp-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
-        <p>Identity theft is the malicious use of someone else&#x27;s identifying data. Option 3 wrong - it can happen without financial loss. Option 4 wrong - it requires malicious intent.</p>
+        <p>Identity theft is the malicious use of someone else&#x27;s identifying data. Option 3 wrong — it can happen without financial loss. Option 4 wrong — it requires malicious intent.</p>
       </div>
       <button class="reveal-btn" onclick="toggleCard('p2q3')">
         <span class="btn-text">Show Answer</span>
@@ -805,7 +916,7 @@ footer {
       </ul>
       <div class="explanation hidden" id="exp-p2q4">
         <svg class="exp-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
-        <p>Ransomware is a direct computing risk. Spam, hoax, meme virus, Nigerian letter and troll are NOT direct computing risks - but spam is borderline. The course counts 4 as NOT direct risks.</p>
+        <p>Ransomware is a direct computing risk. Spam, hoax, meme virus, Nigerian letter and troll are NOT direct computing risks — but spam is borderline. The course counts 4 as NOT direct risks.</p>
       </div>
       <button class="reveal-btn" onclick="toggleCard('p2q4')">
         <span class="btn-text">Show Answer</span>
@@ -1185,7 +1296,7 @@ footer {
       </ul>
       <div class="explanation hidden" id="exp-p4q6">
         <svg class="exp-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
-        <p>A zero-day vulnerability is unknown to the software vendor - they have had zero days to fix it.</p>
+        <p>A zero-day vulnerability is unknown to the software vendor — they have had zero days to fix it.</p>
       </div>
       <button class="reveal-btn" onclick="toggleCard('p4q6')">
         <span class="btn-text">Show Answer</span>
@@ -1369,7 +1480,7 @@ footer {
       </ul>
       <div class="explanation hidden" id="exp-p6q3">
         <svg class="exp-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
-        <p>Fire, flood and unauthorized transaction are excluded - 3 items. Fire and flood are physical disasters. Unauthorized transaction is an integrity issue not availability.</p>
+        <p>Fire, flood and unauthorized transaction are excluded — 3 items. Fire and flood are physical disasters. Unauthorized transaction is an integrity issue not availability.</p>
       </div>
       <button class="reveal-btn" onclick="toggleCard('p6q3')">
         <span class="btn-text">Show Answer</span>
@@ -1933,7 +2044,7 @@ footer {
       </ul>
       <div class="explanation hidden" id="exp-p10q1">
         <svg class="exp-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
-        <p>Flash drives are valid backup media. Option 1 wrong - printing IS valid for some data. Option 4 wrong - incremental copies only copy changes since last backup.</p>
+        <p>Flash drives are valid backup media. Option 1 wrong — printing IS valid for some data. Option 4 wrong — incremental copies only copy changes since last backup.</p>
       </div>
       <button class="reveal-btn" onclick="toggleCard('p10q1')">
         <span class="btn-text">Show Answer</span>
@@ -1989,7 +2100,7 @@ footer {
       </ul>
       <div class="explanation hidden" id="exp-p10q3">
         <svg class="exp-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
-        <p>Redundancy is the most concrete concept - having extra copies or checksums allows detection and restoration of corrupted data.</p>
+        <p>Redundancy is the most concrete concept — having extra copies or checksums allows detection and restoration of corrupted data.</p>
       </div>
       <button class="reveal-btn" onclick="toggleCard('p10q3')">
         <span class="btn-text">Show Answer</span>
@@ -2109,7 +2220,7 @@ footer {
       </ul>
       <div class="explanation hidden" id="exp-p11q3">
         <svg class="exp-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
-        <p>GDPR primarily places obligations on organizations. Option 1 wrong - not just cross-border. Option 3 wrong - not about encryption standards.</p>
+        <p>GDPR primarily places obligations on organizations. Option 1 wrong — not just cross-border. Option 3 wrong — not about encryption standards.</p>
       </div>
       <button class="reveal-btn" onclick="toggleCard('p11q3')">
         <span class="btn-text">Show Answer</span>
@@ -2173,7 +2284,7 @@ footer {
       </ul>
       <div class="explanation hidden" id="exp-p12q1">
         <svg class="exp-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
-        <p>Anonymity depends on WHAT should be hidden AND TO WHOM. Note: TO WHOM not BY WHOM - this is a common exam trap.</p>
+        <p>Anonymity depends on WHAT should be hidden AND TO WHOM. Note: TO WHOM not BY WHOM — this is a common exam trap.</p>
       </div>
       <button class="reveal-btn" onclick="toggleCard('p12q1')">
         <span class="btn-text">Show Answer</span>
@@ -2357,7 +2468,7 @@ footer {
       </ul>
       <div class="explanation hidden" id="exp-p14q1">
         <svg class="exp-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
-        <p>Your social media may contain posts or connections that create a negative impression. Option 1 wrong - following public links is not a privacy offense.</p>
+        <p>Your social media may contain posts or connections that create a negative impression. Option 1 wrong — following public links is not a privacy offense.</p>
       </div>
       <button class="reveal-btn" onclick="toggleCard('p14q1')">
         <span class="btn-text">Show Answer</span>
@@ -2533,7 +2644,7 @@ footer {
       </ul>
       <div class="explanation hidden" id="exp-p15q3">
         <svg class="exp-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
-        <p>TOR is a legitimate and legal tool for anonymous browsing. Option 3 wrong - private mode only prevents local browser history. Option 4 wrong - TOR and VPNs are legal in Finland.</p>
+        <p>TOR is a legitimate and legal tool for anonymous browsing. Option 3 wrong — private mode only prevents local browser history. Option 4 wrong — TOR and VPNs are legal in Finland.</p>
       </div>
       <button class="reveal-btn" onclick="toggleCard('p15q3')">
         <span class="btn-text">Show Answer</span>
@@ -2597,7 +2708,7 @@ footer {
       </ul>
       <div class="explanation hidden" id="exp-p16q2">
         <svg class="exp-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
-        <p>You chose the 10-digit code. Attacker tries all 10-digit combinations: 10^10. Option 2 wrong - attacker only tries the length you chose. Option 3 wrong - attacker attacks the passcode not the AES key.</p>
+        <p>You chose the 10-digit code. Attacker tries all 10-digit combinations: 10^10. Option 2 wrong — attacker only tries the length you chose. Option 3 wrong — attacker attacks the passcode not the AES key.</p>
       </div>
       <button class="reveal-btn" onclick="toggleCard('p16q2')">
         <span class="btn-text">Show Answer</span>
@@ -2901,7 +3012,7 @@ footer {
       </ul>
       <div class="explanation hidden" id="exp-p19q1">
         <svg class="exp-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
-        <p>From an authentication perspective the answer must be unpredictable - high entropy means hard to guess. Memorability is usability not security.</p>
+        <p>From an authentication perspective the answer must be unpredictable — high entropy means hard to guess. Memorability is usability not security.</p>
       </div>
       <button class="reveal-btn" onclick="toggleCard('p19q1')">
         <span class="btn-text">Show Answer</span>
@@ -2985,7 +3096,7 @@ footer {
       </ul>
       <div class="explanation hidden" id="exp-p19q4">
         <svg class="exp-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
-        <p>Password reuse is most dangerous - one breach compromises ALL accounts sharing that password.</p>
+        <p>Password reuse is most dangerous — one breach compromises ALL accounts sharing that password.</p>
       </div>
       <button class="reveal-btn" onclick="toggleCard('p19q4')">
         <span class="btn-text">Show Answer</span>
@@ -3105,7 +3216,7 @@ footer {
       </ul>
       <div class="explanation hidden" id="exp-p20q3">
         <svg class="exp-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
-        <p>The cookie sends back the same information the server originally sent - this is how the server maintains session state.</p>
+        <p>The cookie sends back the same information the server originally sent — this is how the server maintains session state.</p>
       </div>
       <button class="reveal-btn" onclick="toggleCard('p20q3')">
         <span class="btn-text">Show Answer</span>
@@ -3141,7 +3252,7 @@ footer {
       </ul>
       <div class="explanation hidden" id="exp-p21q1">
         <svg class="exp-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
-        <p>CAPTCHA proves you are human without knowing WHO you are - no identification involved. Option 1 wrong - CAPTCHAs can be attacked by human farms and AI.</p>
+        <p>CAPTCHA proves you are human without knowing WHO you are — no identification involved. Option 1 wrong — CAPTCHAs can be attacked by human farms and AI.</p>
       </div>
       <button class="reveal-btn" onclick="toggleCard('p21q1')">
         <span class="btn-text">Show Answer</span>
@@ -3205,7 +3316,7 @@ footer {
       </ul>
       <div class="explanation hidden" id="exp-p22q1">
         <svg class="exp-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
-        <p>Primitives are the basic building blocks of cryptographic systems treated as indivisible black boxes - like hash functions, block ciphers, stream ciphers.</p>
+        <p>Primitives are the basic building blocks of cryptographic systems treated as indivisible black boxes — like hash functions, block ciphers, stream ciphers.</p>
       </div>
       <button class="reveal-btn" onclick="toggleCard('p22q1')">
         <span class="btn-text">Show Answer</span>
@@ -3289,7 +3400,7 @@ footer {
       </ul>
       <div class="explanation hidden" id="exp-p22q4">
         <svg class="exp-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
-        <p>Challenge-response is a PROTOCOL not an algorithm - it involves multiple steps and parties exchanging messages.</p>
+        <p>Challenge-response is a PROTOCOL not an algorithm — it involves multiple steps and parties exchanging messages.</p>
       </div>
       <button class="reveal-btn" onclick="toggleCard('p22q4')">
         <span class="btn-text">Show Answer</span>
@@ -3345,7 +3456,7 @@ footer {
       </ul>
       <div class="explanation hidden" id="exp-p22q6">
         <svg class="exp-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
-        <p>Plaintext means unencrypted data - does not need to be human-readable or ASCII. It is the data BEFORE encryption.</p>
+        <p>Plaintext means unencrypted data — does not need to be human-readable or ASCII. It is the data BEFORE encryption.</p>
       </div>
       <button class="reveal-btn" onclick="toggleCard('p22q6')">
         <span class="btn-text">Show Answer</span>
@@ -3409,7 +3520,7 @@ footer {
       </ul>
       <div class="explanation hidden" id="exp-p23q2">
         <svg class="exp-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
-        <p>This describes password-based encryption using key derivation functions. Option 3 wrong - sending the key with the message defeats encryption.</p>
+        <p>This describes password-based encryption using key derivation functions. Option 3 wrong — sending the key with the message defeats encryption.</p>
       </div>
       <button class="reveal-btn" onclick="toggleCard('p23q2')">
         <span class="btn-text">Show Answer</span>
@@ -3557,7 +3668,7 @@ footer {
       </ul>
       <div class="explanation hidden" id="exp-p24q3">
         <svg class="exp-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
-        <p>A one-time pad is theoretically unbreakable - truly random key, at least as long as the message, used only ONCE. Provides perfect secrecy.</p>
+        <p>A one-time pad is theoretically unbreakable — truly random key, at least as long as the message, used only ONCE. Provides perfect secrecy.</p>
       </div>
       <button class="reveal-btn" onclick="toggleCard('p24q3')">
         <span class="btn-text">Show Answer</span>
@@ -3705,7 +3816,7 @@ footer {
       </ul>
       <div class="explanation hidden" id="exp-p25q4">
         <svg class="exp-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
-        <p>FALSE. RSA signing only requires private exponent d and modulus n - NOT the prime factors p and q.</p>
+        <p>FALSE. RSA signing only requires private exponent d and modulus n — NOT the prime factors p and q.</p>
       </div>
       <button class="reveal-btn" onclick="toggleCard('p25q4')">
         <span class="btn-text">Show Answer</span>
@@ -3769,7 +3880,7 @@ footer {
       </ul>
       <div class="explanation hidden" id="exp-p26q2">
         <svg class="exp-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
-        <p>This describes collision resistance. Option 3 is opposite of truth - avalanche effect means LARGE hash changes from small message changes.</p>
+        <p>This describes collision resistance. Option 3 is opposite of truth — avalanche effect means LARGE hash changes from small message changes.</p>
       </div>
       <button class="reveal-btn" onclick="toggleCard('p26q2')">
         <span class="btn-text">Show Answer</span>
@@ -3825,7 +3936,7 @@ footer {
       </ul>
       <div class="explanation hidden" id="exp-p26q4">
         <svg class="exp-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
-        <p>CRCs are non-cryptographic error detection checksums - completely different from keyed cryptographic hashes (MACs).</p>
+        <p>CRCs are non-cryptographic error detection checksums — completely different from keyed cryptographic hashes (MACs).</p>
       </div>
       <button class="reveal-btn" onclick="toggleCard('p26q4')">
         <span class="btn-text">Show Answer</span>
@@ -4065,7 +4176,7 @@ footer {
       </ul>
       <div class="explanation hidden" id="exp-p28q2">
         <svg class="exp-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
-        <p>Smart cards have a secure processor - operations happen inside the tamper-resistant chip and bits never leave the card in a usable form.</p>
+        <p>Smart cards have a secure processor — operations happen inside the tamper-resistant chip and bits never leave the card in a usable form.</p>
       </div>
       <button class="reveal-btn" onclick="toggleCard('p28q2')">
         <span class="btn-text">Show Answer</span>
@@ -4101,7 +4212,7 @@ footer {
       </ul>
       <div class="explanation hidden" id="exp-p29q1">
         <svg class="exp-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
-        <p>A DMZ sits between two firewalls - one facing the internet and one facing the internal network. It hosts public-facing servers.</p>
+        <p>A DMZ sits between two firewalls — one facing the internet and one facing the internal network. It hosts public-facing servers.</p>
       </div>
       <button class="reveal-btn" onclick="toggleCard('p29q1')">
         <span class="btn-text">Show Answer</span>
@@ -4185,7 +4296,7 @@ footer {
       </ul>
       <div class="explanation hidden" id="exp-p29q4">
         <svg class="exp-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
-        <p>A packet filter rejects packets if either port number is invalid per its rules. Option 1 wrong - packet filters definitely use port numbers.</p>
+        <p>A packet filter rejects packets if either port number is invalid per its rules. Option 1 wrong — packet filters definitely use port numbers.</p>
       </div>
       <button class="reveal-btn" onclick="toggleCard('p29q4')">
         <span class="btn-text">Show Answer</span>
@@ -4249,7 +4360,7 @@ footer {
       </ul>
       <div class="explanation hidden" id="exp-p30q1">
         <svg class="exp-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
-        <p>IPsec Authentication Header adds an HMAC - a hash from packet contents using a shared symmetric key. Provides integrity and authentication.</p>
+        <p>IPsec Authentication Header adds an HMAC — a hash from packet contents using a shared symmetric key. Provides integrity and authentication.</p>
       </div>
       <button class="reveal-btn" onclick="toggleCard('p30q1')">
         <span class="btn-text">Show Answer</span>
@@ -4305,7 +4416,7 @@ footer {
       </ul>
       <div class="explanation hidden" id="exp-p30q3">
         <svg class="exp-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
-        <p>If the user connects to a fake server and enters credentials, the attacker captures them - compromising all services using those credentials.</p>
+        <p>If the user connects to a fake server and enters credentials, the attacker captures them — compromising all services using those credentials.</p>
       </div>
       <button class="reveal-btn" onclick="toggleCard('p30q3')">
         <span class="btn-text">Show Answer</span>
@@ -4361,7 +4472,7 @@ footer {
       </ul>
       <div class="explanation hidden" id="exp-p30q5">
         <svg class="exp-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
-        <p>Encryption is the fundamental security requirement - protecting data as it travels over the public internet.</p>
+        <p>Encryption is the fundamental security requirement — protecting data as it travels over the public internet.</p>
       </div>
       <button class="reveal-btn" onclick="toggleCard('p30q5')">
         <span class="btn-text">Show Answer</span>
@@ -4545,7 +4656,7 @@ footer {
       </ul>
       <div class="explanation hidden" id="exp-p32q2">
         <svg class="exp-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
-        <p>Login must handle authentication requests from anyone - it cannot pre-screen. Failed logins can trigger lockouts.</p>
+        <p>Login must handle authentication requests from anyone — it cannot pre-screen. Failed logins can trigger lockouts.</p>
       </div>
       <button class="reveal-btn" onclick="toggleCard('p32q2')">
         <span class="btn-text">Show Answer</span>
@@ -4573,7 +4684,7 @@ footer {
       </ul>
       <div class="explanation hidden" id="exp-p32q3">
         <svg class="exp-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
-        <p>The operating system is the foundation of all security - controls hardware access, manages memory isolation, enforces permissions.</p>
+        <p>The operating system is the foundation of all security — controls hardware access, manages memory isolation, enforces permissions.</p>
       </div>
       <button class="reveal-btn" onclick="toggleCard('p32q3')">
         <span class="btn-text">Show Answer</span>
@@ -4721,7 +4832,7 @@ footer {
       </ul>
       <div class="explanation hidden" id="exp-p33q2">
         <svg class="exp-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
-        <p>Overwriting multiple times is secure deletion. Magnetic storage retains traces even after deletion - multiple overwrites make recovery extremely difficult.</p>
+        <p>Overwriting multiple times is secure deletion. Magnetic storage retains traces even after deletion — multiple overwrites make recovery extremely difficult.</p>
       </div>
       <button class="reveal-btn" onclick="toggleCard('p33q2')">
         <span class="btn-text">Show Answer</span>
@@ -4761,7 +4872,7 @@ footer {
 </div>
 
 <footer>
-  Cyber Security 1 - Comp.Sec.100-02 &nbsp;|&nbsp; Tampere University &nbsp;|&nbsp; All 33 Maso Pages &nbsp;|&nbsp; 141 Questions
+  Cyber Security 1 &mdash; Comp.Sec.100-02 &nbsp;|&nbsp; Tampere University &nbsp;|&nbsp; All 33 Maso Pages &nbsp;|&nbsp; 141 Questions
 </footer>
 
 <button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
@@ -4864,6 +4975,61 @@ const observer = new IntersectionObserver(entries => {
   });
 }, {rootMargin: '-20% 0px -70% 0px'});
 document.querySelectorAll('.page-section').forEach(s => observer.observe(s));
+
+function openDrawer() {
+  document.getElementById('drawer').classList.add('open');
+  document.getElementById('drawerOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeDrawer() {
+  document.getElementById('drawer').classList.remove('open');
+  document.getElementById('drawerOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
 </script>
+
+<div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
+<div class="drawer" id="drawer">
+  <div class="drawer-header">
+    <span>All 33 Maso Pages</span>
+    <button class="drawer-close" onclick="closeDrawer()">&#x2715;</button>
+  </div>
+  <div class="drawer-body">
+    <a href="#page-1" class="drawer-toc-link" onclick="closeDrawer()"><span class="drawer-toc-num">1</span><span class="drawer-toc-title">First Concepts</span></a>
+<a href="#page-2" class="drawer-toc-link" onclick="closeDrawer()"><span class="drawer-toc-num">2</span><span class="drawer-toc-title">Some Victims and Attackers</span></a>
+<a href="#page-3" class="drawer-toc-link" onclick="closeDrawer()"><span class="drawer-toc-num">3</span><span class="drawer-toc-title">Not Only Breaking Ciphers</span></a>
+<a href="#page-4" class="drawer-toc-link" onclick="closeDrawer()"><span class="drawer-toc-num">4</span><span class="drawer-toc-title">Not Only Viruses</span></a>
+<a href="#page-5" class="drawer-toc-link" onclick="closeDrawer()"><span class="drawer-toc-num">5</span><span class="drawer-toc-title">Networked Robots and Men</span></a>
+<a href="#page-6" class="drawer-toc-link" onclick="closeDrawer()"><span class="drawer-toc-num">6</span><span class="drawer-toc-title">Risk and Three A-Properties</span></a>
+<a href="#page-7" class="drawer-toc-link" onclick="closeDrawer()"><span class="drawer-toc-num">7</span><span class="drawer-toc-title">Policies and Models Do Not Protect</span></a>
+<a href="#page-8" class="drawer-toc-link" onclick="closeDrawer()"><span class="drawer-toc-num">8</span><span class="drawer-toc-title">Credentials</span></a>
+<a href="#page-9" class="drawer-toc-link" onclick="closeDrawer()"><span class="drawer-toc-num">9</span><span class="drawer-toc-title">Special Basic Protections</span></a>
+<a href="#page-10" class="drawer-toc-link" onclick="closeDrawer()"><span class="drawer-toc-num">10</span><span class="drawer-toc-title">Repair and Punishment</span></a>
+<a href="#page-11" class="drawer-toc-link" onclick="closeDrawer()"><span class="drawer-toc-num">11</span><span class="drawer-toc-title">More Than GDPR</span></a>
+<a href="#page-12" class="drawer-toc-link" onclick="closeDrawer()"><span class="drawer-toc-num">12</span><span class="drawer-toc-title">Anonymity</span></a>
+<a href="#page-13" class="drawer-toc-link" onclick="closeDrawer()"><span class="drawer-toc-num">13</span><span class="drawer-toc-title">IPR</span></a>
+<a href="#page-14" class="drawer-toc-link" onclick="closeDrawer()"><span class="drawer-toc-num">14</span><span class="drawer-toc-title">Social Media</span></a>
+<a href="#page-15" class="drawer-toc-link" onclick="closeDrawer()"><span class="drawer-toc-num">15</span><span class="drawer-toc-title">Ethics</span></a>
+<a href="#page-16" class="drawer-toc-link" onclick="closeDrawer()"><span class="drawer-toc-num">16</span><span class="drawer-toc-title">Security Issues on Personal Devices</span></a>
+<a href="#page-17" class="drawer-toc-link" onclick="closeDrawer()"><span class="drawer-toc-num">17</span><span class="drawer-toc-title">Risk Management, Policy</span></a>
+<a href="#page-18" class="drawer-toc-link" onclick="closeDrawer()"><span class="drawer-toc-num">18</span><span class="drawer-toc-title">Non-disclosure, but Public Keys</span></a>
+<a href="#page-19" class="drawer-toc-link" onclick="closeDrawer()"><span class="drawer-toc-num">19</span><span class="drawer-toc-title">Password</span></a>
+<a href="#page-20" class="drawer-toc-link" onclick="closeDrawer()"><span class="drawer-toc-num">20</span><span class="drawer-toc-title">Cookie</span></a>
+<a href="#page-21" class="drawer-toc-link" onclick="closeDrawer()"><span class="drawer-toc-num">21</span><span class="drawer-toc-title">CAPTCHA</span></a>
+<a href="#page-22" class="drawer-toc-link" onclick="closeDrawer()"><span class="drawer-toc-num">22</span><span class="drawer-toc-title">Crypto Procedures</span></a>
+<a href="#page-23" class="drawer-toc-link" onclick="closeDrawer()"><span class="drawer-toc-num">23</span><span class="drawer-toc-title">Keys and Chunks or Streams</span></a>
+<a href="#page-24" class="drawer-toc-link" onclick="closeDrawer()"><span class="drawer-toc-num">24</span><span class="drawer-toc-title">One-time Pad, DES, AES</span></a>
+<a href="#page-25" class="drawer-toc-link" onclick="closeDrawer()"><span class="drawer-toc-num">25</span><span class="drawer-toc-title">Public Key</span></a>
+<a href="#page-26" class="drawer-toc-link" onclick="closeDrawer()"><span class="drawer-toc-num">26</span><span class="drawer-toc-title">Hash</span></a>
+<a href="#page-27" class="drawer-toc-link" onclick="closeDrawer()"><span class="drawer-toc-num">27</span><span class="drawer-toc-title">The Most Common Protocols</span></a>
+<a href="#page-28" class="drawer-toc-link" onclick="closeDrawer()"><span class="drawer-toc-num">28</span><span class="drawer-toc-title">Nature and Devices</span></a>
+<a href="#page-29" class="drawer-toc-link" onclick="closeDrawer()"><span class="drawer-toc-num">29</span><span class="drawer-toc-title">Filtering</span></a>
+<a href="#page-30" class="drawer-toc-link" onclick="closeDrawer()"><span class="drawer-toc-num">30</span><span class="drawer-toc-title">Secure Connection</span></a>
+<a href="#page-31" class="drawer-toc-link" onclick="closeDrawer()"><span class="drawer-toc-num">31</span><span class="drawer-toc-title">Mobile Authentication</span></a>
+<a href="#page-32" class="drawer-toc-link" onclick="closeDrawer()"><span class="drawer-toc-num">32</span><span class="drawer-toc-title">Start Running Programs</span></a>
+<a href="#page-33" class="drawer-toc-link" onclick="closeDrawer()"><span class="drawer-toc-num">33</span><span class="drawer-toc-title">A Spectrum of Storage Issues</span></a>
+
+  </div>
+</div>
 </body>
 </html>
