@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Cyber Security 1 — Practice Test</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#2563EB;--blue-d:#1D4ED8;--blue-l:#EFF6FF;--blue-b:#BFDBFE;
+  --green:#059669;--green-l:#ECFDF5;--green-b:#6EE7B7;
+  --red:#DC2626;--red-l:#FEF2F2;--red-b:#FCA5A5;
+  --amber:#D97706;--amber-l:#FFFBEB;
+  --purple:#7C3AED;--purple-l:#F5F3FF;--purple-b:#C4B5FD;
+  --g50:#F9FAFB;--g100:#F3F4F6;--g200:#E5E7EB;--g300:#D1D5DB;
+  --g400:#9CA3AF;--g500:#6B7280;--g600:#4B5563;--g700:#374151;--g800:#1F2937;--g900:#111827;
+  --r:12px;--r-sm:8px;
+  --sh:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -1px rgba(0,0,0,.06);
+  --sh-lg:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--g50);color:var(--g800);min-height:100vh}
+
+/* HEADER */
+.hdr{background:linear-gradient(135deg,#1E3A5F,#2563EB);color:#fff;padding:1.5rem;text-align:center;position:relative}
+.hdr-back{position:absolute;top:1rem;left:1rem;display:inline-flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:8px;padding:.4rem .8rem;font-size:.78rem;font-weight:600;text-decoration:none;font-family:inherit;cursor:pointer;transition:background .2s}
+.hdr-back:hover{background:rgba(255,255,255,.25)}
+.hdr-tag{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:3px 12px;font-size:.72rem;font-weight:600;letter-spacing:.4px;text-transform:uppercase;margin-bottom:.5rem}
+.hdr h1{font-size:clamp(1.4rem,4vw,2rem);font-weight:800;margin-bottom:.25rem}
+.hdr p{opacity:.8;font-size:.85rem}
+
+/* SCREENS */
+.screen{display:none;max-width:680px;margin:0 auto;padding:1.25rem 1rem}
+.screen.active{display:block}
+
+/* ── HOME SCREEN ── */
+.new-exam-btn{width:100%;padding:1.25rem;background:linear-gradient(135deg,#2563EB,#1D4ED8);color:#fff;border:none;border-radius:var(--r);font-size:1.1rem;font-weight:800;cursor:pointer;font-family:inherit;box-shadow:0 4px 15px rgba(37,99,235,.45);transition:all .2s;margin:1rem 0;display:flex;align-items:center;justify-content:center;gap:.75rem}
+.new-exam-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(37,99,235,.55)}
+.new-exam-btn:active{transform:translateY(0)}
+.exam-note{text-align:center;font-size:.8rem;color:var(--g400);margin-bottom:1.25rem}
+
+.modes-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:1rem}
+@media(max-width:480px){.modes-grid{grid-template-columns:1fr}}
+.mode-card{background:#fff;border:2px solid var(--g200);border-radius:var(--r);padding:1rem;cursor:pointer;text-align:left;font-family:inherit;transition:all .2s;display:flex;flex-direction:column;gap:.35rem}
+.mode-card:hover{border-color:var(--blue);background:var(--blue-l);transform:translateY(-1px);box-shadow:var(--sh)}
+.mode-card.active{border-color:var(--blue);background:var(--blue-l)}
+.mc-icon{font-size:1.5rem}
+.mc-title{font-size:.9rem;font-weight:700;color:var(--g800)}
+.mc-desc{font-size:.75rem;color:var(--g500);line-height:1.4}
+.mode-card.active .mc-desc{color:var(--blue)}
+
+.panel{background:#fff;border:1px solid var(--g200);border-radius:var(--r);padding:1.25rem;margin-bottom:.75rem;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.panel h3{font-size:.85rem;font-weight:700;color:var(--g600);text-transform:uppercase;letter-spacing:.4px;margin-bottom:.85rem;display:flex;align-items:center;gap:.5rem}
+.panel h3 svg{width:16px;height:16px;color:var(--blue)}
+.count-row{display:flex;flex-wrap:wrap;gap:.5rem}
+.cnt-btn{padding:.4rem 1rem;border:2px solid var(--g200);border-radius:20px;background:var(--g50);cursor:pointer;font-size:.82rem;font-weight:600;font-family:inherit;color:var(--g700);transition:all .2s}
+.cnt-btn:hover,.cnt-btn.sel{background:var(--blue);border-color:var(--blue);color:#fff}
+.topic-wrap{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:.4rem;max-height:200px;overflow-y:auto}
+.tc{padding:.35rem .7rem;border:1.5px solid var(--g200);border-radius:20px;background:var(--g50);cursor:pointer;font-size:.75rem;font-weight:500;color:var(--g600);transition:all .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tc:hover{border-color:var(--blue);color:var(--blue);background:var(--blue-l)}
+.tc.sel{background:var(--blue);border-color:var(--blue);color:#fff}
+.sel-all{font-size:.72rem;color:var(--blue);background:none;border:none;cursor:pointer;font-family:inherit;font-weight:600;text-decoration:underline;margin-left:auto}
+
+.stats-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin-bottom:1rem}
+.ss-box{background:#fff;border:1px solid var(--g200);border-radius:var(--r-sm);padding:.75rem;text-align:center;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.ss-val{font-size:1.4rem;font-weight:800}
+.ss-lbl{font-size:.68rem;color:var(--g500);font-weight:600;text-transform:uppercase;letter-spacing:.3px;margin-top:.15rem}
+
+.start-btn{width:100%;padding:.9rem;background:linear-gradient(135deg,#059669,#047857);color:#fff;border:none;border-radius:var(--r-sm);font-size:.95rem;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s;box-shadow:0 3px 10px rgba(5,150,105,.35)}
+.start-btn:hover{transform:translateY(-1px);box-shadow:0 5px 14px rgba(5,150,105,.45)}
+.start-btn:disabled{background:var(--g300);box-shadow:none;transform:none;cursor:not-allowed}
+
+.history-list{max-height:200px;overflow-y:auto}
+.hist-item{display:flex;align-items:center;justify-content:space-between;padding:.5rem .75rem;border-radius:var(--r-sm);background:var(--g50);border:1px solid var(--g200);margin-bottom:.4rem;font-size:.82rem}
+.hist-score{font-weight:700}
+.hist-score.pass{color:var(--green)}
+.hist-score.fail{color:var(--red)}
+.hist-meta{color:var(--g400);font-size:.75rem}
+
+/* ── QUIZ SCREEN ── */
+.quiz-top{display:flex;align-items:center;gap:.75rem;margin-bottom:1rem}
+.prog-wrap{flex:1}
+.prog-labels{display:flex;justify-content:space-between;font-size:.75rem;color:var(--g500);font-weight:500;margin-bottom:.3rem}
+.prog-track{background:var(--g200);border-radius:20px;height:8px;overflow:hidden}
+.prog-fill{background:linear-gradient(90deg,#2563EB,#60A5FA);height:100%;border-radius:20px;transition:width .35s ease}
+.score-pill{background:var(--blue-l);color:var(--blue);border:1.5px solid var(--blue-b);border-radius:20px;padding:.3rem .85rem;font-size:.78rem;font-weight:700;white-space:nowrap}
+.streak-pill{background:var(--amber-l);color:var(--amber);border:1.5px solid #FDE68A;border-radius:20px;padding:.3rem .85rem;font-size:.78rem;font-weight:700;white-space:nowrap;display:none}
+.streak-pill.show{display:block}
+
+.q-card{background:#fff;border:2px solid var(--g200);border-radius:var(--r);padding:1.4rem;box-shadow:var(--sh);transition:border-color .2s}
+.q-card.correct-card{border-color:var(--green-b)}
+.q-card.wrong-card{border-color:var(--red-b)}
+.q-meta{display:flex;align-items:center;gap:.6rem;margin-bottom:.9rem;flex-wrap:wrap}
+.q-page{background:var(--blue);color:#fff;border-radius:6px;padding:2px 9px;font-size:.7rem;font-weight:700}
+.q-topic{font-size:.75rem;color:var(--g500);font-weight:500}
+.q-bmark{margin-left:auto;background:none;border:none;cursor:pointer;font-size:1.1rem;padding:0;line-height:1;transition:transform .2s}
+.q-bmark:hover{transform:scale(1.2)}
+.q-text{font-size:.93rem;font-weight:700;color:var(--g800);line-height:1.55;margin-bottom:1.1rem}
+
+.opts{display:flex;flex-direction:column;gap:.55rem;margin-bottom:1rem}
+.opt{display:flex;align-items:flex-start;gap:.7rem;padding:.75rem 1rem;border:2px solid var(--g200);border-radius:var(--r-sm);cursor:pointer;background:#fff;font-family:inherit;text-align:left;transition:all .18s;width:100%}
+.opt:hover:not(:disabled){border-color:var(--blue);background:var(--blue-l)}
+.opt:disabled{cursor:default}
+.opt.oc{background:var(--green-l);border-color:var(--green-b)}
+.opt.ow{background:var(--red-l);border-color:var(--red-b)}
+.opt.os{background:var(--green-l);border-color:var(--green-b)}
+.on{min-width:24px;height:24px;border-radius:50%;background:var(--g100);color:var(--g600);display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;flex-shrink:0;margin-top:1px;transition:all .18s}
+.opt.oc .on{background:var(--green);color:#fff}
+.opt.ow .on{background:var(--red);color:#fff}
+.opt.os .on{background:var(--green);color:#fff}
+.ot{font-size:.87rem;color:var(--g700);line-height:1.4;padding-top:1px}
+.opt.oc .ot{color:var(--green);font-weight:600}
+.opt.ow .ot{color:var(--red);font-weight:600}
+.opt.os .ot{color:var(--green);font-weight:600}
+
+.fb{border-radius:var(--r-sm);padding:.85rem 1rem;display:none;font-size:.84rem;line-height:1.5;margin-bottom:.9rem}
+.fb.ok{background:var(--green-l);border:1px solid var(--green-b);color:#065F46}
+.fb.bad{background:var(--red-l);border:1px solid var(--red-b);color:#991B1B}
+.fb-title{font-weight:700;margin-bottom:.25rem}
+
+.next-btn{width:100%;padding:.8rem;background:var(--blue);color:#fff;border:none;border-radius:var(--r-sm);font-size:.93rem;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s;display:none}
+.next-btn:hover{background:var(--blue-d)}
+.skip-btn{width:100%;padding:.55rem;background:transparent;color:var(--g400);border:none;font-size:.78rem;cursor:pointer;font-family:inherit;margin-top:.4rem;display:none}
+.skip-btn:hover{color:var(--g600)}
+
+/* ── RESULTS SCREEN ── */
+.res-card{background:#fff;border-radius:var(--r);padding:2rem 1.5rem;box-shadow:var(--sh);text-align:center;margin-bottom:1rem}
+.res-ring{width:130px;height:130px;border-radius:50%;margin:0 auto 1.25rem;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.res-ring.pass{background:linear-gradient(135deg,#ECFDF5,#D1FAE5);border:4px solid var(--green-b)}
+.res-ring.fail{background:linear-gradient(135deg,#FEF2F2,#FEE2E2);border:4px solid var(--red-b)}
+.res-ring.neutral{background:linear-gradient(135deg,#F5F3FF,#EDE9FE);border:4px solid var(--purple-b)}
+.rn{font-size:2.2rem;font-weight:800;line-height:1}
+.rd{font-size:.85rem;font-weight:500}
+.res-ring.pass .rn{color:var(--green)}
+.res-ring.pass .rd{color:var(--green)}
+.res-ring.fail .rn{color:var(--red)}
+.res-ring.fail .rd{color:var(--red)}
+.res-ring.neutral .rn{color:var(--purple)}
+.res-ring.neutral .rd{color:var(--purple)}
+.res-title{font-size:1.3rem;font-weight:800;margin-bottom:.35rem}
+.res-sub{color:var(--g500);font-size:.87rem;margin-bottom:1.25rem}
+.res-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;margin-bottom:1.5rem}
+@media(max-width:400px){.res-stats{grid-template-columns:repeat(2,1fr)}}
+.rs{background:var(--g50);border:1px solid var(--g200);border-radius:var(--r-sm);padding:.75rem .5rem;text-align:center}
+.rs .v{font-size:1.3rem;font-weight:800}
+.rs .l{font-size:.68rem;color:var(--g400);font-weight:600;text-transform:uppercase;letter-spacing:.3px;margin-top:.1rem}
+
+.action-btns{display:flex;flex-direction:column;gap:.6rem}
+.btn-p{padding:.8rem;background:var(--blue);color:#fff;border:none;border-radius:var(--r-sm);font-size:.92rem;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s}
+.btn-p:hover{background:var(--blue-d)}
+.btn-p.green{background:linear-gradient(135deg,#059669,#047857)}
+.btn-p.green:hover{background:#047857}
+.btn-s{padding:.8rem;background:#fff;color:var(--g700);border:2px solid var(--g200);border-radius:var(--r-sm);font-size:.88rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .2s}
+.btn-s:hover{border-color:var(--g300);background:var(--g50)}
+
+.review-card{background:#fff;border-radius:var(--r);padding:1.25rem;box-shadow:var(--sh)}
+.review-card h3{font-size:.95rem;font-weight:700;margin-bottom:1rem;color:var(--g800)}
+.ri{border-left:4px solid var(--g300);padding:.7rem .9rem;margin-bottom:.65rem;border-radius:0 var(--r-sm) var(--r-sm) 0;background:var(--g50)}
+.ri.ok{border-left-color:var(--green-b);background:var(--green-l)}
+.ri.bad{border-left-color:var(--red-b);background:var(--red-l)}
+.ri-q{font-size:.82rem;font-weight:600;color:var(--g700);margin-bottom:.3rem}
+.ri-your{font-size:.78rem;color:var(--red);margin-bottom:.15rem}
+.ri-ans{font-size:.78rem;color:var(--green);font-weight:600}
+.ri-exp{font-size:.75rem;color:var(--g500);margin-top:.3rem;font-style:italic}
+
+/* BOOKMARKS */
+.bm-empty{text-align:center;color:var(--g400);font-size:.85rem;padding:1.5rem}
+
+/* DARK MODE */
+body.dark{background:#111827;color:#F9FAFB}
+body.dark .panel,body.dark .q-card,body.dark .mode-card,body.dark .ss-box,body.dark .res-card,body.dark .review-card,body.dark .hist-item{background:#1F2937;border-color:#374151;color:#F9FAFB}
+body.dark .mc-desc,body.dark .q-topic,body.dark .g-sub,body.dark .hist-meta{color:#9CA3AF}
+body.dark .opt{background:#1F2937;border-color:#374151;color:#F9FAFB}
+body.dark .opt:hover:not(:disabled){background:#1E3A5F;border-color:#2563EB}
+body.dark .opt.oc{background:#064E3B;border-color:var(--green-b)}
+body.dark .opt.ow{background:#7F1D1D;border-color:var(--red-b)}
+body.dark .opt.os{background:#064E3B;border-color:var(--green-b)}
+body.dark .on{background:#374151;color:#9CA3AF}
+body.dark .q-text,.dark .mc-title,.dark .res-title{color:#F9FAFB}
+body.dark .prog-track,body.dark .ss-box{background:#374151}
+body.dark .rs{background:#374151;border-color:#4B5563}
+body.dark .ri{background:#374151}
+body.dark .ri.ok{background:#064E3B}
+body.dark .ri.bad{background:#7F1D1D}
+body.dark .tc{background:#1F2937;border-color:#374151;color:#D1D5DB}
+body.dark .cnt-btn{background:#1F2937;border-color:#374151;color:#D1D5DB}
+body.dark .start-btn:disabled{background:#374151}
+
+.dark-toggle{position:absolute;top:1rem;right:1rem;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:8px;padding:.4rem .7rem;font-size:.78rem;cursor:pointer;font-family:inherit;transition:background .2s}
+.dark-toggle:hover{background:rgba(255,255,255,.25)}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <a href="index.html" class="hdr-back">← Study Guide</a>
+  <button class="dark-toggle" onclick="toggleDark()" id="darkBtn">🌙 Dark</button>
+  <div class="hdr-tag">COMP.SEC.100 — Tampere University</div>
+  <h1>Practice Test</h1>
+  <p>141 questions across all 33 Maso pages</p>
+</div>
+
+<!-- HOME SCREEN -->
+<div class="screen active" id="homeScreen">
+
+  <div class="stats-strip" id="statsStrip">
+    <div class="ss-box"><div class="ss-val" id="st-total" style="color:var(--blue)">0</div><div class="ss-lbl">Tests Taken</div></div>
+    <div class="ss-box"><div class="ss-val" id="st-best" style="color:var(--green)">—</div><div class="ss-lbl">Best Score</div></div>
+    <div class="ss-box"><div class="ss-val" id="st-avg" style="color:var(--purple)">—</div><div class="ss-lbl">Avg Score</div></div>
+  </div>
+
+  <button class="new-exam-btn" onclick="launchExam()">
+    <span style="font-size:1.4rem">🎯</span>
+    <span>New Exam Simulation<br><span style="font-size:.75rem;opacity:.85;font-weight:500">32 shuffled questions · 55 min timer · Exam conditions</span></span>
+  </button>
+  <p class="exam-note">Every click gives a completely different set of 32 random questions. Repeat as many times as you want.</p>
+
+  <div class="modes-grid">
+    <button class="mode-card" id="mc-quick" onclick="activateMode('quick')">
+      <div class="mc-icon">⚡</div>
+      <div class="mc-title">Quick Practice</div>
+      <div class="mc-desc">Choose how many questions, no time limit</div>
+    </button>
+    <button class="mode-card" id="mc-topic" onclick="activateMode('topic')">
+      <div class="mc-icon">📚</div>
+      <div class="mc-title">Topic Focus</div>
+      <div class="mc-desc">Drill specific Maso pages you find hard</div>
+    </button>
+    <button class="mode-card" id="mc-weak" onclick="activateMode('weak')">
+      <div class="mc-icon">🔁</div>
+      <div class="mc-title">Retry Wrong</div>
+      <div class="mc-desc">Redo only questions you got wrong before</div>
+    </button>
+    <button class="mode-card" id="mc-bookmark" onclick="activateMode('bookmark')">
+      <div class="mc-icon">🔖</div>
+      <div class="mc-title">Bookmarked</div>
+      <div class="mc-desc">Questions you flagged during a test</div>
+    </button>
+  </div>
+
+  <!-- Quick Practice Panel -->
+  <div class="panel" id="panel-quick" style="display:none">
+    <h3><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>How many questions?</h3>
+    <div class="count-row">
+      <button class="cnt-btn sel" onclick="selCount(10,this)">10</button>
+      <button class="cnt-btn" onclick="selCount(20,this)">20</button>
+      <button class="cnt-btn" onclick="selCount(32,this)">32</button>
+      <button class="cnt-btn" onclick="selCount(50,this)">50</button>
+      <button class="cnt-btn" onclick="selCount(141,this)">All 141</button>
+    </div>
+  </div>
+
+  <!-- Topic Panel -->
+  <div class="panel" id="panel-topic" style="display:none">
+    <h3>
+      <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/></svg>
+      Select Topics
+      <button class="sel-all" onclick="toggleAllTopics()" id="selAllBtn">Select All</button>
+    </h3>
+    <div class="topic-wrap" id="topicWrap"></div>
+  </div>
+
+  <!-- Weak Panel -->
+  <div class="panel" id="panel-weak" style="display:none">
+    <h3><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd"/></svg>Retry Wrong Answers</h3>
+    <p id="weakInfo" style="font-size:.85rem;color:var(--g500)">Complete a test first to track wrong answers.</p>
+    <button class="btn-s" onclick="clearWrong()" id="clearWrongBtn" style="display:none;margin-top:.75rem;font-size:.78rem;padding:.5rem">🗑 Clear wrong answers list</button>
+  </div>
+
+  <!-- Bookmark Panel -->
+  <div class="panel" id="panel-bookmark" style="display:none">
+    <h3><svg viewBox="0 0 20 20" fill="currentColor"><path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z"/></svg>Bookmarked Questions</h3>
+    <div id="bmInfo" style="font-size:.85rem;color:var(--g500)">No bookmarked questions yet. Tap the bookmark icon during a test.</div>
+    <button class="btn-s" onclick="clearBookmarks()" id="clearBmBtn" style="display:none;margin-top:.75rem;font-size:.78rem;padding:.5rem">🗑 Clear bookmarks</button>
+  </div>
+
+  <button class="start-btn" onclick="startMode()" id="startModeBtn" style="display:none">Start →</button>
+
+  <!-- History -->
+  <div class="panel" id="histPanel" style="display:none;margin-top:.75rem">
+    <h3><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11 4a1 1 0 10-2 0v4a1 1 0 102 0V7zm-3 1a1 1 0 10-2 0v3a1 1 0 102 0V8zM8 9a1 1 0 00-2 0v2a1 1 0 102 0V9z" clip-rule="evenodd"/></svg>Recent Tests</h3>
+    <div class="history-list" id="histList"></div>
+  </div>
+
+</div>
+
+<!-- QUIZ SCREEN -->
+<div class="screen" id="quizScreen">
+  <div class="quiz-top">
+    <div class="prog-wrap">
+      <div class="prog-labels">
+        <span id="qLabel">1 / 32</span>
+        <span id="timerLbl" style="color:var(--blue);font-weight:600"></span>
+      </div>
+      <div class="prog-track"><div class="prog-fill" id="progFill" style="width:0%"></div></div>
+    </div>
+    <div class="score-pill" id="scorePill">0/0</div>
+    <div class="streak-pill" id="streakPill">🔥 0</div>
+  </div>
+
+  <div class="q-card" id="qCard">
+    <div class="q-meta">
+      <span class="q-page" id="qPage">Page 1</span>
+      <span class="q-topic" id="qTopicLbl">First Concepts</span>
+      <button class="q-bmark" id="bmBtn" onclick="toggleBookmark()" title="Bookmark this question">🔖</button>
+    </div>
+    <div class="q-text" id="qText"></div>
+    <div class="opts" id="optsList"></div>
+    <div class="fb" id="fbBox"><div class="fb-title" id="fbTitle"></div><div id="fbText"></div></div>
+    <button class="next-btn" id="nextBtn" onclick="nextQ()">Next →</button>
+    <button class="skip-btn" id="skipBtn" onclick="skipQ()">Skip this question</button>
+  </div>
+</div>
+
+<!-- RESULTS SCREEN -->
+<div class="screen" id="resultsScreen">
+  <div class="res-card">
+    <div class="res-ring" id="resRing"><span class="rn" id="resNum">0</span><span class="rd" id="resDen">/32</span></div>
+    <div class="res-title" id="resTitle">Done!</div>
+    <div class="res-sub" id="resSub"></div>
+    <div class="res-stats">
+      <div class="rs"><div class="v" id="rs-c" style="color:var(--green)">0</div><div class="l">Correct</div></div>
+      <div class="rs"><div class="v" id="rs-w" style="color:var(--red)">0</div><div class="l">Wrong</div></div>
+      <div class="rs"><div class="v" id="rs-s" style="color:var(--g400)">0</div><div class="l">Skipped</div></div>
+      <div class="rs"><div class="v" id="rs-p" style="color:var(--blue)">0%</div><div class="l">Score</div></div>
+    </div>
+    <div class="action-btns">
+      <button class="btn-p green" onclick="launchExam()">🎯 New Exam (fresh shuffle)</button>
+      <button class="btn-p" onclick="retrySame()">🔁 Retry Same Questions</button>
+      <button class="btn-s" onclick="goHome()">⚙️ Change Settings</button>
+      <button class="btn-s" onclick="toggleReview()">📋 Review All Answers</button>
+    </div>
+  </div>
+  <div class="review-card" id="reviewCard" style="display:none">
+    <h3>Answer Review</h3>
+    <div id="reviewList"></div>
+  </div>
+</div>
+
+<script>
+const Q = [{"page": "1", "topic": "First Concepts", "q": "What is required of an attack to be regarded as a cyber attack?", "opts": ["The target relies on an electronic information system.", "The attack happens on behalf of a nation state.", "The target suffers a substantial loss.", "The attacker is not acting alone but in a large coherent group."], "correct": 1, "exp": "A cyber attack simply requires that the target is an electronic information system. Nation state involvement, substantial loss and large groups are common but NOT necessary."}, {"page": "1", "topic": "First Concepts", "q": "Denial of service is a term", "opts": ["for a specific attack where the attacker modifies the responses from a www server to display HTTP 404.", "used of any situations where the user or a process is not granted the service he, she or it would be authorized to get.", "that refers to a service not being able to operate because of malicious requests.", "used mainly of such situations where a cracked service has been taken down for repair by administrators."], "correct": 3, "exp": "DoS means malicious traffic makes a service unable to operate. Option 2 is too broad. Option 1 is too specific. Option 4 describes admin action not an attack."}, {"page": "1", "topic": "First Concepts", "q": "What makes a denial of service attack (DoS) a distributed DoS?", "opts": ["There are many hackers working in consort to gain access to the attacked service.", "The attacked server spreads the unavailability to a large community of other servers and services.", "The whole farm of load-balancing and resilience-providing computers are attacked to make the service unavailable.", "The attacking traffic comes to the server from several computers simultaneously."], "correct": 4, "exp": "Distributed means attack traffic originates FROM many sources simultaneously. Option 1 confuses many hackers with many computers."}, {"page": "1", "topic": "First Concepts", "q": "The term attack vector", "opts": ["is just a more fancy way of referring to a particular attack that has happened.", "refers to the attacker's point of view to the chain of protections that implement the defence-in-depth approach.", "refers to the method of an attack - one that happened or is possible.", "refers to the combination of all vulnerabilities that exist in a particular information system."], "correct": 3, "exp": "Attack vector is the method or path used in an attack."}, {"page": "1", "topic": "First Concepts", "q": "Confidentiality is one of the three basic goals (\"C-I-A\") of information security,", "opts": ["but it is hardly ever as important as integrity.", "and it is nearly always more important than availability.", "but it is usually not sufficient without integrity and availability.", "and lack of confidentiality would lead to similar problems as lack of either integrity or availability."], "correct": 3, "exp": "All three CIA goals work together. Confidentiality alone is insufficient."}, {"page": "2", "topic": "Some Victims and Attackers", "q": "The term script kiddie is used for certain types of attackers. What is typical of them from a defender's perspective?", "opts": ["Essentially similar scripts to several other attackers.", "Unpredictably modified scripts, which can therefore be particularly dangerous.", "They cannot be held liable because they are minors.", "Youth and incompetence, which is why their attacks are not very dangerous."], "correct": 1, "exp": "Script kiddies use the same ready-made tools so attacks are recognizable and blockable."}, {"page": "2", "topic": "Some Victims and Attackers", "q": "Attackers that are called script kiddies are characterized by", "opts": ["using scripts written by others.", "acting as apprentices and assistants to more experienced actors.", "underage and immature morality.", "installing malicious software on the machines of several other users from which the attack continues automatically."], "correct": 1, "exp": "Script kiddies use attack tools written by more skilled hackers without understanding how they work."}, {"page": "2", "topic": "Some Victims and Attackers", "q": "Identity theft", "opts": ["happens when someone maliciously uses identifying data of another person.", "means that an attacker changes someones credentials at a service so that the victim is blocked out.", "is never a theft of identity alone; it also involves causing some loss or other disadvantage to the owner.", "can happen accidentally, i.e. someone can end up stealing someone else's identity without intending to do so."], "correct": 1, "exp": "Identity theft is the malicious use of someone else's identifying data. Requires malicious intent."}, {"page": "2", "topic": "Some Victims and Attackers", "q": "There are many digitals entities that spread mainly by the forwarding action of people. Some of them are not direct risks to computing. How many of that kind of user-spread entities are in this list: spam, hoax, ransomware, meme virus, Nigerian letter, troll?", "opts": ["4", "3", "2", "1"], "correct": 1, "exp": "Ransomware is a direct computing risk. Spam, hoax, meme virus, Nigerian letter and troll are NOT direct computing risks \u2014 the course counts 4 as NOT direct risks."}, {"page": "2", "topic": "Some Victims and Attackers", "q": "All of the following attacks have some social aspect, but which description gives the best coverage for the concept of social engineering?", "opts": ["Soliciting sensitive personal or organizational information by persuasive or masquerading emails.", "Inferring sensitive personal or organizational information from discarded papers and media together with public sources.", "Getting physically close and even familiar to people in order to see what they input as credentials to information systems.", "Exercising the art of influencing people to act against their security policy."], "correct": 4, "exp": "Social engineering is the broad concept of manipulating people psychologically. Options 1-3 are specific techniques."}, {"page": "2", "topic": "Some Victims and Attackers", "q": "Successful impersonation means that", "opts": ["an identity has been confiscated.", "a new identity has been assigned to a user.", "a new role has been assigned to a user.", "somebody/something has been cheated to act as if he/it is in contact with someone else than the attacker."], "correct": 4, "exp": "Impersonation means fooling someone into thinking they deal with a trusted party."}, {"page": "3", "topic": "Not Only Breaking Ciphers", "q": "An attacker, who is not a legitimate party of a conversation, but still attempts to know its contents, is called", "opts": ["honest but curious.", "phisher.", "intruder.", "eavesdropper."], "correct": 4, "exp": "An eavesdropper listens without being a legitimate party. Honest but curious is a legitimate party trying to learn more."}, {"page": "3", "topic": "Not Only Breaking Ciphers", "q": "What is a description of a dictionary attack?", "opts": ["It is a form of social engineering where an AI system blends the victim's new responses with earlier data and common phrases.", "It is a sophisticated brute-force attack against passwords, taking into account that they were invented by users of natural languages.", "The rainbow table method for recovering passwords is modified by using a large but fixed word list.", "Observations of the victim's eye movements are transformed to profiling words."], "correct": 2, "exp": "A dictionary attack tries common words and phrases instead of random combinations. Option 3 describes rainbow tables."}, {"page": "3", "topic": "Not Only Breaking Ciphers", "q": "Backdoor", "opts": ["is the authentication module of a rootkit program.", "is in a Trojan horse the program module that executes the malicious behaviour.", "means the parameters used to create the private key in a PKI system.", "is an intentionally made or maliciously installed method of bypassing normal authentication or encryption in an information system."], "correct": 4, "exp": "A backdoor bypasses normal security controls. Option 2 describes Trojan horse payload."}, {"page": "3", "topic": "Not Only Breaking Ciphers", "q": "Ransomware is", "opts": ["a term that refers to anything concrete lost by a victim and obtained by the attacker.", "a program that makes your data inaccessible to you and asks for money to restore access.", "software that an attacker has been able to destroy by changing random bits during its download.", "software whose download to a customer from a vendor has been blocked by an attacker until either party pays a fee."], "correct": 2, "exp": "Ransomware encrypts your files and demands payment. Data is locked not destroyed."}, {"page": "3", "topic": "Not Only Breaking Ciphers", "q": "How can an attack be passive?", "opts": ["The attack happens from a compromised slave machine owned by an unknowing user.", "The attacker just puts up a web-site asking for donations and starts receiving money.", "A passive attack is such that does not interfere with the integrity or availability of the victim's computing.", "Actually it cannot be. An attack is by definition active."], "correct": 3, "exp": "A passive attack only observes data without modifying anything. Option 4 is completely wrong."}, {"page": "4", "topic": "Not Only Viruses", "q": "Malware that does not replicate, pretends to be performing a legitimate action, but does something else in the background is called", "opts": ["a logic bomb.", "a trapdoor.", "a virus or a worm.", "a Trojan horse."], "correct": 4, "exp": "A Trojan horse disguises itself as legitimate software. Does NOT replicate unlike virus or worm."}, {"page": "4", "topic": "Not Only Viruses", "q": "What is a common feature of all malicious programs?", "opts": ["They are capable of similar actions as other programs in their running environment.", "They are aimed at achieving some financial goal.", "They spread through vulnerabilities in software.", "They are aimed at one target, although they usually spread elsewhere."], "correct": 1, "exp": "All malware runs in the same environment as legitimate software."}, {"page": "4", "topic": "Not Only Viruses", "q": "A macro virus is malware that", "opts": ["has a very large spread.", "runs its code from a large set of non-contiguous memory locations.", "spreads by masquerading itself as backward compatibility test code for software updates.", "runs on many different platforms (OS's) because it is interpreted by its host program."], "correct": 4, "exp": "Macro viruses run inside host programs like Word or Excel. Cross-platform ability is the key characteristic."}, {"page": "4", "topic": "Not Only Viruses", "q": "There are many terms that mean some sort of showing or coming out of a covering. The term that is used to mean such kind of a vulnerability in an information system is", "opts": ["revelation.", "unveiling.", "exposure.", "disclosure."], "correct": 3, "exp": "Exposure is the security term for a vulnerability that reveals something hidden."}, {"page": "4", "topic": "Not Only Viruses", "q": "What is the term used for an attack or error that causes data to be written in memory locations that are outside the allowed area?", "opts": ["Stack bloat.", "Division by near-zero.", "Buffer overflow", "Flooding."], "correct": 3, "exp": "Buffer overflow occurs when a program writes more data than a buffer can hold."}, {"page": "4", "topic": "Not Only Viruses", "q": "The term zero-day applies for instance to", "opts": ["DRM protection that is broken and published before the media, e.g. a game, is launched.", "the beginning of the life of an identity thief under the new identity.", "a vulnerability in software not yet exploited but found and kept secret by a malicious party.", "an attack where a user of a limited-time-free trial version of software can keep his computer on the same day for an unlimited length of time."], "correct": 3, "exp": "A zero-day vulnerability is unknown to the software vendor \u2014 they have had zero days to fix it."}, {"page": "5", "topic": "Networked Robots and Men", "q": "Which of the following fits most poorly to the concept of a bot network?", "opts": ["Users of machines on the bot network have agreed to work with the network administrator.", "The machines on the bot network have a remote access program.", "Bot network machines are rarely owned by the same organization.", "A bot network can be used to implement a denial of service attack."], "correct": 1, "exp": "A botnet is built from compromised machines whose owners do NOT know. Agreed participation would make it a legitimate network."}, {"page": "5", "topic": "Networked Robots and Men", "q": "Man in the middle is an attack type where", "opts": ["a process captures system calls, modifies them, sends them to the OS kernel, and likewise filters the responses to the calling procedure.", "the attacker or his process relays modified messages between two unknowing communication parties.", "a cryptographic algorithm is broken at about a square root of effort by working both from the start and end toward the middle.", "a process listens to a program's system calls and their responses, and sends the divulged sensitive data to the attacker."], "correct": 2, "exp": "In MITM the attacker positions between two parties, intercepts and can modify messages."}, {"page": "5", "topic": "Networked Robots and Men", "q": "A botnet is", "opts": ["a network used solely for internal communications.", "a group of dispersed, compromised machines controlled remotely for illicit purposes.", "a complete network built for the same purpose as single honeypot computers.", "a tool for automating security alerts in a corporate network."], "correct": 2, "exp": "A botnet is compromised computers controlled by an attacker without owners' knowledge."}, {"page": "6", "topic": "Risk and Three A-Properties", "q": "Information assurance is sometimes considered a wider term than information security. On the other hand, assurance is just part of information security, namely", "opts": ["a synonym for authentication.", "a synonym for accountability.", "evidence that security mechanisms are efficient.", "the level up to which risk management has been able to transfer information security risks."], "correct": 3, "exp": "Assurance is the confidence or evidence that security measures actually work."}, {"page": "6", "topic": "Risk and Three A-Properties", "q": "Authentication is the", "opts": ["assertion of a unique identity.", "process of defining the resources and type of access a user needs.", "decision by management that a user should be given access to a system.", "process of verifying an identity."], "correct": 4, "exp": "Authentication verifies that someone is who they claim to be. Option 1 describes identification."}, {"page": "6", "topic": "Risk and Three A-Properties", "q": "The objective of Availability is to make information accessible by protecting it from some but not all of these: (i) denial of service, (ii) fire, (iii) flood, (iv) unauthorized transaction, (v) unreadable backup tape. How many of these are excluded?", "opts": ["4", "1", "2", "3"], "correct": 4, "exp": "Fire, flood and unauthorized transaction are excluded \u2014 3 items. Fire and flood are physical disasters. Unauthorized transaction is an integrity issue."}, {"page": "6", "topic": "Risk and Three A-Properties", "q": "Which of the following couplings best defines risk?", "opts": ["Threat & vulnerability", "Threat & breach of security", "Vulnerability & attack", "Vulnerability & lack of protection"], "correct": 1, "exp": "Risk = Threat x Vulnerability. Without a vulnerability a threat cannot succeed."}, {"page": "7", "topic": "Policies and Models Do Not Protect", "q": "Access control means", "opts": ["a method to block connections to an information system from the network.", "principles concerning how to allocate access rights to users.", "measures, usually automatic, taken to decide whether access to a resource must be granted or denied, based on a policy.", "the entirety of identification, authentication, access decision and then either blocking or enabling access."], "correct": 3, "exp": "Access control is the enforcement mechanism. Option 2 describes policy. Option 4 is too broad."}, {"page": "7", "topic": "Policies and Models Do Not Protect", "q": "The security goal Accountability lies outside the ordinary C-I-A triad, but it is reasonable to say that Accountability is close to the combination of Authenticity with", "opts": ["I", "A", "C and A", "C"], "correct": 1, "exp": "Accountability requires authenticity combined with integrity (I) of audit records."}, {"page": "7", "topic": "Policies and Models Do Not Protect", "q": "Assume \"S.\" stands for \"Security\", and count how many of the following 7 terms mean roughly the same as S. control: S. mechanism, S. model, S. policy, S. service, protection, countermeasure, safeguard.", "opts": ["3", "4", "6", "5"], "correct": 4, "exp": "Mechanism=yes, model=NO, policy=NO, service=yes, protection=yes, countermeasure=yes, safeguard=yes. That gives 5."}, {"page": "7", "topic": "Policies and Models Do Not Protect", "q": "The strategy of forming layers of protection around an asset or facility is known as", "opts": ["cascade zoning.", "defence-in-depth.", "secured perimeter.", "onion thresholding."], "correct": 2, "exp": "Defence-in-depth uses multiple layers so if one fails others still protect."}, {"page": "7", "topic": "Policies and Models Do Not Protect", "q": "Non-repudiation as a security objective means that", "opts": ["one of the parties to the contract has tried to disclaim the information, but it has been possible to prove that it was a mistake.", "accidental or intentional changes to the data after their acceptance can be corrected.", "the information (e.g., contract) to which it relates has been understood and accepted.", "the person to whom the information relates has no grounds for claiming that there is no connection."], "correct": 4, "exp": "Non-repudiation means a party cannot deny having sent or received a message."}, {"page": "7", "topic": "Policies and Models Do Not Protect", "q": "Non-repudiation is", "opts": ["a special security goal.", "an attack against privacy.", "the term used for cancelling some of a user's rights in an information system.", "the time shortly before a public key certificate expires and a new one should be ordered."], "correct": 1, "exp": "Non-repudiation is a security goal ensuring parties cannot deny their actions."}, {"page": "8", "topic": "Credentials", "q": "Which counts as two factor authentication?", "opts": ["A hard token and a smart card.", "A user name and a PIN.", "A password and a PIN.", "A PIN and a hard token."], "correct": 4, "exp": "2FA requires two DIFFERENT factor types: something you know (PIN) + something you have (hard token)."}, {"page": "8", "topic": "Credentials", "q": "What is the term used for such collections of data that a person can use to prove his or her identity?", "opts": ["attributes", "certificates", "shared secrets", "credentials"], "correct": 4, "exp": "Credentials are the data used to prove identity."}, {"page": "8", "topic": "Credentials", "q": "Decisions on who can access certain data, like documents or databases, are best made by", "opts": ["data owner.", "senior management.", "application developers.", "administrators responsible for the user database."], "correct": 1, "exp": "The data owner knows the sensitivity and value of their data best."}, {"page": "8", "topic": "Credentials", "q": "Shared secret is an InfoSec term that usually refers to", "opts": ["a result of protocols like IKE (Internet Key Exchange) of IPsec.", "personal sensitive data that cannot be only private but must be known to someone else, too, than the owner.", "the random bit sequences that two parties send to a trusted server for the purpose of authenticating each other.", "the commands and passwords that allow a backdoor entry to an information system by a group of hackers."], "correct": 1, "exp": "A shared secret is established through key exchange protocols like IKE."}, {"page": "9", "topic": "Special Basic Protections", "q": "One of the tasks of a certification authority is", "opts": ["to maintain a database of those private and public keys, the correspondence of which it has certified.", "to calculate the corresponding public key at the request of a certified customer who provides a new private key.", "to update the certificates that have been revalidated, to accommodate a new expiry date.", "to publish a list of revoked certificates or provide a service that returns the certificate status."], "correct": 4, "exp": "CA tasks include managing certificate revocation through CRL or OCSP. CAs do NOT maintain private keys."}, {"page": "9", "topic": "Special Basic Protections", "q": "Challenge-response is a protocol between two parties A and B such that", "opts": ["A challenges B with an easy-to-check computational task that anyone can do but which takes time to solve.", "A challenges B with a task that supposedly only a human user can answer.", "A and B receive a random challenge from the other party and then use a shared secret to calculate a response which acts as a mutual authenticator and session key.", "A challenges B to respond with something that no one else than A - and possibly B itself - would be able to produce."], "correct": 4, "exp": "Challenge-response sends an unpredictable challenge only the legitimate party can answer."}, {"page": "9", "topic": "Special Basic Protections", "q": "A digital signature is made with", "opts": ["symmetric cryptography.", "a message authentication code.", "a public key certificate.", "a hash function and an asymmetric cryptoalgorithm."], "correct": 4, "exp": "A digital signature hashes the message then encrypts with private key."}, {"page": "9", "topic": "Special Basic Protections", "q": "At what phase of a product's life cycle is it likely to be most expensive to improve security?", "opts": ["implementation", "rapid prototyping", "testing", "design"], "correct": 1, "exp": "The later in the lifecycle you fix security the more expensive it is."}, {"page": "9", "topic": "Special Basic Protections", "q": "What does a firewall prevent from functioning in the way they were intended to?", "opts": ["ports", "IP-addresses", "protocols", "packets"], "correct": 4, "exp": "A firewall inspects and filters network packets."}, {"page": "9", "topic": "Special Basic Protections", "q": "What security concept is violated by the following: One person in the finance department is able to insert vendors to the vendor database and subsequently pay to the vendors?", "opts": ["Well-formed transactions", "Least privilege", "Separation of duties", "Database normalization"], "correct": 3, "exp": "Separation of duties requires critical tasks be divided among different people."}, {"page": "9", "topic": "Special Basic Protections", "q": "Steganography is", "opts": ["a special branch of cryptographic hash functions.", "an art of embedding data into a larger quantity of other data.", "an obsolete method of protecting secret messages.", "synonymous to digital watermarking."], "correct": 2, "exp": "Steganography hides a secret message within ordinary-looking data."}, {"page": "10", "topic": "Repair and Punishment", "q": "Which of the following statements is true?", "opts": ["Printing on paper is not a serious method to back up data.", "Removable flash memories are suitable as backup media.", "Backups are useless if copies are made only once a week.", "The method of incremental copies in backup means the same as making consecutive full copies."], "correct": 2, "exp": "Flash drives are valid backup media. Option 4 wrong \u2014 incremental only copies changes."}, {"page": "10", "topic": "Repair and Punishment", "q": "It is important to have an off-site backup copy of files to", "opts": ["improve accessibility of files from other locations.", "speed up the process of accessing files at any time.", "reduce the possibility of data theft.", "prevent the loss of data in the event of a fire."], "correct": 4, "exp": "Off-site backup protects against physical disasters that destroy both primary data and on-site backups."}, {"page": "10", "topic": "Repair and Punishment", "q": "All of the following may be needed to repair broken integrity, but what is the most concrete concept?", "opts": ["detection", "policy", "proactivity", "redundancy"], "correct": 4, "exp": "Redundancy is the most concrete \u2014 having extra copies or checksums allows restoration of corrupted data."}, {"page": "10", "topic": "Repair and Punishment", "q": "If you are a EU citizen and your personal data has been unduly disclosed by a service in EU,", "opts": ["you must still sue the company running the service in order to get any compensation.", "the GDPR stipulates a formula for a compensation the responsible company must pay to you.", "the responsible company may have to pay a fine of millions of euros.", "nobody will be held responsible if the data has been leaked through hacking and the attacker is not caught."], "correct": 3, "exp": "Under GDPR, fines up to 20 million euros or 4% of global annual turnover."}, {"page": "11", "topic": "More Than GDPR", "q": "The central meaning of data protection is in protecting", "opts": ["the secret information of individuals.", "the information that individuals disclose to different data collectors.", "the information companies provide to various data collectors.", "the confidential information of companies."], "correct": 2, "exp": "Data protection is about protecting personal information that individuals share with organizations."}, {"page": "11", "topic": "More Than GDPR", "q": "GDPR defines several roles with respect to a person's personal data, but not the role of data", "opts": ["subject.", "object.", "controller.", "processor."], "correct": 2, "exp": "GDPR defines: data subject, data controller, data processor. Data object is a technical term not a GDPR role."}, {"page": "11", "topic": "More Than GDPR", "q": "The European Union has enacted General Data Protection Regulation that mainly covers", "opts": ["the exchange of data between the EU and countries outside the EU.", "the duties of organizations when they handle data from individuals.", "the rules for encrypting and authenticating data when it is communicated between organizations.", "the rights and duties that EU citizens have with respect to their private data."], "correct": 2, "exp": "GDPR primarily places obligations on organizations."}, {"page": "11", "topic": "More Than GDPR", "q": "Payment card industry data security standard, PCI-DSS", "opts": ["is included in GDPR.", "is the equivalent of GDPR in the USA.", "is, as its name says, a standard created by an industry branch.", "is not related to GDPR by purpose or origin."], "correct": 3, "exp": "PCI-DSS was created by major card brands not by a government."}, {"page": "12", "topic": "Anonymity", "q": "When studying anonymity as a security goal it is natural to define it to have different degrees depending on", "opts": ["the country where you reside.", "what data should not be disclosed and by whom.", "what data should not be disclosed and to whom.", "the age of the person whose anonymity is in question."], "correct": 3, "exp": "Anonymity depends on WHAT should be hidden AND TO WHOM. Note: TO WHOM not BY WHOM \u2014 common exam trap."}, {"page": "12", "topic": "Anonymity", "q": "Privacy is synonymous to", "opts": ["secrecy.", "anonymity.", "none of these.", "privilege."], "correct": 3, "exp": "Privacy is distinct from secrecy, anonymity and privilege."}, {"page": "12", "topic": "Anonymity", "q": "Pseudonym is", "opts": ["a general term that refers to various sorts of aliases in filesystems and databases.", "a part of an impersonation attack.", "a human-readable indirection to a username in an information system.", "an artificial name that replaces the real name of a user."], "correct": 4, "exp": "A pseudonym is a false name used instead of a real name."}, {"page": "13", "topic": "IPR", "q": "Copyright is originally a property of", "opts": ["an artefact.", "the creators of an artefact.", "the publisher of an artefact.", "the buyer of an artefact."], "correct": 2, "exp": "Copyright belongs to the creator by default."}, {"page": "13", "topic": "IPR", "q": "One purpose of DRM is", "opts": ["to provide access control to digital media for protection of copyrights.", "to prevent production and distribution of software that can break copy protections of media files.", "to promote equal-opportunity rights to digital contents, in opposition to digital divide.", "to maintain a directory of copyrights and their delegations."], "correct": 1, "exp": "DRM controls how digital content can be accessed and distributed."}, {"page": "13", "topic": "IPR", "q": "What is not a way to protect intellectual property?", "opts": ["privacy regulations", "DRM, digital rights management", "patents", "licensing"], "correct": 1, "exp": "Privacy regulations protect personal data not intellectual property."}, {"page": "14", "topic": "Social Media", "q": "When you craft a job application you can include links to your social media postings. What can go wrong, in the sense of information security?", "opts": ["The recruiter may think you allow him to see what is linked to those postings, but such activity is an offense to your privacy.", "The recruiter follows what is linked to those postings, and finds something unfavourable of you.", "The recruiter thinks that by providing links you are trying to hide something on other platforms.", "If the other job applicants are not at all active in social media, the recruiter might think that you are not a good choice."], "correct": 2, "exp": "Your social media may contain posts or connections that create a negative impression."}, {"page": "14", "topic": "Social Media", "q": "Social media is in constant motion and update is a buzzword there. What kind of update, however, is poorly taken care of - if at all?", "opts": ["Rectifying of fake news or alternative truths.", "Client side scripts of the platform.", "Software that the platform servers are running.", "Terms and conditions of the platform."], "correct": 1, "exp": "Social media spreads content quickly but is very slow to correct misinformation."}, {"page": "14", "topic": "Social Media", "q": "Social media is a lively place and update is a buzzword there. What kind of update, however, is usually poorly handled?", "opts": ["Links to sites that have published new pages that correct earlier mistakes in their news.", "Changes in a user's profile or credentials.", "Algorithms and software of the platform.", "Memberships in groups."], "correct": 1, "exp": "Corrections to previously shared false information are almost never propagated."}, {"page": "14", "topic": "Social Media", "q": "Who is responsible if you share in social media something that is legal but not true and this causes harm to someone who reads it?", "opts": ["The reader, who took the post for true.", "You, without conditions.", "You, but only if you created the post yourself or reposted something that was not published for the same reader earlier.", "No one."], "correct": 2, "exp": "If you share false information that causes harm you bear full responsibility."}, {"page": "15", "topic": "Ethics", "q": "Ethics is an important topic in information systems,", "opts": ["and some aspects of it extending to the area of information security include treatment of privacy and IPR.", "and in information security its most vital application is in forecasting attacks by understanding the hackers' ethics.", "but in information security its role is negligible with the exception of hacking aspects.", "but in information security it only occurs in ethical hacking."], "correct": 1, "exp": "Ethics in information security covers privacy, IPR, responsible disclosure and fair use."}, {"page": "15", "topic": "Ethics", "q": "What is not a topic of ethical considerations?", "opts": ["Using a foreign VPN to access information that is illegal in your country but legal almost everywhere else.", "Searching for vulnerabilities in a web service by sending broken data packets to it.", "Wasting your own and others' time by writing in social media long explanations of questionable quality.", "Working out ways to block advertisements on web sites that get their income from displaying those ads."], "correct": 3, "exp": "This is a matter of quality and courtesy but not a genuine ethical dilemma."}, {"page": "15", "topic": "Ethics", "q": "If you need to browse the internet anonymously,", "opts": ["you have no choice but do that on a public machine - in a library for instance.", "the TOR network is an option you can seriously consider.", "you can simply set your browser to the privacy preserving mode.", "you must be cautious because most services for that purpose are against the law, at least in Finland."], "correct": 2, "exp": "TOR is a legitimate and legal tool for anonymous browsing."}, {"page": "16", "topic": "Security Issues on Personal Devices", "q": "Assume you have logged in to a web site. Then you close your browser and switch off the computer. The next day you get directly logged in without entering any credentials. What can you infer?", "opts": ["You did not close your browser the first day, after all.", "There is no way to log out from the site.", "Your browser sends your password automatically to the site.", "The site uses a login cookie that persists even if the browser is not running."], "correct": 4, "exp": "A persistent login cookie is stored and sent automatically. Browsers do not send passwords automatically."}, {"page": "16", "topic": "Security Issues on Personal Devices", "q": "You buy a USB memory stick with 256-bit AES encryption. The keyboard lets you choose a passcode of length 8, 9 or 10. You take the longest code. An attacker gets the stick and enters codes electronically. How many attempts in the worst case?", "opts": ["10^10", "10^8+10^9+10^10", "2^256", "3*10^10"], "correct": 1, "exp": "You chose the 10-digit code. Attacker tries all 10-digit combinations: 10^10."}, {"page": "16", "topic": "Security Issues on Personal Devices", "q": "If your personal computer has a firewall, it is typically", "opts": ["an accessory on the power cord.", "one process among others.", "hardware on the network card.", "an add-on to the browser process."], "correct": 2, "exp": "On a personal computer a firewall is a software process."}, {"page": "16", "topic": "Security Issues on Personal Devices", "q": "Which of the following connections to the USB port has the least risks in information security?", "opts": ["Your private memory stick when you read and write document files for long term storage.", "Your own mobile phone when you only charge its battery in a locked box at a local supermarket.", "Charging the new camping shower you just bought from a Chinese web shop. (This is a little pump with a hose.)", "The optical mouse that your IT staff checked for you to bring home from your office for remote work."], "correct": 3, "exp": "A simple water pump only needs power and has no data capability."}, {"page": "17", "topic": "Risk Management, Policy", "q": "What control mechanisms can be left out of the risk analysis?", "opts": ["The types of mechanisms that do not yet exist in the target system.", "Risk analysis does not include the handling of control mechanisms.", "Mechanisms that do not control threats to the system under consideration.", "Those that solve the same problem as the mechanisms already addressed in the analysis."], "correct": 3, "exp": "Risk analysis should only include controls relevant to the threats being analyzed."}, {"page": "17", "topic": "Risk Management, Policy", "q": "Which of the following does not need to be considered in the risk analysis?", "opts": ["How much is invested in information security in competing companies.", "Impact of security breaches on the company's reputation or public image.", "How difficult or expensive it would be for an attacker to carry out certain types of threats.", "Company's data resources and their value."], "correct": 1, "exp": "What competitors spend on security is irrelevant to your own risk analysis."}, {"page": "17", "topic": "Risk Management, Policy", "q": "Compared to a previous estimate, the overall risk is reduced if", "opts": ["the probability of the threat associated with a particular risk is set lower in the calculations than it actually is.", "the existence of a control mechanism is ignored in the calculations.", "the value of an asset is marked in the calculations larger than it actually is.", "the value of an asset is found to be smaller than before."], "correct": 4, "exp": "Risk = Threat x Vulnerability x Asset Value. If an asset is genuinely worth less the real risk is lower."}, {"page": "17", "topic": "Risk Management, Policy", "q": "Alice has been tasked with implementing several security controls to protect the company's email system. This shows that the company's approach to email risks is", "opts": ["risk mitigation.", "risk acceptance.", "risk transference.", "risk avoidance."], "correct": 1, "exp": "Risk mitigation means taking active steps to reduce risk by implementing controls."}, {"page": "18", "topic": "Non-disclosure, but Public Keys", "q": "A non-disclosure agreement may have many forms, but its usual purpose is", "opts": ["to protect the customer's or employee's personal data against too wide usage by the organization.", "to prevent an employee or visitor from revealing sensitive information of an organization.", "to provide a confidentiality classification of information that an organization shares with its members.", "to set rules for encryption for sensitive data of an organization."], "correct": 2, "exp": "An NDA binds a person to keep organizational information confidential."}, {"page": "18", "topic": "Non-disclosure, but Public Keys", "q": "The basic goal of a public key infrastructure is to", "opts": ["bind a private key to a corresponding public key.", "bind the public key to the entity to which the key belongs.", "allow for a reasonably short and easy-to-find chain of certificates.", "enable a wide user base by using a hierarchical structure."], "correct": 2, "exp": "PKI's fundamental purpose is to create a trusted link between a public key and the identity of its owner."}, {"page": "18", "topic": "Non-disclosure, but Public Keys", "q": "Assume K is a public key and S is the corresponding private key, and they belong to person B. A certificate for K is generated when", "opts": ["someone else uses his private key for a signature that binds K and the identity of B.", "using S, a signature is calculated that binds K and S.", "a trusted party creates a digital signature that binds K with S.", "a signature is created which can be verified with S and which binds the identity of B to K."], "correct": 1, "exp": "A certificate is created when a CA uses its OWN private key to sign a binding between public key K and the identity of B."}, {"page": "19", "topic": "Password", "q": "If you need to come up with a question and answer in a web service for the case of forgetting your password, which of the following is most important from the authentication point of view?", "opts": ["the memorability of the answer", "the entropy of the answer", "the entropy of the question", "the compatibility of the question and the answer"], "correct": 2, "exp": "From an authentication perspective the answer must be unpredictable \u2014 high entropy means hard to guess."}, {"page": "19", "topic": "Password", "q": "If your browser offers you the option to save a password, which of the following conditions is most important for you to accept the offer?", "opts": ["There is nothing valuable behind the password.", "You do not need the password from any other machine.", "The passwords in your browser are protected from others.", "The password is so entropic that you would not be able to remember it."], "correct": 3, "exp": "If someone else can access your browser they see all your saved passwords."}, {"page": "19", "topic": "Password", "q": "The instructions concerning the use of a password can be condensed into five prohibitions: Do not (i) show, (ii) tell, (iii) save, (iv) allow to age, (v) recycle. Which of the following mentions first a prohibition that you must not and then one that you can relax?", "opts": ["(ii) & (iii)", "(iii) & (iv)", "(i) & (ii)", "(iv) & (v)"], "correct": 1, "exp": "You must NEVER tell your password (ii). But you CAN save it (iii) in a trusted password manager."}, {"page": "19", "topic": "Password", "q": "Which of the following is generally the most dangerous with passwords? The user", "opts": ["uses the same password in several places.", "selects a password with low entropy.", "never changes his password.", "writes the password on paper."], "correct": 1, "exp": "Password reuse is most dangerous \u2014 one breach compromises ALL accounts sharing that password."}, {"page": "19", "topic": "Password", "q": "It has been said of the password that it should be treated like your own toothbrush. How many of the following password-related features does this statement represent? (i) Entropy, (ii) usability, (iii) keeping it for personal use only, (iv) changing it often enough.", "opts": ["none", "two", "all", "one"], "correct": 2, "exp": "A toothbrush represents: (iii) personal use only and (iv) change it often enough. Exactly two features."}, {"page": "20", "topic": "Cookie", "q": "With the exception of the cookie itself or other cookies, a web browsing cookie cannot break", "opts": ["the availability of your files, but it may break their confidentiality or integrity.", "the integrity of your files, but it may break their confidentiality.", "either the integrity or confidentiality of your files.", "the confidentiality of your files, but it may break their integrity."], "correct": 3, "exp": "A cookie cannot directly access or modify files on your computer."}, {"page": "20", "topic": "Cookie", "q": "In the original and still most common usage, the web browsing cookie is created by the", "opts": ["browser, which gets it back from the server without changes.", "browser, but the server modifies it and sends back to the browser.", "web server, but the browser modifies it and sends back to the server.", "web server, which gets it back from the browser without changes."], "correct": 4, "exp": "The web server creates the cookie and gets it back unchanged from the browser."}, {"page": "20", "topic": "Cookie", "q": "The purpose of a web browsing cookie is to transmit to the web server information", "opts": ["that is the same as the server has earlier transmitted to the browser.", "collected by the browser from other servers.", "about browser security settings.", "collected by the browser from the user."], "correct": 1, "exp": "The cookie sends back the same information the server originally sent."}, {"page": "21", "topic": "CAPTCHA", "q": "CAPTCHA or \"Completely Automated Public Turing test to tell Computers and Humans Apart\"", "opts": ["is a security mechanism that, by definition, cannot be attacked by human force.", "is an example of authentication that does not involve identification.", "cannot be interpreted as authentication.", "is authentication based on either knowledge, ownership, or location."], "correct": 2, "exp": "CAPTCHA proves you are human without knowing WHO you are \u2014 no identification involved."}, {"page": "21", "topic": "CAPTCHA", "q": "Why would you bother to write your email address in the form of john.doePOISTA@MINUTtuni.fi? (\"Poista minut\" is Finnish for \"Remove me\".)", "opts": ["To avoid spammers harvesting your real address so easily.", "To announce your desire to get away from a mailing list.", "To hide your domain (location) from automatic scanning by authorities.", "To prevent excessive contacts from others than those who know Finnish."], "correct": 1, "exp": "This is email address obfuscation. Adding POISTA MINUT breaks the email pattern so bots cannot harvest it."}, {"page": "22", "topic": "Crypto Procedures", "q": "Cryptographic primitives are mainly", "opts": ["such basic mechanisms, that can be found in all cryptographic algorithms and protocols.", "prime numbers from which keys are formed.", "procedures that a cryptology practitioner can view like indivisible blocks.", "base numbers that generate all other numbers in modular arithmetic."], "correct": 3, "exp": "Primitives are the basic building blocks of cryptographic systems treated as indivisible black boxes."}, {"page": "22", "topic": "Crypto Procedures", "q": "Which of the following is mainly a task that can be performed using a cryptographic protocol?", "opts": ["Secure storage of an encryption key.", "Converting an email message to ciphertext.", "Generating an encryption key based on good random numbers.", "Agreeing on an encryption key."], "correct": 4, "exp": "A cryptographic protocol involves multiple parties exchanging messages. Key agreement requires communication between parties."}, {"page": "22", "topic": "Crypto Procedures", "q": "Investigate the argument: Crypto algorithms are either symmetric encryption algorithms, or asymmetric encryption or signature algorithms. It is", "opts": ["false because the list lacks algorithms that do not use a key.", "true, because the digital signature that has been introduced alongside the traditional encryption is done with an encryption-like algorithm, which is not symmetric.", "false, but the inclusion of steganography would make the claim true.", "true, because it does not make sense to mention separately decryption or signature verification."], "correct": 1, "exp": "Hash functions are cryptographic algorithms but use no key. The statement is false because it omits keyless algorithms."}, {"page": "22", "topic": "Crypto Procedures", "q": "Which of the following is not covered by the concept of a cryptographic algorithm?", "opts": ["message authentication code", "challenge-response method", "hash function", "random number generator"], "correct": 2, "exp": "Challenge-response is a PROTOCOL not an algorithm."}, {"page": "22", "topic": "Crypto Procedures", "q": "An implementation of ____ that contains all the necessary software, protocols, algorithms and keys, is called ______ .", "opts": ["a cryptosystem, cryptanalysis", "cryptography, a cryptosystem", "cryptanalysis, cryptology", "cryptology, cryptanalysis"], "correct": 2, "exp": "Cryptography is the practice/science. A cryptosystem is a complete implementation."}, {"page": "22", "topic": "Crypto Procedures", "q": "The term plaintext", "opts": ["means ASCII-text without any formatting or markup.", "is used for human readable sequences of characters.", "refers to documents that do not contain any executable content like macros.", "is a synonym for cleartext and the concept is used in cryptography."], "correct": 4, "exp": "Plaintext means unencrypted data. It is the data BEFORE encryption."}, {"page": "23", "topic": "Keys and Chunks or Streams", "q": "There are two classes of symmetric cryptographic methods, the _____ ciphers process the plaintext a fixed number of bits at a time and the _____ ciphers proceed bit by bit.", "opts": ["chunk, flow", "block, stream", "stop-go, continuous", "packet, flux"], "correct": 2, "exp": "Block ciphers process fixed-size blocks. Stream ciphers process data bit by bit."}, {"page": "23", "topic": "Keys and Chunks or Streams", "q": "Encryption is a method for protecting confidentiality of data, and it requires a key, that", "opts": ["is different for each message or chunk of data.", "has the same length in bits as the data.", "can be sent along the message as such because the communicating parties must have agreed on such parameters.", "can even be computed from a human-memorable password if the data is not to be sent anywhere but protected in local storage."], "correct": 4, "exp": "This describes password-based encryption using key derivation functions."}, {"page": "23", "topic": "Keys and Chunks or Streams", "q": "As a result of doubling the length of a symmetric encryption key, the time required for a brute force attack, if originally T, becomes", "opts": ["4xT.", "Tk where k > 2.", "at least 2xT, but less than 4xT.", "T2."], "correct": 4, "exp": "Doubling key LENGTH squares the brute force effort. T becomes T squared."}, {"page": "23", "topic": "Keys and Chunks or Streams", "q": "Stream ciphers are one of the two classes of symmetric cryptographic methods, the other one being", "opts": ["cryptographic hashing.", "public key cryptography.", "authentication algorithms.", "block algorithms."], "correct": 4, "exp": "The two classes of symmetric cryptographic methods are stream ciphers and block ciphers."}, {"page": "24", "topic": "One-time Pad, DES, AES", "q": "The most popular symmetric cryptosystem currently is", "opts": ["AES.", "DES.", "RSA.", "TLS."], "correct": 1, "exp": "AES replaced DES and is now the most widely used symmetric encryption algorithm. RSA is asymmetric. TLS is a protocol."}, {"page": "24", "topic": "One-time Pad, DES, AES", "q": "DES, the Digital Encryption Standard, was for a long time the state-of-the-art method to", "opts": ["carry out the exchange of cryptographic keys.", "authenticate the owner of the secret encryption key.", "produce confidentiality of communications.", "transform digital images to contain a watermark."], "correct": 3, "exp": "DES was the standard symmetric encryption algorithm for keeping communications confidential."}, {"page": "24", "topic": "One-time Pad, DES, AES", "q": "What is a one-time pad?", "opts": ["A cascading network attack type where the intruder uses each compromised computer only once to evade detection.", "A single-use key together with the method of using it to encrypt and decrypt a message.", "A method of generating truly random numbers.", "A tablet computer equipped with spying software used for attacks by forgetting it at a place where the victim can find it."], "correct": 2, "exp": "A one-time pad is theoretically unbreakable \u2014 truly random key, used only ONCE."}, {"page": "24", "topic": "One-time Pad, DES, AES", "q": "AES is a", "opts": ["stream cipher.", "block cipher.", "a mode of using DES.", "symmetric method for authenticated exchange of secrets."], "correct": 2, "exp": "AES is a symmetric block cipher processing data in 128-bit blocks."}, {"page": "25", "topic": "Public Key", "q": "A public key for ______ is like a physical key that can be used to shut a padlock so that it can only be opened with a different key.", "opts": ["encryption", "decryption", "signature verification", "digital signature"], "correct": 1, "exp": "Anyone can use the public key to lock (encrypt) data, but only the private key holder can unlock (decrypt) it."}, {"page": "25", "topic": "Public Key", "q": "A public key for ______ is like a physical key that can open a padlock after someone has locked it with a different private key.", "opts": ["encrypting secret messages", "decrypting secret messages", "verifying signatures", "signing messages"], "correct": 3, "exp": "In digital signatures anyone can verify using the public key what the sender locked with their private key."}, {"page": "25", "topic": "Public Key", "q": "Which of the following does not apply? (first set)", "opts": ["If the RSA decryption exponent is d, then the RSA decryption program has to do d-1 modular multiplications.", "The RSA decryption algorithm does not need to know the two prime numbers that make up the modulus n.", "An RSA signature can be made even if you do not know the two prime numbers that make up the public modulus n.", "If you raise a number x to the public RSA exponent (e) and then to the private exponent (d) and reduce modulo n, you obtain x."], "correct": 1, "exp": "FALSE. RSA uses square-and-multiply fast exponentiation requiring approximately log(d) multiplications, NOT d-1."}, {"page": "25", "topic": "Public Key", "q": "Which of the following does not apply? (second set)", "opts": ["If you raise a number x to the private RSA exponent (d) and then to the public exponent (e) and reduce modulo n, you obtain x.", "The RSA decryption algorithm does not need to know the two prime numbers that make up the modulus n.", "An RSA signature cannot be made unless you know the two prime numbers that make up the public modulus n.", "RSA encryption can be calculated for a larger number than the public modulus, but decryption still produces a smaller number than the modulus."], "correct": 3, "exp": "FALSE. RSA signing only requires private exponent d and modulus n \u2014 NOT the prime factors p and q."}, {"page": "26", "topic": "Hash", "q": "Which of the following is typical of checksums intended to prevent typing errors in character strings that mainly contain digits?", "opts": ["They are calculated by summing the digits.", "They are calculated from all the characters.", "They are always placed at the beginning of the original string.", "They contain several characters scattered in non-adjacent positions in the original string."], "correct": 2, "exp": "A checksum must cover all characters to detect errors anywhere in the input."}, {"page": "26", "topic": "Hash", "q": "The cryptographic hash value calculated from a message represents the entire message in the sense that", "opts": ["it cannot be obtained from any other message.", "it is very unlikely to find any other message with the same hash.", "small changes in the message change the value only slightly.", "a change at any location in the message can be corrected based on the hash."], "correct": 2, "exp": "This describes collision resistance. Option 3 is opposite \u2014 avalanche effect means LARGE hash changes from small message changes."}, {"page": "26", "topic": "Hash", "q": "How does a cryptographic hash value protect a message?", "opts": ["It ensures that the message is not a copy of any previous message.", "The message cannot be interpreted without knowing the hash value.", "The message cannot be changed without breaking the correspondence with the value.", "The message cannot be changed without knowing the hash value."], "correct": 3, "exp": "Any change to the message produces a completely different hash, revealing tampering."}, {"page": "26", "topic": "Hash", "q": "Which of the following does not apply to keyed cryptographic hashes?", "opts": ["They can be used to authenticate a message.", "They are also called Cyclic Redundancy Checks.", "Keyless hash functions such as SHA-1 can be used to calculate them.", "They must be well over 24 bits long."], "correct": 2, "exp": "CRCs are non-cryptographic error detection checksums \u2014 completely different from keyed hashes (MACs)."}, {"page": "26", "topic": "Hash", "q": "How many bit strings m of length 100 give an H(m) that starts with 40 zeros?", "opts": ["most likely none", "225", "240", "260"], "correct": 4, "exp": "There are 2^100 possible strings. Expected count = 2^100 / 2^40 = 2^60 (written as 260)."}, {"page": "26", "topic": "Hash", "q": "How many bit strings m of length 40 give an H(m) that starts with 100 zeros?", "opts": ["most likely none", "225", "240", "260"], "correct": 1, "exp": "Only 2^40 possible strings. Expected count = 2^40 / 2^100 = essentially zero."}, {"page": "27", "topic": "The Most Common Protocols", "q": "IPsec", "opts": ["provides mechanisms for authentication and encryption.", "only authenticates clients toward a server.", "can only be deployed with IPv6.", "provides mechanisms for nonrepudiation."], "correct": 1, "exp": "IPsec provides both authentication and encryption at the IP layer. Works with both IPv4 and IPv6."}, {"page": "27", "topic": "The Most Common Protocols", "q": "What does key exchange mean in the sentence: \"Key exchange is one of the most important cryptographic protocols.\"?", "opts": ["A public key is revoked and replaced by a new one which is authenticated.", "The parties authenticate their public keys to each other.", "An old symmetric key is being updated.", "A symmetric key is agreed upon."], "correct": 4, "exp": "Key exchange means two parties agreeing on a shared symmetric key without it ever being transmitted directly."}, {"page": "27", "topic": "The Most Common Protocols", "q": "The protocol and program of choice for setting up a window for command line use of a remote computer is called", "opts": ["TLS.", "SSH.", "PGP.", "IMAP."], "correct": 2, "exp": "SSH (Secure Shell) is the standard protocol for securely connecting to a remote computer's command line."}, {"page": "27", "topic": "The Most Common Protocols", "q": "TLS is a very common cryptographic protocol. The T in its name comes from the word", "opts": ["trusted.", "transmission.", "transport.", "total."], "correct": 3, "exp": "TLS stands for Transport Layer Security. It replaced SSL."}, {"page": "28", "topic": "Nature and Devices", "q": "What is true about fires?", "opts": ["The risk of fire is the foremost reason why backups must be made.", "Fire detection and suppression must be taken care of by the ordinary facilities management and there are no special demands from IT.", "It is not so much the computers that catch fire, but the batteries and their charging are causing risks especially in mobile devices.", "The increase in processing power has come with the elevated risk of overheating and fire."], "correct": 3, "exp": "Lithium-ion batteries in mobile devices are a genuine fire risk. IT systems have special fire suppression requirements."}, {"page": "28", "topic": "Nature and Devices", "q": "The digital cash bits on a smart card cannot be extracted from the card and copied for reuse. Only one of the following is a reasonable, though partial, explanation. Which?", "opts": ["During the payment transaction a cryptographically protected label is attached to them indicating that they have been used.", "The card's file system is randomized.", "All cards are manufactured to be different in such a way that the bits copied from one to another would not work the same way.", "The card's processor only transacts with processors of the right kind and even then spending happens inside the card."], "correct": 4, "exp": "Smart cards have a secure processor \u2014 operations happen inside the tamper-resistant chip."}, {"page": "29", "topic": "Filtering", "q": "A demilitarized zone, DMZ, means a part of an organization's network that", "opts": ["resides between two filtering devices.", "has no workstations.", "does not contain any facilities for virus-scanning, intrusion detection or logging.", "has no servers."], "correct": 1, "exp": "A DMZ sits between two firewalls \u2014 one facing the internet and one facing the internal network."}, {"page": "29", "topic": "Filtering", "q": "Which of the following should mainly be able to filter packets like a dedicated firewall machine does?", "opts": ["modem", "switch", "router", "repeater"], "correct": 3, "exp": "Routers operate at Layer 3 and can perform packet filtering based on IP addresses and port numbers."}, {"page": "29", "topic": "Filtering", "q": "Which of the following can a packet filter do: (i) anti-virus, (ii) delete oversized email attachments, (iii) encrypt or decrypt?", "opts": ["none of these", "only (iii)", "only (i) and (ii)", "only (ii) and (iii)"], "correct": 1, "exp": "A packet filter inspects only headers. It cannot inspect content for viruses, read attachments, or encrypt/decrypt."}, {"page": "29", "topic": "Filtering", "q": "How does a packet filter react to TCP and UDP port numbers?", "opts": ["It doesn't take them into account.", "It rejects the packet if either number is invalid.", "It returns the packet if either number is invalid.", "It passes through the packet if and only if those numbers are equal."], "correct": 2, "exp": "A packet filter rejects packets if either port number is invalid per its rules."}, {"page": "29", "topic": "Filtering", "q": "The tasks of a packet filter may include", "opts": ["user authentication.", "anti-virus.", "spam filtering.", "writing logs."], "correct": 4, "exp": "Packet filters CAN log traffic. They CANNOT perform user authentication, anti-virus scanning or spam filtering."}, {"page": "30", "topic": "Secure Connection", "q": "One possible action of IPsec is to add to each data packet a field with", "opts": ["a signature calculated from the packet with the sender's key.", "the sender's public key and its certificate.", "a certificate calculated from header fields of the packet.", "a hash calculated from the packet and a symmetric key."], "correct": 4, "exp": "IPsec Authentication Header adds an HMAC \u2014 a hash from packet contents using a shared symmetric key."}, {"page": "30", "topic": "Secure Connection", "q": "IPsec encrypts data packets on a protocol layer that is", "opts": ["the same as TLS.", "in some functions the same, in some lower than in TLS.", "lower than in TLS.", "higher than in TLS."], "correct": 3, "exp": "IPsec operates at Layer 3. TLS operates between Layer 4 and Application layer. Layer 3 is lower."}, {"page": "30", "topic": "Secure Connection", "q": "If a remote user's machine fails to authenticate the target machine, which threat is the most serious? The target machine can", "opts": ["give the user's authentication information to an attacker.", "be a bot network server.", "send malware to the user's machine.", "target the user with a DoS attack."], "correct": 1, "exp": "If the user connects to a fake server and enters credentials, the attacker captures them."}, {"page": "30", "topic": "Secure Connection", "q": "Because TLS works below the application layer, it", "opts": ["does not know what kind of data it protects.", "is unable to protect a password entered in the browser as it travels to the server.", "can connect applications on several servers to protect a complex business transaction for the client.", "cannot establish an encrypted connection between two applications."], "correct": 1, "exp": "TLS encrypts whatever the application sends without knowing whether it is HTTP, email, FTP or any other type."}, {"page": "30", "topic": "Secure Connection", "q": "Which of the following is more important in a VPN that must meet the security needs of the network connection for a remote worker?", "opts": ["virtuality", "encryption", "transparent functionality of the network", "tunneling, and hiding the endpoints"], "correct": 2, "exp": "Encryption is the fundamental security requirement of a VPN for remote workers."}, {"page": "31", "topic": "Mobile Authentication", "q": "In the cell phone system the network authenticates the phone or actually the SIM card in it. What mechanism is in place here?", "opts": ["One-time password", "Challenge-response method, with a symmetric key system.", "Fixed password", "Challenge-response method that applies a public key system."], "correct": 2, "exp": "GSM uses challenge-response with a shared symmetric key stored on the SIM card. No public key system involved."}, {"page": "31", "topic": "Mobile Authentication", "q": "The mobile phone systems 2G, 3G, 4G, ... authenticate the subscriber", "opts": ["with a PKI based protocol.", "by using an authenticated Diffie-Hellman key exchange.", "by encrypting and transmitting a shared secret from the SIM card to the network.", "by applying a cryptographic hash function to a shared secret"], "correct": 4, "exp": "Mobile networks apply a cryptographic hash/HMAC to a shared secret. The shared secret is NEVER transmitted."}, {"page": "31", "topic": "Mobile Authentication", "q": "What is the relation between WiFi, WLAN, VLAN and WPA?", "opts": ["WPA is the protection method for a WLAN, which uses the WiFi protocol, and can be one of the VLANs in an organization's network.", "WPA is an advanced version of WiFi, which is one type of WLAN. VLAN is not at all related to the others.", "WLAN is a wireless version of a VLAN, which is an implementation of the WiFi protocol, and any VLAN can be protected by WPA.", "WiFi is the protection method for a WLAN, which is a form of a VLAN. WPA is not related to the others."], "correct": 1, "exp": "WiFi is the protocol. WLAN is the network type. WPA is the security protocol. VLAN is a separate concept."}, {"page": "31", "topic": "Mobile Authentication", "q": "WPA is a cryptographic protocol for protecting wireless communications. Which of the following: (i) NFC, (ii) ZigBee, (iii) Bluetooth, (iv) WiFi?", "opts": ["(i) - (iv)", "(iv)", "(iii)", "(ii) - (iv)"], "correct": 2, "exp": "WPA protects WiFi/WLAN only. NFC, ZigBee and Bluetooth have their own separate security mechanisms."}, {"page": "32", "topic": "Start Running Programs", "q": "What is not used as a term for the act of a computer system making a new entry to the log file of active users?", "opts": ["log in", "pass in", "sign in", "log on"], "correct": 2, "exp": "Log in, sign in and log on are all standard terms. Pass in is not used for this purpose."}, {"page": "32", "topic": "Start Running Programs", "q": "Login is an exceptional program in the sense that", "opts": ["its actions are completely reversible, by virtue of the logout program.", "it need not know whether it is launched by a legitimate user or an attacker.", "it cannot complete without a human user acting in person.", "it can be run, retried, over and over again without any change in the system."], "correct": 2, "exp": "Login must handle authentication requests from anyone \u2014 it cannot pre-screen."}, {"page": "32", "topic": "Start Running Programs", "q": "Regardless of which programs you are running on your computer the most essential protections for your computing is provided by", "opts": ["the memory resident malware scanner.", "the operating system.", "those device drivers that are running at any moment.", "all filtering programs that are run by the operating system, the firewall at a minimum."], "correct": 2, "exp": "The operating system is the foundation of all security."}, {"page": "32", "topic": "Start Running Programs", "q": "Sandboxing is a security mechanism, where", "opts": ["new untrusted software is run in a disconnected test system to check it for malicious behaviour.", "untrusted code, which is not signed, is continuously restricted from accessing system resources.", "a new version of software is tested by scrutinizing all memory accesses it does that the earlier version did not do.", "a new version of software is installed into a production system but is kept from doing anything that the earlier version did not do."], "correct": 1, "exp": "Sandboxing isolates untrusted code in a restricted environment."}, {"page": "32", "topic": "Start Running Programs", "q": "Single sign-on", "opts": ["can provide access to multiple resources, but it is only valid for a limited session or duration.", "is an insecure mechanism because it confuses the granting of access rights with the authentication phase.", "provides access to any one resource for a single use.", "is an unnecessary mechanism because one-time authentication can be handled already at the authorization stage."], "correct": 1, "exp": "SSO allows a user to authenticate once and access multiple systems."}, {"page": "32", "topic": "Start Running Programs", "q": "Single sign-on is characterized by the fact that", "opts": ["the user has a different ID for different services, even though the password he or she must remember for them is the same.", "there is no need to store log information about the use and operation of the services elsewhere than in a centralized login service.", "the password a user must remember is different for different services, even if the username for each is the same.", "security is improved compared to a user having the same password for multiple services."], "correct": 4, "exp": "With SSO users only need one strong password rather than reusing the same password across multiple services."}, {"page": "33", "topic": "A Spectrum of Storage Issues", "q": "A database is an organized collection of data. The organization usually means delicate dependencies between parts of that collection. More than the other options, database security requirements concern", "opts": ["your Google search results.", "the data that your (future) employer has about its employees.", "the photo album on your phone.", "your medical records, that you collect in a folder of papers."], "correct": 2, "exp": "Employee databases contain structured sensitive personal data with complex dependencies."}, {"page": "33", "topic": "A Spectrum of Storage Issues", "q": "Why do you sometimes need to write zeros and ones over and over again on a file on disk?", "opts": ["So that the magnetic field is reset enough and the new data written in the same place is better kept intact.", "To ensure that the code of any computer virus is erased from the disk.", "So that the deterioration of the magnetic field over time does not affect the integrity of the data stored on the disk.", "So that the earlier contents of the file could not be read at all."], "correct": 4, "exp": "Overwriting multiple times is secure deletion. Multiple overwrites make forensic recovery extremely difficult."}, {"page": "33", "topic": "A Spectrum of Storage Issues", "q": "Password salt is", "opts": ["the small variation allowed in password systems that use very long passphrases.", "the method to make fixed passwords variable by requiring to insert time dependent punctuations.", "the secret constant that a password checking procedure uses as an input together with the password.", "the random number stored without encryption together with each hashed password."], "correct": 4, "exp": "A salt is a random value added before hashing, stored in plaintext. It defeats rainbow table attacks."}];
+const TOPICS = ["First Concepts", "Some Victims and Attackers", "Not Only Breaking Ciphers", "Not Only Viruses", "Networked Robots and Men", "Risk and Three A-Properties", "Policies and Models Do Not Protect", "Credentials", "Special Basic Protections", "Repair and Punishment", "More Than GDPR", "Anonymity", "IPR", "Social Media", "Ethics", "Security Issues on Personal Devices", "Risk Management, Policy", "Non-disclosure, but Public Keys", "Password", "Cookie", "CAPTCHA", "Crypto Procedures", "Keys and Chunks or Streams", "One-time Pad, DES, AES", "Public Key", "Hash", "The Most Common Protocols", "Nature and Devices", "Filtering", "Secure Connection", "Mobile Authentication", "Start Running Programs", "A Spectrum of Storage Issues"];
+
+let mode = 'exam';
+let selCountN = 10;
+let selTopics = [];
+let testQ = [];
+let idx = 0, correct = 0, wrong = 0, skipped = 0;
+let answered = false;
+let timer = null;
+let startT = null;
+let history_ = [];
+let bookmarks = JSON.parse(localStorage.getItem('cs1_bm') || '[]');
+let wrongQ = JSON.parse(localStorage.getItem('cs1_wrong') || '[]');
+let testLogs = JSON.parse(localStorage.getItem('cs1_logs') || '[]');
+let curBmIdx = -1;
+
+// ── INIT ──────────────────────────────────────────────────────────────────
+function init() {
+  buildTopicChips();
+  updateStats();
+  updateHistory();
+  if (localStorage.getItem('cs1_dark') === '1') applyDark(true);
+}
+
+function updateStats() {
+  document.getElementById('st-total').textContent = testLogs.length;
+  if (testLogs.length > 0) {
+    const scores = testLogs.map(l => l.pct);
+    document.getElementById('st-best').textContent = Math.max(...scores) + '%';
+    document.getElementById('st-avg').textContent = Math.round(scores.reduce((a,b)=>a+b)/scores.length) + '%';
+  }
+}
+
+function updateHistory() {
+  const panel = document.getElementById('histPanel');
+  const list = document.getElementById('histList');
+  if (testLogs.length === 0) { panel.style.display = 'none'; return; }
+  panel.style.display = 'block';
+  list.innerHTML = testLogs.slice(-5).reverse().map(l => `
+    <div class="hist-item">
+      <div>
+        <div class="hist-score ${l.pct >= (l.examMode ? 69 : 70) ? 'pass' : 'fail'}">${l.correct}/${l.total} (${l.pct}%)</div>
+        <div class="hist-meta">${l.mode} · ${l.date}</div>
+      </div>
+      <div style="font-size:.8rem;color:var(--g400)">${l.time}</div>
+    </div>
+  `).join('');
+}
+
+function buildTopicChips() {
+  const wrap = document.getElementById('topicWrap');
+  TOPICS.forEach(t => {
+    const btn = document.createElement('button');
+    btn.className = 'tc'; btn.textContent = t; btn.title = t;
+    btn.onclick = () => {
+      btn.classList.toggle('sel');
+      selTopics = [...document.querySelectorAll('.tc.sel')].map(c => c.textContent);
+      document.getElementById('startModeBtn').disabled = selTopics.length === 0;
+    };
+    wrap.appendChild(btn);
+  });
+}
+
+// ── MODE SELECTION ────────────────────────────────────────────────────────
+function activateMode(m) {
+  mode = m;
+  ['quick','topic','weak','bookmark'].forEach(id => {
+    document.getElementById('mc-' + id).classList.remove('active');
+    document.getElementById('panel-' + id).style.display = 'none';
+  });
+  document.getElementById('mc-' + m).classList.add('active');
+  document.getElementById('panel-' + m).style.display = 'block';
+  document.getElementById('startModeBtn').style.display = 'block';
+
+  if (m === 'weak') {
+    const n = wrongQ.length;
+    document.getElementById('weakInfo').textContent = n > 0
+      ? `You have ${n} wrong answer${n>1?'s':''} saved. Start to retry them all.`
+      : 'No wrong answers recorded yet. Complete a test first.';
+    document.getElementById('clearWrongBtn').style.display = n > 0 ? 'block' : 'none';
+    document.getElementById('startModeBtn').disabled = n === 0;
+  } else if (m === 'bookmark') {
+    const n = bookmarks.length;
+    document.getElementById('bmInfo').textContent = n > 0
+      ? `You have ${n} bookmarked question${n>1?'s':''}.`
+      : 'No bookmarked questions yet. Tap the 🔖 icon during a test.';
+    document.getElementById('clearBmBtn').style.display = n > 0 ? 'block' : 'none';
+    document.getElementById('startModeBtn').disabled = n === 0;
+  } else if (m === 'topic') {
+    document.getElementById('startModeBtn').disabled = true;
+  } else {
+    document.getElementById('startModeBtn').disabled = false;
+  }
+}
+
+function selCount(n, btn) {
+  selCountN = n;
+  document.querySelectorAll('.cnt-btn').forEach(b => b.classList.remove('sel'));
+  btn.classList.add('sel');
+}
+
+function toggleAllTopics() {
+  const chips = document.querySelectorAll('.tc');
+  const allSel = [...chips].every(c => c.classList.contains('sel'));
+  chips.forEach(c => allSel ? c.classList.remove('sel') : c.classList.add('sel'));
+  selTopics = allSel ? [] : TOPICS.slice();
+  document.getElementById('selAllBtn').textContent = allSel ? 'Select All' : 'Deselect All';
+  document.getElementById('startModeBtn').disabled = allSel;
+}
+
+// ── LAUNCH ────────────────────────────────────────────────────────────────
+function shuffle(a) { return a.sort(() => Math.random() - .5); }
+
+function launchExam() {
+  mode = 'exam';
+  buildTest(shuffle(Q.slice()).slice(0, 32));
+}
+
+function startMode() {
+  let pool = Q.slice();
+  if (mode === 'quick') pool = shuffle(pool).slice(0, selCountN);
+  else if (mode === 'topic') pool = shuffle(pool.filter(q => selTopics.includes(q.topic)));
+  else if (mode === 'weak') {
+    const ws = new Set(wrongQ);
+    pool = shuffle(Q.filter((_, i) => ws.has(i)));
+  } else if (mode === 'bookmark') {
+    const bs = new Set(bookmarks);
+    pool = shuffle(Q.filter((_, i) => bs.has(i)));
+  }
+  if (pool.length === 0) return;
+  buildTest(pool);
+}
+
+function buildTest(pool) {
+  testQ = pool; idx = 0; correct = 0; wrong = 0; skipped = 0;
+  history_ = []; curBmIdx = -1;
+  showScreen('quizScreen');
+  startT = Date.now();
+  clearInterval(timer);
+  if (mode === 'exam') startTimer();
+  else document.getElementById('timerLbl').textContent = '';
+  renderQ();
+}
+
+function retrySame() {
+  testQ = shuffle(testQ.slice());
+  idx = 0; correct = 0; wrong = 0; skipped = 0; history_ = [];
+  showScreen('quizScreen');
+  startT = Date.now();
+  clearInterval(timer);
+  if (mode === 'exam') startTimer();
+  renderQ();
+}
+
+// ── TIMER ─────────────────────────────────────────────────────────────────
+function startTimer() {
+  const lim = 55 * 60 * 1000;
+  timer = setInterval(() => {
+    const rem = lim - (Date.now() - startT);
+    if (rem <= 0) { clearInterval(timer); finishTest(); return; }
+    const m = Math.floor(rem/60000), s = Math.floor((rem%60000)/1000);
+    const el = document.getElementById('timerLbl');
+    el.textContent = `⏱ ${m}:${s.toString().padStart(2,'0')}`;
+    el.style.color = rem < 5*60*1000 ? 'var(--red)' : 'var(--blue)';
+  }, 1000);
+}
+
+// ── RENDER QUESTION ───────────────────────────────────────────────────────
+let streak = 0;
+function renderQ() {
+  answered = false;
+  const q = testQ[idx];
+  const total = testQ.length;
+  document.getElementById('qLabel').textContent = `${idx+1} / ${total}`;
+  document.getElementById('progFill').style.width = `${(idx/total)*100}%`;
+  document.getElementById('scorePill').textContent = `${correct}/${idx}`;
+  document.getElementById('qPage').textContent = `Page ${q.page}`;
+  document.getElementById('qTopicLbl').textContent = q.topic;
+  document.getElementById('qText').textContent = q.q;
+  document.getElementById('fbBox').style.display = 'none';
+  document.getElementById('nextBtn').style.display = 'none';
+  document.getElementById('skipBtn').style.display = 'block';
+  document.getElementById('qCard').className = 'q-card';
+
+  // Bookmark state
+  const qIdx = Q.indexOf(q);
+  curBmIdx = qIdx;
+  document.getElementById('bmBtn').textContent = bookmarks.includes(qIdx) ? '🔖' : '🔖';
+  document.getElementById('bmBtn').style.opacity = bookmarks.includes(qIdx) ? '1' : '0.4';
+
+  const list = document.getElementById('optsList');
+  list.innerHTML = '';
+  q.opts.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'opt';
+    btn.innerHTML = `<span class="on">${i+1}</span><span class="ot">${opt}</span>`;
+    btn.onclick = () => selectAns(i+1, btn, q);
+    list.appendChild(btn);
+  });
+
+  const sp = document.getElementById('streakPill');
+  if (streak >= 3) { sp.textContent = `🔥 ${streak}`; sp.classList.add('show'); }
+  else sp.classList.remove('show');
+}
+
+// ── SELECT ANSWER ─────────────────────────────────────────────────────────
+function selectAns(chosen, btn, q) {
+  if (answered) return;
+  answered = true;
+  const isOk = chosen === q.correct;
+  document.getElementById('skipBtn').style.display = 'none';
+  document.querySelectorAll('.opt').forEach((b, i) => {
+    b.disabled = true;
+    if (i+1 === q.correct) b.classList.add('os');
+  });
+  if (isOk) {
+    btn.classList.add('oc');
+    correct++; streak++;
+  } else {
+    btn.classList.add('ow');
+    wrong++; streak = 0;
+    const qi = Q.indexOf(q);
+    if (qi !== -1 && !wrongQ.includes(qi)) wrongQ.push(qi);
+    localStorage.setItem('cs1_wrong', JSON.stringify(wrongQ));
+  }
+  document.getElementById('qCard').className = 'q-card ' + (isOk ? 'correct-card' : 'wrong-card');
+  history_.push({q, chosen, isOk});
+
+  const fb = document.getElementById('fbBox');
+  fb.className = 'fb ' + (isOk ? 'ok' : 'bad');
+  fb.style.display = 'block';
+  document.getElementById('fbTitle').textContent = isOk ? '✅ Correct!' : `❌ Wrong — Correct: ${q.correct}. ${q.opts[q.correct-1]}`;
+  document.getElementById('fbText').textContent = q.exp;
+
+  document.getElementById('scorePill').textContent = `${correct}/${idx+1}`;
+  const nb = document.getElementById('nextBtn');
+  nb.style.display = 'block';
+  nb.textContent = idx+1 < testQ.length ? 'Next Question →' : 'See Results →';
+
+  const sp = document.getElementById('streakPill');
+  if (streak >= 3) { sp.textContent = `🔥 ${streak}`; sp.classList.add('show'); }
+  else sp.classList.remove('show');
+}
+
+function skipQ() {
+  skipped++;
+  history_.push({q: testQ[idx], chosen: null, isOk: null});
+  idx++;
+  if (idx >= testQ.length) { finishTest(); return; }
+  renderQ();
+}
+
+function nextQ() {
+  idx++;
+  if (idx >= testQ.length) { finishTest(); return; }
+  renderQ();
+}
+
+// ── BOOKMARK ──────────────────────────────────────────────────────────────
+function toggleBookmark() {
+  if (curBmIdx === -1) return;
+  const i = bookmarks.indexOf(curBmIdx);
+  if (i === -1) { bookmarks.push(curBmIdx); }
+  else { bookmarks.splice(i, 1); }
+  localStorage.setItem('cs1_bm', JSON.stringify(bookmarks));
+  document.getElementById('bmBtn').style.opacity = bookmarks.includes(curBmIdx) ? '1' : '0.4';
+}
+
+function clearBookmarks() {
+  bookmarks = []; localStorage.setItem('cs1_bm', '[]');
+  activateMode('bookmark');
+}
+
+function clearWrong() {
+  wrongQ = []; localStorage.setItem('cs1_wrong', '[]');
+  activateMode('weak');
+}
+
+// ── RESULTS ───────────────────────────────────────────────────────────────
+function finishTest() {
+  clearInterval(timer);
+  const total = testQ.length;
+  const answered_ = correct + wrong;
+  const pct = total > 0 ? Math.round(correct/total*100) : 0;
+  const elapsed = Math.round((Date.now()-startT)/1000);
+  const mins = Math.floor(elapsed/60), secs = elapsed%60;
+  const timeStr = `${mins}m ${secs}s`;
+  const pass = mode === 'exam' ? correct >= 22 : pct >= 70;
+
+  const ring = document.getElementById('resRing');
+  ring.className = 'res-ring ' + (mode === 'exam' ? (pass ? 'pass' : 'fail') : 'neutral');
+  document.getElementById('resNum').textContent = correct;
+  document.getElementById('resDen').textContent = '/' + total;
+  document.getElementById('resTitle').textContent = pass ? '🎉 Well done!' : (mode==='exam'?'📖 Keep studying':'✅ Test complete');
+  document.getElementById('resSub').textContent = mode==='exam'
+    ? (pass ? `You passed! ${correct}/32 correct (${pct}%) in ${timeStr}` : `Need 22 to pass Exam 1. Got ${correct}/32 (${pct}%). Try again!`)
+    : `${pct}% correct — ${correct} right, ${wrong} wrong, ${skipped} skipped · ${timeStr}`;
+
+  document.getElementById('rs-c').textContent = correct;
+  document.getElementById('rs-w').textContent = wrong;
+  document.getElementById('rs-s').textContent = skipped;
+  document.getElementById('rs-p').textContent = pct + '%';
+
+  const now = new Date();
+  testLogs.push({
+    correct, total, pct,
+    mode: mode==='exam'?'Exam Sim':mode==='quick'?'Quick':'Topic/Other',
+    examMode: mode==='exam',
+    date: now.toLocaleDateString('fi-FI'),
+    time: timeStr
+  });
+  if (testLogs.length > 20) testLogs.shift();
+  localStorage.setItem('cs1_logs', JSON.stringify(testLogs));
+
+  showScreen('resultsScreen');
+  document.getElementById('reviewCard').style.display = 'none';
+  updateStats();
+  updateHistory();
+}
+
+function toggleReview() {
+  const card = document.getElementById('reviewCard');
+  const list = document.getElementById('reviewList');
+  if (card.style.display !== 'none') { card.style.display = 'none'; return; }
+  list.innerHTML = history_.map((h, i) => {
+    if (h.isOk === null) return `<div class="ri"><div class="ri-q">Q${i+1}: ${h.q.q.slice(0,70)}...</div><div style="font-size:.75rem;color:var(--g400)">Skipped</div></div>`;
+    return `<div class="ri ${h.isOk?'ok':'bad'}">
+      <div class="ri-q">Q${i+1}: ${h.q.q.slice(0,75)}${h.q.q.length>75?'...':''}</div>
+      ${!h.isOk ? `<div class="ri-your">Your answer: ${h.chosen}. ${h.q.opts[h.chosen-1]}</div><div class="ri-ans">✅ ${h.q.correct}. ${h.q.opts[h.q.correct-1]}</div>` : `<div class="ri-ans">✅ ${h.q.correct}. ${h.q.opts[h.q.correct-1]}</div>`}
+      <div class="ri-exp">${h.q.exp}</div>
+    </div>`;
+  }).join('');
+  card.style.display = 'block';
+  card.scrollIntoView({behavior:'smooth'});
+}
+
+function goHome() {
+  clearInterval(timer);
+  ['quick','topic','weak','bookmark'].forEach(id => {
+    document.getElementById('mc-'+id).classList.remove('active');
+    document.getElementById('panel-'+id).style.display = 'none';
+  });
+  document.getElementById('startModeBtn').style.display = 'none';
+  showScreen('homeScreen');
+}
+
+// ── DARK MODE ─────────────────────────────────────────────────────────────
+function toggleDark() { applyDark(!document.body.classList.contains('dark')); }
+function applyDark(on) {
+  document.body.classList.toggle('dark', on);
+  document.getElementById('darkBtn').textContent = on ? '☀️ Light' : '🌙 Dark';
+  localStorage.setItem('cs1_dark', on ? '1' : '0');
+}
+
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+init();
+</script>
+</body>
+</html>
