@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Cyber Security 1 — Practice Test</title>
+<title>Cyber Security 1 - Practice Test</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -196,7 +196,7 @@ body.dark .start-btn:disabled{background:#374151}
 <div class="hdr">
   <a href="index.html" class="hdr-back">← Study Guide</a>
   <button class="dark-toggle" onclick="toggleDark()" id="darkBtn">🌙 Dark</button>
-  <div class="hdr-tag">COMP.SEC.100 — Tampere University</div>
+  <div class="hdr-tag">COMP.SEC.100 - Tampere University</div>
   <h1>Practice Test</h1>
   <p>141 questions across all 33 Maso pages</p>
 </div>
@@ -206,8 +206,8 @@ body.dark .start-btn:disabled{background:#374151}
 
   <div class="stats-strip" id="statsStrip">
     <div class="ss-box"><div class="ss-val" id="st-total" style="color:var(--blue)">0</div><div class="ss-lbl">Tests Taken</div></div>
-    <div class="ss-box"><div class="ss-val" id="st-best" style="color:var(--green)">—</div><div class="ss-lbl">Best Score</div></div>
-    <div class="ss-box"><div class="ss-val" id="st-avg" style="color:var(--purple)">—</div><div class="ss-lbl">Avg Score</div></div>
+    <div class="ss-box"><div class="ss-val" id="st-best" style="color:var(--green)">-</div><div class="ss-lbl">Best Score</div></div>
+    <div class="ss-box"><div class="ss-val" id="st-avg" style="color:var(--purple)">-</div><div class="ss-lbl">Avg Score</div></div>
   </div>
 
   <button class="new-exam-btn" onclick="launchExam()">
@@ -571,7 +571,7 @@ function selectAns(chosen, btn, q) {
   const fb = document.getElementById('fbBox');
   fb.className = 'fb ' + (isOk ? 'ok' : 'bad');
   fb.style.display = 'block';
-  document.getElementById('fbTitle').textContent = isOk ? '✅ Correct!' : `❌ Wrong — Correct: ${q.correct}. ${q.opts[q.correct-1]}`;
+  document.getElementById('fbTitle').textContent = isOk ? '✅ Correct!' : `❌ Wrong - Correct: ${q.correct}. ${q.opts[q.correct-1]}`;
   document.getElementById('fbText').textContent = q.exp;
 
   document.getElementById('scorePill').textContent = `${correct}/${idx+1}`;
@@ -636,7 +636,7 @@ function finishTest() {
   document.getElementById('resTitle').textContent = pass ? '🎉 Well done!' : (mode==='exam'?'📖 Keep studying':'✅ Test complete');
   document.getElementById('resSub').textContent = mode==='exam'
     ? (pass ? `You passed! ${correct}/32 correct (${pct}%) in ${timeStr}` : `Need 22 to pass Exam 1. Got ${correct}/32 (${pct}%). Try again!`)
-    : `${pct}% correct — ${correct} right, ${wrong} wrong, ${skipped} skipped · ${timeStr}`;
+    : `${pct}% correct - ${correct} right, ${wrong} wrong, ${skipped} skipped · ${timeStr}`;
 
   document.getElementById('rs-c').textContent = correct;
   document.getElementById('rs-w').textContent = wrong;
